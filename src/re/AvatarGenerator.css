@@ -1,0 +1,22 @@
+.AvatarGenerator-container {
+  width: 780px;
+  height: 778px;
+  box-shadow: 0 4px 6px 0 rgba(24, 33, 45, 0.06);
+  background-color: #ffffff;
+  border: solid 1px rgba(24, 33, 45, 0.02);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AvatarGenerator-footer {
+  width: 100%;
+  background-color: #f9fafc;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

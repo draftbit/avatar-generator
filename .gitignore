@@ -1,0 +1,25 @@
+# Project dependencies
+.cache
+node_modules
+
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+public
+build
+.merlin
+lib
+*.log
+.bsb.lock
+*.bs.js
+src/cache
+.sass-cache/
+.gatsby-context.js

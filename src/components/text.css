@@ -1,0 +1,110 @@
+.Text-title {
+  font-family: "CerebriSans-Regular";
+  font-size: 80px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -1px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.Text-subtitle {
+  font-family: "CerebriSans-Regular";
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 2px;
+  color: #5a45ff;
+  text-transform: uppercase;
+}
+
+.Text-description {
+  font-family: "CerebriSans-Light";
+  font-size: 28px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.43;
+  letter-spacing: -0.6px;
+  color: #73859d;
+}
+
+.Text-overline {
+  font-family: "CerebriSans-Regular";
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #5d6493;
+}
+
+.Text-marketing {
+  width: 371px;
+  height: 64px;
+  font-family: "CerebriSans-Light";
+  font-size: 22px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: #62738a;
+}
+
+.Text-link {
+  font-family: "CerebriSans-Medium";
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-decoration: none;
+  color: #5a45ff;
+}
+
+.Button-primary {
+  padding: 17px 32px 17px 32px;
+  background: #5a45ff;
+  border: none;
+  box-shadow: 0 2px 3px 0 rgba(16, 22, 64, 0.12);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.Text-button {
+  font-family: "CerebriSans-Medium";
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+
+.Text-cta-title {
+  font-family: "CerebriSans-Bold";
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #070b28;
+}
+
+.Text-cta-subtitle {
+  font-family: "CerebriSans-Regular";
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #73859d;
+}

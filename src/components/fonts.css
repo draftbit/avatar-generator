@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'CerebriSans-Bold';
+    src: url('/fonts/CerebriSans-Bold.woff2') format('woff2'),
+         url('/fonts/CerebriSans-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CerebriSans-Medium';
+    src: url('/fonts/CerebriSans-Medium.woff2') format('woff2'),
+         url('/fonts/CerebriSans-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CerebriSans-Regular';
+    src: url('/fonts/CerebriSans-Regular.woff2') format('woff2'),
+         url('/fonts/CerebriSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'CerebriSans-Light';
+    src: url('/fonts/CerebriSans-Light.woff2') format('woff2'),
+         url('/fonts/CerebriSans-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+  font-family: 'CerebriSans-Bold'
+}
