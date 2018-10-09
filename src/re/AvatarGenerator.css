@@ -1,4 +1,5 @@
 .AvatarGenerator-container {
+  position: relative;
   width: 780px;
   height: 778px;
   box-shadow: 0 4px 6px 0 rgba(24, 33, 45, 0.06);
@@ -9,6 +10,16 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding-top: 110px;
+}
+
+.AvatarGenerator-avatar {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  background-color: #89e6e4;
+  top: -75px;
 }
 
 .AvatarGenerator-footer {
@@ -19,4 +30,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.AvatarGenerator-row {
+  padding-left: 48px;
+  padding-right: 48px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

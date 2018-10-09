@@ -6,4 +6,18 @@
   background: #eee;
   box-shadow: 0 1px 3px 0 rgba(16, 22, 64, 0.16);
   cursor: pointer;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.ColorSwatch-disabled {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #EEEFF5;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-bottom: 12px;
 }

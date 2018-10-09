@@ -56,6 +56,9 @@
 }
 
 .Text-link {
+  cursor: pointer;
+  background: transparent;
+  border: none;
   font-family: "CerebriSans-Medium";
   font-size: 16px;
   font-weight: 500;
@@ -77,7 +80,7 @@
 }
 
 .Text-button {
-  font-family: "CerebriSans-Medium";
+  font-family: "CerebriSans-Light";
   font-size: 16px;
   font-weight: 500;
   font-style: normal;

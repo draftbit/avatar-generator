@@ -1,12 +1,19 @@
 [%bs.raw {|require('./ColorSwatch.css')|}];
 
 let component = ReasonReact.statelessComponent("ColorSwatch");
-let make = _children => {
+let make = (~value, ~selected, ~disabled=false, ~onSelect, _children) => {
   ...component,
   render: _self =>
-    <button className="ColorSwatch" />
+    disabled ?
+      <div className="ColorSwatch-disabled" /> :
+      <button
+        onClick={_ => onSelect(value)}
+        style={ReactDOMRe.Style.make(~backgroundColor=value, ())}
+        className="ColorSwatch">
+        {
+          selected ?
+            <img width="20" height="20" src="/images/checkmark.svg" /> :
+            ReasonReact.null
+        }
+      </button>,
 };
-
-let default = ReasonReact.wrapReasonForJs(~component, _jsProps =>
-  make([||])
-);

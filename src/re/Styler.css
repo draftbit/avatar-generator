@@ -1,0 +1,44 @@
+.Styler-container {
+  text-align: center;
+  width: 140px;
+  height: 200px;
+}
+
+.Styler-label {
+  font-family: "CerebriSans-Regular";
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 2.6px;
+  color: #7c7f91;
+}
+
+.Styler-model {
+  width: 64px;
+  height: 64px;
+}
+
+.Styler-colors {
+  width: 130px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Styler-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Styler-arrow--right { 
+  transform: rotate(180deg);
+}
+
+.Styler-btn {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
