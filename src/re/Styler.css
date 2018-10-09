@@ -1,7 +1,7 @@
 .Styler-container {
   text-align: center;
   width: 140px;
-  height: 200px;
+  margin-top: 32px;
 }
 
 .Styler-label {
@@ -16,8 +16,10 @@
 }
 
 .Styler-model {
+  margin-top: 14px;
   width: 64px;
   height: 64px;
+  margin-bottom: 14px;
 }
 
 .Styler-colors {
