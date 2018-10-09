@@ -2,6 +2,18 @@ open Belt;
 
 [%bs.raw {|require('./AvatarGenerator.css')|}];
 
+let getZIndex = id =>
+  switch (id) {
+  | "Nose" => "100"
+  | "FacialHair" => "90"
+  | "Mouth" => "80"
+  | "Hair" => "70"
+  | "Eyes" => "60"
+  | "Body" => "50"
+  | "Head" => "40"
+  | _ => "10"
+  };
+
 type option = {
   id: string,
   label: string,
@@ -94,9 +106,7 @@ let make = _children => {
         id: "Skin",
         label: "SKIN",
         colors: skin,
-        styles: [
-          "head-skin1.svg"
-        ],
+        styles: ["head-skin1.svg"],
         selectedColor: "#FFFFFF",
         selectedStyle: "head-skin1.svg",
       },
@@ -124,10 +134,7 @@ let make = _children => {
         id: "FacialHair",
         label: "FACIAL HAIR",
         colors: facialhair,
-        styles: [
-          "beardmustache-black.svg",
-          "mustache-black.svg",
-        ],
+        styles: ["beardmustache-black.svg", "mustache-black.svg"],
         selectedColor: "#FFFFFF",
         selectedStyle: "mustache-black.svg",
       },
@@ -204,11 +211,28 @@ let make = _children => {
       ReasonReact.Update({...state, options});
 
     | UpdateColor(id, selectedColor) =>
+    Js.log(selectedColor)
       let options =
         List.map(state.options, o => o.id == id ? {...o, selectedColor} : o);
       ReasonReact.Update({...state, options});
     },
   render: ({state, send}) => {
+    let faceFeatures =
+      List.map(state.options, o =>
+        switch (o.id) {
+        | "background" => <div />
+        | _ =>
+          let src = "/avatars/" ++ o.id ++ "/" ++ o.selectedStyle;
+          <img
+            className="AvatarGenerator-faceFeature"
+            style={ReactDOMRe.Style.make(~zIndex=getZIndex("Hair"), ())}
+            width="150"
+            height="150"
+            src
+          />;
+        }
+      );
+
     let styleOptions =
       List.map(state.options, o =>
         <Styler
@@ -219,10 +243,13 @@ let make = _children => {
           selectedColor={o.selectedColor}
           selectedStyle={o.selectedStyle}
           onSelectColor={color => send(UpdateColor(o.id, color))}
+          onSelectStyle={style => send(UpdateStyle(o.id, style))}
         />
       );
     <div className="AvatarGenerator-container">
-      <div className="AvatarGenerator-avatar" />
+      <div className="AvatarGenerator-avatar">
+        {ReasonReact.array(List.toArray(faceFeatures))}
+      </div>
       <button className="Text-link">
         {ReasonReact.string("Randomize")}
         <Icon name="randomize" />

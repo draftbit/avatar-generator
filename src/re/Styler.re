@@ -18,6 +18,7 @@ let make =
       ~selectedColor,
       ~selectedStyle,
       ~onSelectColor,
+      ~onSelectStyle,
       _children,
     ) => {
   ...component,
@@ -28,10 +29,20 @@ let make =
       let inc =
         List.length(styles) - 1 > state.index ?
           1 : - List.length(styles) + 1;
-      ReasonReact.Update({...state, index: state.index + inc});
+      let index = state.index + inc;
+      let style = List.get(styles, index);
+      ReasonReact.UpdateWithSideEffects(
+        {...state, index},
+        (_self => onSelectStyle({j|$style|j})),
+      );
     | Decrement =>
-      let inc = state.index > 0 ? 1 : - List.length(styles) - 1;
-      ReasonReact.Update({...state, index: state.index - inc});
+      let inc = state.index > 0 ? 1 : - List.length(styles) + 1;
+      let index = state.index - inc;
+      let style = List.get(styles, index);
+      ReasonReact.UpdateWithSideEffects(
+        {...state, index},
+        (_self => onSelectStyle({j|$style|j})),
+      );
     },
   render: ({send, state}) => {
     let colorItems =

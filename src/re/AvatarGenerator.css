@@ -18,8 +18,16 @@
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  background-color: #89e6e4;
+  background-color: transparent;
+  overflow: hidden;
   top: -75px;
+}
+.AvatarGenerator-faceFeature {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
 }
 
 .AvatarGenerator-footer {
