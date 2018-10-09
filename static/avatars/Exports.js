@@ -1,0 +1,13 @@
+| "Bald" => <div dangerouslySetInnerHTML={"__html": getBald(fill, size)} />
+| "Balding" => <div dangerouslySetInnerHTML={"__html": getBalding(fill, size)} />
+| "Bigcurls" => <div dangerouslySetInnerHTML={"__html": getBigcurls(fill, size)} />
+| "Bobbangs" => <div dangerouslySetInnerHTML={"__html": getBobbangs(fill, size)} />
+| "Bobcut" => <div dangerouslySetInnerHTML={"__html": getBobcut(fill, size)} />
+| "Buncurls-black" => <div dangerouslySetInnerHTML={"__html": getBuncurls-black(fill, size)} />
+| "Buzzcut" => <div dangerouslySetInnerHTML={"__html": getBuzzcut(fill, size)} />
+| "Curlybun" => <div dangerouslySetInnerHTML={"__html": getCurlybun(fill, size)} />
+| "Curlyhightop" => <div dangerouslySetInnerHTML={"__html": getCurlyhightop(fill, size)} />
+| "Hightopcurly-black" => <div dangerouslySetInnerHTML={"__html": getHightopcurly-black(fill, size)} />
+| "Long" => <div dangerouslySetInnerHTML={"__html": getLong(fill, size)} />
+| "Pigtails" => <div dangerouslySetInnerHTML={"__html": getPigtails(fill, size)} />
+| "Shortcombover" => <div dangerouslySetInnerHTML={"__html": getShortcombover(fill, size)} />

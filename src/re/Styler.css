@@ -17,6 +17,8 @@
 
 .Styler-model {
   margin-top: 14px;
+  overflow: hidden;
+  border-radius: 32px;
   width: 64px;
   height: 64px;
   margin-bottom: 14px;

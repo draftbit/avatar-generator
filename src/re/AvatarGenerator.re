@@ -11,6 +11,7 @@ let getZIndex = id =>
   | "Eyes" => "60"
   | "Body" => "50"
   | "Head" => "40"
+  | "Background" => "0"
   | _ => "10"
   };
 
@@ -106,100 +107,85 @@ let make = _children => {
         id: "Skin",
         label: "SKIN",
         colors: skin,
-        styles: ["head-skin1.svg"],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "head-skin1.svg",
+        styles: ["Skin"],
+        selectedColor: "#B16A5B",
+        selectedStyle: "Skin",
       },
       {
         id: "Hair",
         label: "HAIR",
         colors: hair,
         styles: [
-          "bald.svg",
-          "balding-black.svg",
-          "bigcurls-black.svg",
-          "bobbangs-black.svg",
-          "bobcut-black.svg",
-          "buncurls-black.svg",
-          "buzzcut.svg",
-          "hightopcurly-black.svg",
-          "long-black.svg",
-          "pigtails-black.svg",
-          "shortcombover-black.svg",
+          "Bald",
+          "Balding",
+          "Bigcurls",
+          "Bobbangs",
+          "Bobcut",
+          "Buncurls",
+          "Buzzcut",
+          "Hightopcurly",
+          "Long",
+          "Pigtails",
+          "Shortcombover",
         ],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "bigcurls-black.svg",
+        selectedColor: "#362C47",
+        selectedStyle: "Pigtails",
       },
       {
         id: "FacialHair",
         label: "FACIAL HAIR",
         colors: facialhair,
-        styles: ["beardmustache-black.svg", "mustache-black.svg"],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "mustache-black.svg",
+        styles: ["BeardMustache", "Mustache"],
+        selectedColor: "#362C47",
+        selectedStyle: "Mustache",
       },
       {
         id: "Body",
         label: "BODY",
         colors: body,
-        styles: [
-          "oval-draftbit.svg",
-          "round-draftbit.svg",
-          "square-draftbit.svg",
-        ],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "square-draftbit.svg",
+        styles: ["Oval", "Round", "Square"],
+        selectedColor: "#456dff",
+        selectedStyle: "Square",
       },
       {
         id: "Eyes",
         label: "EYES",
         colors: disabled_colors,
-        styles: [
-          "glasses.svg",
-          "happy.svg",
-          "open.svg",
-          "sleepy.svg",
-          "sunglasses.svg",
-          "wink.svg",
-        ],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "sunglasses.svg",
+        styles: ["Glasses", "Happy", "Open", "Sleepy", "Sunglasses", "Wink"],
+        selectedColor: "#000000",
+        selectedStyle: "Sunglasses",
       },
       {
         id: "Mouth",
         label: "MOUTH",
         colors: disabled_colors,
         styles: [
-          "bigsmile.svg",
-          "frown.svg",
-          "lips.svg",
-          "pacifier.svg",
-          "smile.svg",
-          "smirk.svg",
-          "surprise.svg",
+          "Bigsmile",
+          "Frown",
+          "Lips",
+          "Pacifier",
+          "Smile",
+          "Smirk",
+          "Surprise",
         ],
         selectedColor: "#FFFFFF",
-        selectedStyle: "pacifier.svg",
+        selectedStyle: "Pacifier",
       },
       {
         id: "Nose",
         label: "NOSE",
         colors: disabled_colors,
-        styles: [
-          "mediumround-skin1.svg",
-          "smallround-skin1.svg",
-          "wrinkles-skin1.svg",
-        ],
+        styles: ["Mediumround", "Smallround", "Wrinkles"],
         selectedColor: "#FFFFFF",
-        selectedStyle: "smallround-skin3.svg",
+        selectedStyle: "Smallround",
       },
       {
         id: "Background",
         label: "BACKGROUND",
         colors: background,
-        styles: [],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "A",
+        styles: ["blue.svg"],
+        selectedColor: "#93A7FF",
+        selectedStyle: "blue.svg",
       },
     ],
   },
@@ -211,7 +197,6 @@ let make = _children => {
       ReasonReact.Update({...state, options});
 
     | UpdateColor(id, selectedColor) =>
-    Js.log(selectedColor)
       let options =
         List.map(state.options, o => o.id == id ? {...o, selectedColor} : o);
       ReasonReact.Update({...state, options});
@@ -219,18 +204,13 @@ let make = _children => {
   render: ({state, send}) => {
     let faceFeatures =
       List.map(state.options, o =>
-        switch (o.id) {
-        | "background" => <div />
-        | _ =>
-          let src = "/avatars/" ++ o.id ++ "/" ++ o.selectedStyle;
-          <img
-            className="AvatarGenerator-faceFeature"
-            style={ReactDOMRe.Style.make(~zIndex=getZIndex("Hair"), ())}
-            width="150"
-            height="150"
-            src
-          />;
-        }
+        <SvgLoader
+          style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
+          className="AvatarGenerator-faceFeature"
+          name={o.selectedStyle}
+          fill={o.selectedColor}
+          size="150"
+        />
       );
 
     let styleOptions =

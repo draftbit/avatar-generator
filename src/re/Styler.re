@@ -54,8 +54,10 @@ let make =
           onSelect={value => onSelectColor(value)}
         />
       );
-    let style = List.get(styles, state.index);
-    let svgSource = {j|/avatars/$id/$style|j};
+
+    Js.log(selectedStyle)
+
+    let image = <SvgLoader fill=selectedColor name=selectedStyle />;
 
     <div className="Styler-container">
       <span className="Styler-label"> {ReasonReact.string(label)} </span>
@@ -64,7 +66,7 @@ let make =
           <img className="Styler-arrow" src="/images/arrow.svg" />
         </button>
         <div className="Styler-model">
-          <img width="64" height="64" src=svgSource />
+          {image}
         </div>
         <button className="Styler-btn" onClick={_ => send(Increment)}>
           <img
