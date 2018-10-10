@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import domtoimage from 'dom-to-image'
 import html2canvas from 'html2canvas'
 import ColorSwatch from '../re/ColorSwatch.bs'
 import AvatarGenerator from '../re/AvatarGenerator.bs'
