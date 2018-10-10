@@ -41,8 +41,9 @@
 
 .Modal-button {
   text-decoration: none;
-  display: inline-block;
-  vertical-align: middle;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 142px;
   height: 48px;
   box-shadow: 0 2px 3px 0 rgba(16, 22, 64, 0.12);
@@ -90,4 +91,9 @@
   line-height: 1.56;
   letter-spacing: -0.4px;
   color: #73859d;
+}
+
+.Modal-shareIcon {
+  display: inline-block;
+  margin-right: 12px;
 }

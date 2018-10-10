@@ -50,7 +50,9 @@ export default class IndexPage extends React.PureComponent {
           </div>
         </header>
         <main className="Layout-main">
-          <AvatarGenerator />
+          <AvatarGenerator
+            onToggleModal={() => this.setState({ showModal: true })}
+          />
         </main>
         <footer className="Layout-footer">
           <div className="Layout-left">

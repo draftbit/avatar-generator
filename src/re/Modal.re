@@ -23,10 +23,12 @@ let make = (~visible, ~onToggle, _children) => {
       </span>
       <div className="Modal-buttons">
         <a href="#" className="Modal-button Modal-button--twitter">
-          {ReasonReact.string("Twitter")}
+          <img className="Modal-shareIcon" width="16" height="16" src="/images/twitter.svg" />
+          <span>{ReasonReact.string("Twitter")}</span>
         </a>
         <a href="#" className="Modal-button Modal-button--fb">
-          {ReasonReact.string("Facebook")}
+          <img className="Modal-shareIcon" width="16" height="16" src="/images/facebook.svg" />
+          <span>{ReasonReact.string("Facebook")}</span>
         </a>
       </div>
     </div>

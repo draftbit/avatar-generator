@@ -103,7 +103,7 @@ let background = [
   "#FFFFFF",
 ];
 
-let make = _children => {
+let make = (~onToggleModal, _children) => {
   ...component,
   initialState: () => {
     rotation: 0,
@@ -265,7 +265,8 @@ let make = _children => {
       <div className="AvatarGenerator-row">
         {ReasonReact.array(List.toArray(styleOptions))}
       </div>
-      <button className="Button-primary Text-button">
+      <button
+        onClick={_ => onToggleModal()} className="Button-primary Text-button">
         {ReasonReact.string("Download Avatar")}
       </button>
       <div className="AvatarGenerator-footer">
@@ -289,4 +290,7 @@ let make = _children => {
   },
 };
 
-let default = ReasonReact.wrapReasonForJs(~component, _jsProps => make([||]));
+let default =
+  ReasonReact.wrapReasonForJs(~component, jsProps =>
+    make(~onToggleModal=jsProps##onToggleModal, [||])
+  );
