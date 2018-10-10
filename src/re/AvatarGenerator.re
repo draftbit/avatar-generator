@@ -123,6 +123,7 @@ let make = (~onExport, _children) => {
         colors: hair,
         styles: [
           "Bald",
+          "Hat",
           "Balding",
           "Bigcurls",
           "Bobbangs",

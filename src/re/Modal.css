@@ -19,7 +19,7 @@
   right: 0;
   margin: auto;
   width: 500px;
-  height: 500px;
+  max-height: 370px;
   box-shadow: 0 6px 10px 0 rgba(24, 33, 45, 0.06);
   border: solid 1px rgba(24, 33, 45, 0.02);
   background-color: #ffffff;
@@ -65,8 +65,8 @@
   color: #ffffff;
 }
 
-.Modal-button--fb {
-  background-color: #3d5c94;
+.Modal-button--ph {
+  background-color: #da552f;
 }
 
 .Modal-button--twitter {
