@@ -49,11 +49,11 @@ export default class IndexPage extends React.PureComponent {
         <header className="Layout-header">
           <div className="Layout-left">
             <Wordmark />
-            <h1 className="Text-title">Persona</h1>
+            <h1 className="Text-title">Personas</h1>
             <span className="Text-subtitle">Avatar Generator</span>
           </div>
           <div className="Layout-right">
-            <h2 style={{ maxWidth: 320 }} className="Text-description">
+            <h2 className="Text-description">
               A playful avatar generator for the modern age.
             </h2>
           </div>
@@ -68,9 +68,10 @@ export default class IndexPage extends React.PureComponent {
             <Wordmark />
           </div>
           <div className="Layout-right">
-            <span className="Text-marketing mb-4 d-block">
+            <span className="Text-marketing mb-2">
               Visually build robust native front-end apps with usable code.
             </span>
+            <br />
             <IconLink
               className="Text-link"
               href="https://draftbit.com"

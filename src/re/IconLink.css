@@ -1,3 +1,10 @@
+@media (max-width: 767px) {
+  .IconLink-container {
+    display: inline-block;
+    margin-top: 8px;
+  }
+}
+
 .IconLink-container {
   display: inline-block;
   vertical-align: middle;

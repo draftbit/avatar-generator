@@ -11,60 +11,97 @@ html {
   box-sizing: inherit;
 }
 
-.body-bg-left {
-  width: 50vw;
-  height: 100vh;
-  background-color: #070b28;
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-image: url("/images/logo-bg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+@media (max-width: 767px) {
+  html {
+    background-color: #070b28;
+    background-image: url("/images/logo-bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
 }
 
-.body-bg-right {
-  width: 50vw;
-  height: 100vh;
-  background-color: #F9FAFC;
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+@media (min-width: 768px) {
+  .body-bg-left {
+    width: 50vw;
+    height: 100vh;
+    background-color: #070b28;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-image: url("/images/logo-bg.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .body-bg-right {
+    width: 50vw;
+    height: 100vh;
+    background-color: #F9FAFC;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
 
-
+.Layout-footer,
 .Layout-header {
-  display: flex;
-  align-items: center;
-  padding-top: 84px;
+  text-align: center;
 }
 
-.Layout-main {
-  display: flex;
-  justify-content: center;
+@media (max-width: 767px) {
+  .Layout-header {
+    padding-top: 48px;
+    margin: auto;
+  }
+
+  .Layout-footer {
+    padding-bottom: 48px;
+  }
+
+  .Layout-footer .Text-marketing,
+  .Layout-header .Text-description {
+    display: inline-block;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
 }
 
-.Layout-footer {
-  display: flex;
-  align-items: center;
-  padding-bottom: 84px;
-}
+@media (min-width: 768px) {
+  .Layout-header {
+    display: flex;
+    align-items: center;
+    padding-top: 84px;
+  }
 
-.Layout-left {
-  flex: 1;
-  padding-right: 48px;
-  text-align: right;
-}
+  .Layout-main {
+    display: flex;
+    justify-content: center;
+  }
 
-.Layout-right {
-  flex: 1;
-  padding-left: 48px;
-  text-align: left;
+  .Layout-footer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 84px;
+  }
+
+  .Layout-left {
+    flex: 1;
+    padding-right: 48px;
+    text-align: right;
+  }
+
+  .Layout-right {
+    flex: 1;
+    padding-left: 48px;
+    text-align: left;
+  }
 }
 
 .Layout-main {

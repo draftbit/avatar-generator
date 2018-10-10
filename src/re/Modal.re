@@ -7,12 +7,11 @@ let make = (~visible, ~onToggle, _children) => {
     | false => ReasonReact.null
     | _ =>
     <>
-    <div className="Modal-overlay" />
+    <div onClick=(_ => onToggle()) className="Modal-overlay" />
     <div className="Modal-container">
       <button onClick=(_ => onToggle()) className="Modal-close">
        <img width="18" height="18" className="Modal-close--icon" src="/images/close.svg" />
       </button>
-      <div className="Modal-avatar" />
       <h3 className="Modal-title"> {ReasonReact.string("Enjoy your avatar!")} </h3>
       <span className="Modal-subtitle">
         {

@@ -5,12 +5,13 @@
   bottom: 0;
   right: 0;
   z-index: 0;
-  background-color: #070b28;
+  border: none;
+  background: #070b28;
   opacity: 0.5;
 }
 
 .Modal-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
@@ -52,7 +53,7 @@
   border-radius: 6px;
   color: #FFF;
 
-  font-family: "CerebriSans-Light";
+  font-family: "CerebriSans-Medium";
   font-size: 14px;
   font-weight: 500;
   font-style: normal;
