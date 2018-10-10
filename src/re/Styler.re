@@ -54,24 +54,29 @@ let make =
           onSelect={value => onSelectColor(value)}
         />
       );
-
     let image = <SvgLoader fill=selectedColor name=selectedStyle />;
 
-    <div className="Styler-container">
-      <span className="Styler-label"> {ReasonReact.string(label)} </span>
-      <div className="Styler-picker">
+    let showLeftArrow =
+      List.length(styles) > 1 ?
         <button className="Styler-btn" onClick={_ => send(Decrement)}>
           <img className="Styler-arrow" src="/images/arrow.svg" />
-        </button>
-        <div className="Styler-model">
-          {image}
-        </div>
+        </button> : <div />;
+
+    let showRightArrow =
+      List.length(styles) > 1 ?
         <button className="Styler-btn" onClick={_ => send(Increment)}>
           <img
             className="Styler-arrow Styler-arrow--right"
             src="/images/arrow.svg"
           />
-        </button>
+        </button> : <div />;
+
+    <div className="Styler-container">
+      <span className="Styler-label"> {ReasonReact.string(label)} </span>
+      <div className="Styler-picker">
+        showLeftArrow
+        <div className="Styler-model"> image </div>
+        showRightArrow
       </div>
       <div className="Styler-colors">
         {ReasonReact.array(List.toArray(colorItems))}
