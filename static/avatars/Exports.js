@@ -11,3 +11,7 @@
 | "Long" => <div dangerouslySetInnerHTML={"__html": getLong(fill, size)} />
 | "Pigtails" => <div dangerouslySetInnerHTML={"__html": getPigtails(fill, size)} />
 | "Shortcombover" => <div dangerouslySetInnerHTML={"__html": getShortcombover(fill, size)} />
+| "Oval" => <div dangerouslySetInnerHTML={"__html": getOval(fill, size)} />
+| "Round" => <div dangerouslySetInnerHTML={"__html": getRound(fill, size)} />
+| "Small" => <div dangerouslySetInnerHTML={"__html": getSmall(fill, size)} />
+| "Square" => <div dangerouslySetInnerHTML={"__html": getSquare(fill, size)} />

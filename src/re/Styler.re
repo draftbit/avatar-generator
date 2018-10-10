@@ -55,8 +55,6 @@ let make =
         />
       );
 
-    Js.log(selectedStyle)
-
     let image = <SvgLoader fill=selectedColor name=selectedStyle />;
 
     <div className="Styler-container">
