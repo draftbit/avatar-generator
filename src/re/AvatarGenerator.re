@@ -135,7 +135,7 @@ let make = (~onExport, _children) => {
           "Shortcombover",
         ],
         selectedColor: "#362C47",
-        selectedStyle: "Pigtails",
+        selectedStyle: "Bobbangs",
       },
       {
         id: "FacialHair",
@@ -143,14 +143,14 @@ let make = (~onExport, _children) => {
         colors: facialhair,
         styles: ["BeardMustache", "Mustache", "None"],
         selectedColor: "#362C47",
-        selectedStyle: "Mustache",
+        selectedStyle: "None",
       },
       {
         id: "Body",
         label: "BODY",
         colors: body,
         styles: ["Oval", "Round", "Square"],
-        selectedColor: "#456dff",
+        selectedColor: "#E24553",
         selectedStyle: "Square",
       },
       {
@@ -159,7 +159,7 @@ let make = (~onExport, _children) => {
         colors: disabled_colors,
         styles: ["Glasses", "Happy", "Open", "Sleepy", "Sunglasses", "Wink"],
         selectedColor: "#000000",
-        selectedStyle: "Sunglasses",
+        selectedStyle: "Open",
       },
       {
         id: "Mouth",
@@ -175,7 +175,7 @@ let make = (~onExport, _children) => {
           "Surprise",
         ],
         selectedColor: "#FFFFFF",
-        selectedStyle: "Pacifier",
+        selectedStyle: "Smile",
       },
       {
         id: "Nose",
@@ -190,7 +190,7 @@ let make = (~onExport, _children) => {
         label: "BACKGROUND",
         colors: background,
         styles: ["Background"],
-        selectedColor: "#93A7FF",
+        selectedColor: "#89E6E4",
         selectedStyle: "Background",
       },
     ],
