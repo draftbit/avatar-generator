@@ -40,6 +40,8 @@
   line-height: normal;
   letter-spacing: normal;
   color: #5d6493;
+  margin-bottom: 6px;
+  display: inline-block;
 }
 
 .Text-marketing {
@@ -80,7 +82,7 @@
 }
 
 .Text-button {
-  font-family: "CerebriSans-Light";
+  font-family: "CerebriSans-Medium";
   font-size: 16px;
   font-weight: 500;
   font-style: normal;

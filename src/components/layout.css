@@ -1,3 +1,8 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -15,6 +20,10 @@ html {
   top: 0;
   left: 0;
   bottom: 0;
+  background-image: url("/images/logo-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 .body-bg-right {
