@@ -24,9 +24,13 @@ type option = {
   selectedStyle: string,
 };
 
-type state = {options: list(option)};
+type state = {
+  rotation: int,
+  options: list(option),
+};
 
 type action =
+  | Randomize
   | UpdateStyle(string, string)
   | UpdateColor(string, string);
 
@@ -102,6 +106,7 @@ let background = [
 let make = _children => {
   ...component,
   initialState: () => {
+    rotation: 0,
     options: [
       {
         id: "Skin",
@@ -191,6 +196,16 @@ let make = _children => {
   },
   reducer: (action, state) =>
     switch (action) {
+    | Randomize =>
+      let options = List.map(state.options, o => {
+        let selectedColor = List.get(o.colors, Random.int(List.length(o.colors)));
+        let selectedStyle = List.get(o.styles, Random.int(List.length(o.styles)));
+        {...o,
+          selectedColor: Belt.Option.getWithDefault(selectedColor, o.selectedColor),
+          selectedStyle: Belt.Option.getWithDefault(selectedStyle, o.selectedStyle)
+        }
+      });
+      ReasonReact.Update({...state, options, rotation: state.rotation + 1})
     | UpdateStyle(id, selectedStyle) =>
       let options =
         List.map(state.options, o => o.id == id ? {...o, selectedStyle} : o);
@@ -202,6 +217,7 @@ let make = _children => {
       ReasonReact.Update({...state, options});
     },
   render: ({state, send}) => {
+    let rotation = "rotate(" ++ string_of_int(state.rotation * 50) ++ "deg)";
     let faceFeatures =
       List.map(state.options, o =>
         <SvgLoader
@@ -230,9 +246,12 @@ let make = _children => {
       <div className="AvatarGenerator-avatar">
         {ReasonReact.array(List.toArray(faceFeatures))}
       </div>
-      <button className="Text-link">
+      <button className="Text-link" onClick={_ => send(Randomize)}>
         {ReasonReact.string("Randomize")}
-        <Icon name="randomize" />
+        <Icon
+          name="randomize"
+          style={ReactDOMRe.Style.make(~transform=rotation, ())}
+        />
       </button>
       <div className="AvatarGenerator-row">
         {ReasonReact.array(List.toArray(styleOptions))}

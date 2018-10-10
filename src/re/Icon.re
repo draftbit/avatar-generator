@@ -1,11 +1,12 @@
 let component = ReasonReact.statelessComponent("Icon")
 
-let make = (~name, _children) => {
+let make = (~style=?, ~name, _children) => {
   ...component,
     render: _self => switch(name) {
       | "arrow" =>
         <svg
           className="IconLink-icon"
+          style=?style
           height="12"
           viewBox="0 0 12 12"
           width="12"
@@ -18,6 +19,7 @@ let make = (~name, _children) => {
       | "randomize" => 
         <svg
           className="IconLink-icon"
+          style=?style
           height="16"
           viewBox="0 0 16 16"
           width="16"
