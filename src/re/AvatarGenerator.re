@@ -286,7 +286,7 @@ let make = (~onExport, _children) => {
       </button>
       <div className="AvatarGenerator-footer">
         <img width="32" height="32" src="/images/sketch.svg" />
-        <div className="ml-4 mr-8">
+        <div className="AvatarGenerator-footerTop">
           <span className="Text-cta-title mb-1">
             {ReasonReact.string("Want to make your own?")}
           </span>

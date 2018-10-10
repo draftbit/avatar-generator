@@ -84,6 +84,11 @@
 }
 
 @media(min-width:768px) {
+  .AvatarGenerator-footerTop {
+    margin-right: 48px;
+    margin-left: 24px;
+  }
+
   .AvatarGenerator-footer {
     width: 100%;
     background-color: #f9fafc;
