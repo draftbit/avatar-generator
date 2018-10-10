@@ -11,7 +11,8 @@ let getZIndex = id =>
   | "Eyes" => "60"
   | "Body" => "50"
   | "Head" => "40"
-  | "Background" => "0"
+  | "Skin" => "30"
+  | "Background" => "20"
   | _ => "10"
   };
 
@@ -36,14 +37,14 @@ type action =
 
 let component = ReasonReact.reducerComponent("AvatarGenerator");
 let skin = [
+  "#FBD2C7",
   "#F2AD9B",
-  "#F3967E",
+  "#E58F7B",
   "#E4A070",
   "#B16A5B",
   "#92594B",
   "#623D36",
-  "#EEEFF5",
-  "#EEEFF5",
+  "#C9E6DC"
 ];
 
 let disabled_colors = [
@@ -62,7 +63,7 @@ let hair = [
   "#675E97",
   "#5AC4D4",
   "#DEE1F5",
-  "#F27D65",
+  "#6C4545",
   "#F29C65",
   "#E16381",
   "#E15C66",
@@ -103,7 +104,7 @@ let background = [
   "#FFFFFF",
 ];
 
-let make = (~onToggleModal, _children) => {
+let make = (~onExport, _children) => {
   ...component,
   initialState: () => {
     rotation: 0,
@@ -227,6 +228,17 @@ let make = (~onToggleModal, _children) => {
     },
   render: ({state, send}) => {
     let rotation = "rotate(" ++ string_of_int(state.rotation * 50) ++ "deg)";
+    let pngImage =
+      List.map(state.options, o =>
+        <SvgLoader
+          style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
+          className="AvatarGenerator-png"
+          name={o.selectedStyle}
+          fill={o.selectedColor}
+          size="512"
+        />
+      );
+
     let faceFeatures =
       List.map(state.options, o =>
         <SvgLoader
@@ -252,6 +264,9 @@ let make = (~onToggleModal, _children) => {
         />
       );
     <div className="AvatarGenerator-container">
+      <div className="AvatarGenerator-pngContainer">
+        {ReasonReact.array(List.toArray(pngImage))}
+    </div>
       <div className="AvatarGenerator-avatar">
         {ReasonReact.array(List.toArray(faceFeatures))}
       </div>
@@ -266,7 +281,7 @@ let make = (~onToggleModal, _children) => {
         {ReasonReact.array(List.toArray(styleOptions))}
       </div>
       <button
-        onClick={_ => onToggleModal()} className="Button-primary Text-button">
+        onClick={_ => onExport()} className="Button-primary Text-button">
         {ReasonReact.string("Download Avatar")}
       </button>
       <div className="AvatarGenerator-footer">
@@ -292,5 +307,5 @@ let make = (~onToggleModal, _children) => {
 
 let default =
   ReasonReact.wrapReasonForJs(~component, jsProps =>
-    make(~onToggleModal=jsProps##onToggleModal, [||])
+    make(~onExport=jsProps##onExport, [||])
   );

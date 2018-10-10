@@ -13,6 +13,23 @@
   padding-top: 110px;
 }
 
+.AvatarGenerator-pngContainer {
+  position: fixed;
+  top: 0;
+  left: -512px;
+  width: 512px;
+  height: 512px;
+  background-color: white;
+}
+
+.AvatarGenerator-png {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 512px;
+  height: 512px;
+}
+
 .AvatarGenerator-avatar {
   position: absolute;
   width: 150px;
@@ -22,6 +39,7 @@
   overflow: hidden;
   top: -75px;
 }
+
 .AvatarGenerator-faceFeature {
   position: absolute;
   top: 0;

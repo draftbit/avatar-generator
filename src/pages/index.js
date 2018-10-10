@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import domtoimage from 'dom-to-image'
+import html2canvas from 'html2canvas'
 import ColorSwatch from '../re/ColorSwatch.bs'
 import AvatarGenerator from '../re/AvatarGenerator.bs'
 import IconLink from '../re/IconLink.bs'
@@ -19,8 +21,26 @@ const Wordmark = () => (
 
 export default class IndexPage extends React.PureComponent {
   state = {
-    showModal: true,
+    showModal: false,
   }
+
+  _exportImage = async () => {
+    this.setState({ showModal: true })
+    const node = document.getElementsByClassName(
+      'AvatarGenerator-pngContainer'
+    )[0]
+    const canvas = await html2canvas(node)
+    const dataUrl = canvas.toDataURL()
+
+    const link = document.createElement('a')
+    link.download = 'avatar.png'
+    link.href = dataUrl
+
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  }
+
   render() {
     return (
       <Layout>
@@ -39,9 +59,7 @@ export default class IndexPage extends React.PureComponent {
           </div>
         </header>
         <main className="Layout-main">
-          <AvatarGenerator
-            onToggleModal={() => this.setState({ showModal: true })}
-          />
+          <AvatarGenerator onExport={this._exportImage} />
         </main>
         <footer className="Layout-footer">
           <div className="Layout-left">
