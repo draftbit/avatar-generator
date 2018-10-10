@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import ColorSwatch from '../re/ColorSwatch.bs'
 import AvatarGenerator from '../re/AvatarGenerator.bs'
+import IconLink from '../re/IconLink.bs'
 
 import Layout from '../components/layout'
 
@@ -55,13 +56,13 @@ const IndexPage = () => (
         <span className="Text-marketing mb-4 d-block">
           Visually build robust native front-end apps with usable code.
         </span>
-        <a
+        <IconLink
           className="Text-link"
           href="https://draftbit.com"
           title="Build fobust native front-end apps with usable code using Draftbit"
-        >
-          draftbit.com
-        </a>
+          label="draftbit.com"
+          icon="arrow"
+        />
       </div>
     </footer>
   </Layout>

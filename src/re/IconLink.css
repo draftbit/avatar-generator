@@ -1,3 +1,9 @@
+.IconLink-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .IconLink-icon {
   margin-left: 8px;
 }
+
