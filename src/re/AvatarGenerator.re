@@ -135,7 +135,7 @@ let make = _children => {
         id: "FacialHair",
         label: "FACIAL HAIR",
         colors: facialhair,
-        styles: ["BeardMustache", "Mustache"],
+        styles: ["BeardMustache", "Mustache", "None"],
         selectedColor: "#362C47",
         selectedStyle: "Mustache",
       },

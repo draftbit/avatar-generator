@@ -1,5 +1,6 @@
-let component = ReasonReact.statelessComponent("SvgLoader");
-let getMustache = (color, size) => {j|<svg width="$size" height="$size"  viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" transform="translate(18 28)"><path d="m8.47257173 7.45791118 2.42312207-.82683098c1.2434536-.42429802 2.5900187.18545788 3.1043062 1.36982927.5142875-1.18437139 1.8608526-1.79412729 3.1043062-1.36982927l2.4231221.82683098c3.4654827-1.33080662 6.4247709-3.81680056 8.4694583-6.75613673.0020722.09915847.0031134.19857041.0031134.29822555v6c0 7.7319865-6.2680135 14-14 14s-14-6.2680135-14-14v-6c0-.09965514.00104123-.19906708.00311341-.29822555 2.04468741 2.93933617 5.00397559 5.42533011 8.46945832 6.75613673z" fill="$color"/><path d="m17.999058 11.4240753c.0006268.0252322.000942.0505416.000942.0759247 0 1.6568542-1.3431458 3-3 3h-2c-1.6568542 0-3-1.3431458-3-3 0-.0253831.0003152-.0506925.000942-.0759247l.8164934.2089563c.2201174.0563322.4464315.0848321.6736428.0848321 1.1303577 0 2.0994994-.6902478 2.5089218-1.6722399.4094224.9819921 1.3785641 1.6722399 2.5089218 1.6722399.2272113 0 .4535254-.0284999.6736428-.0848321z" fill="#fff" /></g></svg>|j};
+let getBeardMustache = (fill, size) => {j|<svg width="$size" height="$size"  viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g fill="none" transform="translate(18 28)"><path d="m8.47257173 7.45791118 2.42312207-.82683098c1.2434536-.42429802 2.5900187.18545788 3.1043062 1.36982927.5142875-1.18437139 1.8608526-1.79412729 3.1043062-1.36982927l2.4231221.82683098c3.4654827-1.33080662 6.4247709-3.81680056 8.4694583-6.75613673.0020722.09915847.0031134.19857041.0031134.29822555v6c0 7.7319865-6.2680135 14-14 14s-14-6.2680135-14-14v-6c0-.09965514.00104123-.19906708.00311341-.29822555 2.04468741 2.93933617 5.00397559 5.42533011 8.46945832 6.75613673z" fill="$fill"/><path d="m17.999058 11.4240753c.0006268.0252322.000942.0505416.000942.0759247 0 1.6568542-1.3431458 3-3 3h-2c-1.6568542 0-3-1.3431458-3-3 0-.0253831.0003152-.0506925.000942-.0759247l.8164934.2089563c.2201174.0563322.4464315.0848321.6736428.0848321 1.1303577 0 2.0994994-.6902478 2.5089218-1.6722399.4094224.9819921 1.3785641 1.6722399 2.5089218 1.6722399.2272113 0 .4535254-.0284999.6736428-.0848321z" fill="#fff" /></g></svg>|j};
+let getSkin = (fill, size) => {j|<svg fill="$fill" height="$size" width="$size" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"> <path d="m37 46.0807424v5.9192576c0 2.7614237-2.2385763 5-5 5s-5-2.2385763-5-5v-5.9192576c-4.0377628-1.5443264-7.1775501-4.9044416-8.4204477-9.0814314-.0264624.0004587-.0529804.000689-.0795523.000689-2.4852814 0-4.5-2.0147186-4.5-4.5 0-2.3162768 1.7500248-4.2238135 4-4.4725356v-1.0274644c0-7.7319865 6.2680135-14 14-14s14 6.2680135 14 14v1.0274644c2.2499752.2487221 4 2.1562588 4 4.4725356 0 2.4852814-2.0147186 4.5-4.5 4.5-.0265719 0-.0530899-.0002303-.0795523-.000689-1.2428976 4.1769898-4.3826849 7.537105-8.4204477 9.0814314z" /> </svg>|j};
+let getMustache = (fill, size) => {j|<svg fill="$fill" height="$size" width="$size" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"> <path d="M32.016 38.05a2.718 2.718 0 0 1-3.182 1.587l-5.082-1.3a1 1 0 0 1-.075-1.916l5.235-1.786a2.504 2.504 0 0 1 3.104 1.37 2.504 2.504 0 0 1 3.105-1.37l5.235 1.786a1 1 0 0 1-.075 1.915l-5.082 1.3a2.717 2.717 0 0 1-3.183-1.587z" /></svg>|j};
 
 let getEyesGlasses = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><g fill="none"><path fill="#1b0640" d="M26 30a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm12 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/><path fill="#fff" d="M23 26h6v6h-6zm12 0h6v6h-6z" opacity=".303"/><path fill="#1b0640" d="M31 25.053h2c1.5 0 2.5-1.053 5-1.053 1.667 0 3.333.35 5 1.053l1 .526v1.579l-1 .526v3.158C43 32.586 41.657 34 40 34h-4c-1.657 0-3-1.414-3-3.158v-3.684h-2v3.684C31 32.586 29.657 34 28 34h-4c-1.657 0-3-1.414-3-3.158v-3.158l-1-.526v-1.58l1-.525C22.667 24.35 24.333 24 26 24c2.5 0 3.5 1.053 5 1.053zm-2.757 1.47c-.844-.296-1.425-.418-2.243-.418-.995 0-1.993.15-3 .45v4.287c0 .581.448 1.053 1 1.053h4c.552 0 1-.472 1-1.053v-4.051c-.209-.07-.447-.155-.757-.267zm7.514 0c-.31.113-.548.198-.757.268v4.051c0 .581.448 1.053 1 1.053h4c.552 0 1-.472 1-1.053v-4.287c-1.007-.3-2.005-.45-3-.45-.818 0-1.399.122-2.243.419z"/></g></svg>|j};
 let getEyesHappy = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><path fill="$size" d="M24.712 29.737a.75.75 0 1 1-1.424-.474c.434-1.301 1.383-2.013 2.712-2.013s2.278.712 2.712 2.013a.75.75 0 1 1-1.424.474c-.233-.699-.617-.987-1.288-.987s-1.055.288-1.288.987zm12 0a.75.75 0 0 1-1.424-.474c.434-1.301 1.383-2.013 2.712-2.013s2.278.712 2.712 2.013a.75.75 0 0 1-1.424.474c-.233-.699-.617-.987-1.288-.987s-1.055.288-1.288.987z"/></svg>|j};
@@ -38,120 +39,57 @@ let getLong = (fill, size) => {j|<svg viewBox="0 0 64 64"><defs><path fill="$fil
 let getPigtails = (fill, size) => {j|<svg viewBox="0 0 64 64"><g fill="none"><path fill="$fill" d="M41.001 13.836C41.057 11.156 43.291 9 46.04 9c2.783 0 5.04 2.211 5.04 4.94 0 .079-.003.158-.007.237.018 3.201.708 7.08 1.928 9.823-2.256-.606-4.334-1.62-6.22-2.903A16.67 16.67 0 0 1 48 27.382v1.376a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.375c0-2.227.434-4.35 1.22-6.285C15.334 22.38 13.256 23.394 11 24c1.22-2.743 1.91-6.622 1.928-9.823a4.923 4.923 0 0 1-.006-.238C12.922 11.211 15.178 9 17.96 9c2.748 0 4.982 2.156 5.038 4.836C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836z"/><path fill="#fff" d="M41.013 13.582C45.213 16.545 48 21.767 48 27.714v1.044a4.474 4.474 0 0 0-2-.73V28c-1.807-2.008-3.13-4.5-3.97-7.474-1.87 2.283-4.546 3.607-8.03 3.974-5.832.614-10.817-.327-14.953-2.822A13.959 13.959 0 0 0 18 27v1.027a4.474 4.474 0 0 0-2 .73v-1.043c0-5.947 2.788-11.17 6.987-14.132.006.084.01.169.012.254C25.563 12.046 28.662 11 32 11s6.437 1.046 9.001 2.836c.002-.085.006-.17.012-.254z" opacity=".259"/><path fill="#f55d81" d="M18 16a5 5 0 0 1 8.16-3.875c-3.106 1.248-5.739 3.46-7.545 6.279A4.978 4.978 0 0 1 18 16zm23-5a5 5 0 0 1 4.385 7.404c-1.806-2.818-4.44-5.031-7.545-6.279A4.98 4.98 0 0 1 41 11z"/></g></svg>|j};
 let getShortcombover = (fill, size) => {j|<svg viewBox="0 0 64 64"><path fill="$fill" d="M42.26 14.63a7.926 7.926 0 0 1 4.6 8.351L46 29c-2.827-1.696-4.695-5.55-5.604-11.561a9.238 9.238 0 0 1-5.692 2.774c-1.823.191-3.391.287-4.704.287-3 0-5.667-.5-8-1.5 0 3.667-1.333 7.167-4 10.5l-.922-8.533A9 9 0 0 1 26.025 11H43a9.237 9.237 0 0 1-.74 3.63z"/></svg>|j};
 
-let make = (~style=?, ~className="", ~name, ~fill="#000", ~size="64", _children) => {
+let component = ReasonReact.statelessComponent("SvgLoader");
+let make =
+    (~style=?, ~className="", ~name, ~fill="#000", ~size="64", _children) => {
   ...component,
-  render: _self =>
-    switch (name) {
-    | "Skin" =>
-      <svg
-        style=?style
+  render: _self => {
+    let getHtml = name =>
+      switch (name) {
+      | "Skin" => getSkin(fill, size)
+      | "Mustache" => getMustache(fill, size)
+      | "BeardMustache" => getBeardMustache(fill, size)
+      | "Glasses" => getEyesGlasses(fill, size)
+      | "Happy" => getEyesHappy(fill, size)
+      | "Open" => getEyesOpen(fill, size)
+      | "Sleepy" => getEyesSleepy(fill, size)
+      | "Sunglasses" => getEyesSunglasses(fill, size)
+      | "Wink" => getEyesWink(fill, size)
+      | "Bigsmile" => getMouthBigsmile(fill, size)
+      | "Frown" => getMouthFrown(fill, size)
+      | "Lips" => getMouthLips(fill, size)
+      | "Pacifier" => getMouthPacifier(fill, size)
+      | "Smile" => getMouthSmile(fill, size)
+      | "Smirk" => getMouthSmirk(fill, size)
+      | "Surprise" => getMouthSurprise(fill, size)
+      | "Mediumround" => getNoseMediumround(fill, size)
+      | "Smallround" => getNoseSmallround(fill, size)
+      | "Wrinkles" => getNoseWrinkles(fill, size)
+      | "Oval" => getBodyOval(fill, size)
+      | "Round" => getBodyRound(fill, size)
+      | "Square" => getBodySquare(fill, size)
+      | "Bald" => getBald(fill, size)
+      | "Balding" => getBalding(fill, size)
+      | "Bigcurls" => getBigcurls(fill, size)
+      | "Bobbangs" => getBobbangs(fill, size)
+      | "Bobcut" => getBobcut(fill, size)
+      | "Buncurls" => getBuncurls(fill, size)
+      | "Buzzcut" => getBuzzcut(fill, size)
+      | "Curlybun" => getCurlybun(fill, size)
+      | "Curlyhightop" => getCurlyhightop(fill, size)
+      | "Long" => getLong(fill, size)
+      | "Pigtails" => getPigtails(fill, size)
+      | "Shortcombover" => getShortcombover(fill, size)
+      | _ => ""
+      };
+
+    getHtml(name) == "" ?
+      ReasonReact.null :
+      <div
+        id={j|$name|j}
+        ?style
         className
-        fill
-        height=size
-        width=size
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="m37 46.0807424v5.9192576c0 2.7614237-2.2385763 5-5 5s-5-2.2385763-5-5v-5.9192576c-4.0377628-1.5443264-7.1775501-4.9044416-8.4204477-9.0814314-.0264624.0004587-.0529804.000689-.0795523.000689-2.4852814 0-4.5-2.0147186-4.5-4.5 0-2.3162768 1.7500248-4.2238135 4-4.4725356v-1.0274644c0-7.7319865 6.2680135-14 14-14s14 6.2680135 14 14v1.0274644c2.2499752.2487221 4 2.1562588 4 4.4725356 0 2.4852814-2.0147186 4.5-4.5 4.5-.0265719 0-.0530899-.0002303-.0795523-.000689-1.2428976 4.1769898-4.3826849 7.537105-8.4204477 9.0814314z"
-        />
-      </svg>
-    | "Mustache" =>
-      <svg
-        fill
-        height=size
-        width=size
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M32.016 38.05a2.718 2.718 0 0 1-3.182 1.587l-5.082-1.3a1 1 0 0 1-.075-1.916l5.235-1.786a2.504 2.504 0 0 1 3.104 1.37 2.504 2.504 0 0 1 3.105-1.37l5.235 1.786a1 1 0 0 1-.075 1.915l-5.082 1.3a2.717 2.717 0 0 1-3.183-1.587z"
-        />
-      </svg>
-    | "BeardMustache" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getMustache(fill, size)} />
-    | "Glasses" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getEyesGlasses(fill, size)} />
-    | "Happy" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getEyesHappy(fill, size)} />
-    | "Open" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getEyesOpen(fill, size)} />
-    | "Sleepy" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getEyesSleepy(fill, size)} />
-    | "Sunglasses" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getEyesSunglasses(fill, size)}
-      />
-    | "Wink" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getEyesWink(fill, size)} />
-    | "Bigsmile" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getMouthBigsmile(fill, size)}
-      />
-    | "Frown" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getMouthFrown(fill, size)} />
-    | "Lips" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getMouthLips(fill, size)} />
-    | "Pacifier" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getMouthPacifier(fill, size)}
-      />
-    | "Smile" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getMouthSmile(fill, size)} />
-    | "Smirk" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getMouthSmirk(fill, size)} />
-    | "Surprise" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getMouthSurprise(fill, size)}
-      />
-    | "Mediumround" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getNoseMediumround(fill, size)}
-      />
-    | "Smallround" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getNoseSmallround(fill, size)}
-      />
-    | "Wrinkles" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getNoseWrinkles(fill, size)} />
-    | "Oval" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBodyOval(fill, size)} />
-    | "Round" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBodyRound(fill, size)} />
-    | "Square" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBodySquare(fill, size)} />
-    | "Bald" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBald(fill, size)} />
-    | "Balding" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBalding(fill, size)} />
-    | "Bigcurls" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBigcurls(fill, size)} />
-    | "Bobbangs" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBobbangs(fill, size)} />
-    | "Bobcut" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBobcut(fill, size)} />
-    | "Buncurls" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getBuncurls(fill, size)}
-      />
-    | "Buzzcut" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getBuzzcut(fill, size)} />
-    | "Curlybun" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getCurlybun(fill, size)} />
-    | "Curlyhightop" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getCurlyhightop(fill, size)} />
-    | "Hightopcurly" =>
-      <div
-        dangerouslySetInnerHTML={
-          "__html": getHightopcurly(fill, size),
-        }
-      />
-    | "Long" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getLong(fill, size)} />
-    | "Pigtails" =>
-      <div className style=?style dangerouslySetInnerHTML={"__html": getPigtails(fill, size)} />
-    | "Shortcombover" =>
-      <div
-        dangerouslySetInnerHTML={"__html": getShortcombover(fill, size)}
-      />
-    | _ => ReasonReact.null
-    },
+        dangerouslySetInnerHTML={"__html": getHtml(name)}
+      />;
+  },
 };
