@@ -197,15 +197,24 @@ let make = _children => {
   reducer: (action, state) =>
     switch (action) {
     | Randomize =>
-      let options = List.map(state.options, o => {
-        let selectedColor = List.get(o.colors, Random.int(List.length(o.colors)));
-        let selectedStyle = List.get(o.styles, Random.int(List.length(o.styles)));
-        {...o,
-          selectedColor: Belt.Option.getWithDefault(selectedColor, o.selectedColor),
-          selectedStyle: Belt.Option.getWithDefault(selectedStyle, o.selectedStyle)
-        }
-      });
-      ReasonReact.Update({...state, options, rotation: state.rotation + 1})
+      let options =
+        List.map(
+          state.options,
+          o => {
+            let selectedColor =
+              List.get(o.colors, Random.int(List.length(o.colors)));
+            let selectedStyle =
+              List.get(o.styles, Random.int(List.length(o.styles)));
+            {
+              ...o,
+              selectedColor:
+                Belt.Option.getWithDefault(selectedColor, o.selectedColor),
+              selectedStyle:
+                Belt.Option.getWithDefault(selectedStyle, o.selectedStyle),
+            };
+          },
+        );
+      ReasonReact.Update({...state, options, rotation: state.rotation + 1});
     | UpdateStyle(id, selectedStyle) =>
       let options =
         List.map(state.options, o => o.id == id ? {...o, selectedStyle} : o);
