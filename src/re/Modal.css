@@ -8,6 +8,7 @@
   border: none;
   background: #070b28;
   opacity: 0.5;
+  z-index: 500;
 }
 
 .Modal-container {
@@ -25,6 +26,7 @@
   border-radius: 6px;
   padding: 56px;
   text-align: center;
+  z-index: 1000;
 }
 
 .Modal-close {
