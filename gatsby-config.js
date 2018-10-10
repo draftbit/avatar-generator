@@ -16,7 +16,6 @@ module.exports = {
         icon: 'src/images/favicon.png',
       },
     },
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -24,5 +23,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    'gatsby-plugin-offline',
+    `gatsby-plugin-netlify`,
   ],
 }
