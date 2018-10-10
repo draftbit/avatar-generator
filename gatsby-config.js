@@ -13,16 +13,15 @@ module.exports = {
         background_color: '#5a45ff',
         theme_color: '#5a45ff',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/favicon.png',
       },
     },
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-react-svg',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        rule: {
-          include: /\.svg$/,
-        },
+        trackingId: 'UA-96165051-4',
+        respectDNT: true,
       },
     },
   ],
