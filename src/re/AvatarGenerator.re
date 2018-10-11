@@ -157,7 +157,7 @@ let make = (~onExport, _children) => {
       {
         id: "Eyes",
         label: "EYES",
-        colors: disabled_colors,
+        colors: ["#000000"],
         styles: ["Glasses", "Happy", "Open", "Sleepy", "Sunglasses", "Wink"],
         selectedColor: "#000000",
         selectedStyle: "Open",
