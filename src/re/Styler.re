@@ -75,7 +75,7 @@ let make =
       <span className="Styler-label"> {ReasonReact.string(label)} </span>
       <div className="Styler-picker">
         showLeftArrow
-        <div className="Styler-model"> image </div>
+        <div className={j| Styler-model svg-$id |j}> image </div>
         showRightArrow
       </div>
       <div className="Styler-colors">

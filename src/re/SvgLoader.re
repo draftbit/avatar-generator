@@ -119,9 +119,8 @@ let make =
     getHtml(name) == "" ?
       ReasonReact.null :
       <div
-        id={j|$name|j}
-        ?style
         className
+        ?style
         dangerouslySetInnerHTML={"__html": getHtml(name)}
       />;
   },

@@ -18,10 +18,13 @@
 .Styler-model {
   margin-top: 14px;
   overflow: hidden;
-  border-radius: 32px;
   width: 64px;
   height: 64px;
   margin-bottom: 14px;
+}
+
+.Styler-model.svg-Background {
+  border-radius: 32px;
 }
 
 .Styler-colors {
@@ -33,7 +36,6 @@
 
 .Styler-picker {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -45,4 +47,5 @@
   cursor: pointer;
   background: transparent;
   border: none;
+  padding: 0 10px;
 }
