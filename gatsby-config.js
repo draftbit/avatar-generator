@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Persona Avatar Generator by Draftbit',
+    title:
+      'Personas by Draftbit | A playful avatar generator for the modern age.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
