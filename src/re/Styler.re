@@ -73,11 +73,16 @@ let make =
           />
         </button> : <div />;
 
+    let showImage = switch(id) {
+      | "Background" => ReasonReact.null
+      | _ => <div className={j| Styler-model svg-$id |j}> image </div>
+    };
+
     <div className="Styler-container">
       <span className="Styler-label"> {ReasonReact.string(label)} </span>
       <div className="Styler-picker">
         showLeftArrow
-        <div className={j| Styler-model svg-$id |j}> image </div>
+        showImage
         showRightArrow
       </div>
       <div className="Styler-colors">
