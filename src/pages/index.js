@@ -6,6 +6,7 @@ import AvatarGenerator from '../re/AvatarGenerator.bs'
 import IconLink from '../re/IconLink.bs'
 import Modal from '../re/Modal.bs'
 import Icon from '../re/Icon.bs'
+import Button from '../re/Button.bs'
 
 import Layout from '../components/layout'
 
@@ -84,6 +85,12 @@ export default class IndexPage extends React.PureComponent {
           visible={this.state.showModal}
           onToggle={() => this.setState({ showModal: !this.state.showModal })}
         />
+        <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <Button
+            href="https://github.com/draftbit/avatar-generator"
+            label="View on Github"
+          />
+        </div>
       </Layout>
     )
   }

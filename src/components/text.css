@@ -1,12 +1,18 @@
 .Text-title {
   font-family: "CerebriSans-Regular";
-  font-size: 80px;
+  font-size: 70px;
   font-weight: normal;
   font-style: normal;
   line-height: normal;
   letter-spacing: -1px;
   color: #ffffff;
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .Text-title {
+    font-size: 80px;
+  }
 }
 
 .Text-subtitle {
@@ -31,6 +37,12 @@
   color: #73859d;
 }
 
+@media (min-width: 768px) {
+  .Text-description {
+    max-width: 330px;
+  }
+}
+
 .Text-overline {
   font-family: "CerebriSans-Regular";
   font-size: 14px;
@@ -45,8 +57,6 @@
 }
 
 .Text-marketing {
-  width: 371px;
-  height: 64px;
   font-family: "CerebriSans-Light";
   font-size: 22px;
   font-weight: 300;

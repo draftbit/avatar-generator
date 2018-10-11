@@ -1,0 +1,34 @@
+.Button {
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 3px 0 rgba(16, 22, 64, 0.12);
+  background-color: #ffffff;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .Button--github {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.Button-icon {
+  margin-right: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.Button-label {
+  font-family: "CerebriSans-Medium";
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #73859d;
+  vertical-align: middle;
+}
