@@ -45,6 +45,8 @@
   left: 0;
   width: 150px;
   height: 150px;
+  border-radius: 75px;
+  overflow: hidden;
 }
 
 .AvatarGenerator-row {
