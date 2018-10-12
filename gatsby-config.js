@@ -24,6 +24,22 @@ module.exports = {
         respectDNT: true,
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /avatars/,
+        },
+      },
+    },
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        typeName: 'Config',
+        path: `./src/data/`,
+      },
+    },
     'gatsby-plugin-offline',
     `gatsby-plugin-netlify`,
   ],

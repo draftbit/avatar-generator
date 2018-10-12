@@ -42,56 +42,56 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
+    const config = this.props.data.allDataJson.edges[0].node
+    const urlState = this.state.config
+    console.log('urlstate', urlState)
     return (
       <Layout>
-        <div className="body-bg-left" />
-        <div className="body-bg-right" />
-        <header className="Layout-header">
-          <div className="Layout-left">
-            <Wordmark />
-            <h1 className="Text-title">Personas</h1>
-            <span className="Text-subtitle">Avatar Generator</span>
-          </div>
-          <div className="Layout-right">
-            <h2 className="Text-description">
-              A playful avatar generator for the modern age.
-            </h2>
-          </div>
-        </header>
-        <main className="Layout-main">
-          <AvatarGenerator onExport={this._exportImage} />
-        </main>
-        <footer className="Layout-footer">
-          <div className="Layout-left">
-            <span className="Text-overline">Built by</span>
-            <br />
-            <Wordmark />
-          </div>
-          <div className="Layout-right">
-            <span className="Text-marketing mb-2">
-              Visually build robust native front-end apps with usable code.
-            </span>
-            <br />
-            <IconLink
-              className="Text-link"
-              href="https://draftbit.com"
-              title="Build fobust native front-end apps with usable code using Draftbit"
-              label="draftbit.com"
-              icon="arrow"
-            />
-          </div>
-        </footer>
-        <Modal
-          visible={this.state.showModal}
-          onToggle={() => this.setState({ showModal: !this.state.showModal })}
+        <App
+          {...urlState}
+          skinStyles={config.skinStyles}
+          hairStyles={config.hairStyles}
+          facialHairStyles={config.facialHairStyles}
+          bodyStyles={config.bodyStyles}
+          eyeStyles={config.eyeStyles}
+          mouthStyles={config.mouthStyles}
+          noseStyles={config.noseStyles}
+          bgStyles={config.bgStyles}
+          skinColors={config.skinColors}
+          hairColors={config.hairColors}
+          facialHairColors={config.facialHairColors}
+          bodyColors={config.bodyColors}
+          bgColors={config.bodyColors}
+          disabledColors={config.bodyColors}
+          onExport={this._exportImage}
+          onChange={this._onChange}
         />
-        <div style={{ textAlign: 'center', marginBottom: 48 }}>
-          <Button
-            href="https://github.com/draftbit/avatar-generator"
-            label="View on Github"
-          />
-        </div>
       </Layout>
     )
   }
 }
+
+export const query = graphql`
+  query ConfigQuery {
+    allDataJson {
+      edges {
+        node {
+          skinStyles
+          hairStyles
+          facialHairStyles
+          bodyStyles
+          eyeStyles
+          mouthStyles
+          noseStyles
+          bgStyles
+          skinColors
+          hairColors
+          facialHairColors
+          bodyColors
+          bgColors
+          disabledColors
+        }
+      }
+    }
+  }
+`
