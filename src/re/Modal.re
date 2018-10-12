@@ -21,11 +21,11 @@ let make = (~visible, ~onToggle, _children) => {
         }
       </span>
       <div className="Modal-buttons">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=Generate+a+modern+avatar+with+Personas+by+@Draftbit&url=https%3A%2F%2Fpersonas.draftbit.com&related=draftbit,bluerssen,peterpme,daltondubya,donaldhruska" className="Modal-button Modal-button--twitter">
+        <a target="_blank" rel="no-follow" href="https://twitter.com/intent/tweet?text=Generate+a+modern+avatar+with+Personas+by+@Draftbit&url=https%3A%2F%2Fpersonas.draftbit.com&related=draftbit,bluerssen,peterpme,daltondubya,donaldhruska" className="Modal-button Modal-button--twitter">
           <img className="Modal-shareIcon" width="16" height="16" src="/images/twitter.svg" />
           <span>{ReasonReact.string("Twitter")}</span>
         </a>
-        <a href="#" className="Modal-button Modal-button--ph">
+        <a target="_blank" rel="no-follow" href="https://www.producthunt.com/posts/personas-by-draftbit" className="Modal-button Modal-button--ph">
           <img className="Modal-shareIcon" width="16" height="16" src="/images/producthunt.svg" />
           <span>{ReasonReact.string("Product Hunt")}</span>
         </a>

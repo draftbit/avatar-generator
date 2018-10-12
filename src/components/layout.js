@@ -41,7 +41,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'twitter:image',
-              content: 'web_preview_1x1.png',
+              content: 'web-preview-1x1.png',
             },
             {
               name: 'twitter:description',
@@ -51,7 +51,7 @@ const Layout = ({ children }) => (
               name: 'keywords',
               content: 'Avatar, Avatar Generator, Personas, Draftbit, Avatars',
             },
-            { property: 'og:image', content: '/web_preview.png' },
+            { property: 'og:image', content: '/web-preview.png' },
             { property: 'og:title', content: 'Personas by Draftbit' },
             { property: 'og:url', content: 'https://personas.draftbit.com' },
             {

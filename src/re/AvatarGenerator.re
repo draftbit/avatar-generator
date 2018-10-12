@@ -298,7 +298,7 @@ let make = (~onExport, _children) => {
         </div>
         <IconLink
           label="Let's Go"
-          href="https://gum.co/PersonaByDraftbit"
+          href="https://gumroad.com/l/PersonasByDraftbit"
           icon="arrow"
         />
       </div>
