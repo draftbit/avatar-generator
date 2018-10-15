@@ -6,7 +6,7 @@ import createHistory from "history/createBrowserHistory"
 import App from '../../re/App.bs'
 import Layout from '../components/layout'
 
-function getQueryParams(str) {
+function getQueryParams(str = '') {
   if (!str) return {}
   const qs = str.split('?')[1]
   const pairs = qs.split('&')
@@ -18,8 +18,8 @@ function getQueryParams(str) {
   }, {})
 }
 
-function mapQueryParams(params) {
-  return Object.assign({}, DEFAULT_STYLES, params)
+function mapQueryParams(params, defaultStyles) {
+  return Object.assign({}, defaultStyles, params)
 }
 
 function stringifyQueryParams(params) {
@@ -65,23 +65,32 @@ const DEFAULT_STYLES = {
 }
 
 export default class IndexPage extends React.PureComponent {
-  state = {
-    location: {},
-    showModal: false,
-  }
+  constructor(props) {
+    super(props);
+      this.history = createHistory();
+      this.unlisten = this.history.listen((location, action) => {
+        this.setState({
+          location
+        })
+      });
 
-  componentDidMount() {
-    this.history = createHistory()
-    this.unlisten = this.history.listen((location, action) => {
-      this.setState({ location })
-    })
+      const config = this.props.data.allDataJson.edges[0].node
+      const params = getQueryParams(this.history.location.search)
+      const styles = Object.keys(params).length > 0 ? params : randomizeStyles(config)
+
+      this.state = {
+        styles,
+        location: this.history.location,
+        showModal: false,
+      }
   }
 
   _onChange = (key, value) => {
     const change = {[key]: value}
-    const oldParams = mapQueryParams(getQueryParams(window.location.search))
-    const styles = mapQueryParams({...oldParams, ...change })
+    const styles = mapQueryParams({...this.state.styles, ...change })
     const params = stringifyQueryParams(styles)
+    this.setState({ styles })
+
     this.history.push(`/?${params}`)
   }
 
@@ -103,10 +112,8 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
+    const { styles } = this.state
     const config = this.props.data.allDataJson.edges[0].node
-    const random = randomizeStyles(config)
-    const params = getQueryParams(window.location.search)
-    const styles = Object.keys(params).length > 1 ? params : random
 
     return (
       <Layout>
