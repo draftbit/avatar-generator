@@ -22,6 +22,12 @@ const Layout = ({ children }) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}
+          link={[
+            {
+              "rel": "canonical",
+              "href": "https://personas.draftbit.com"
+            }
+          ]}
           meta={[
             {
               name: 'description',
