@@ -41,7 +41,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'twitter:image',
-              content: 'web-preview-1x1.png',
+              content: '/web-preview-1x1.png',
             },
             {
               name: 'twitter:description',

@@ -27,6 +27,28 @@ function stringifyQueryParams(params) {
   return queryString;
 }
 
+function getRandom(list) {
+  const l = list.length;
+  return list[Math.floor(Math.random() * l)];
+}
+
+function randomizeStyles(config) {
+  return {
+    skin: 'Skin',
+    skinColor: getRandom(config.skinColors),
+    hairColor: getRandom(config.hairColors),
+    hair: getRandom(config.hairStyles),
+    facialHair: getRandom(config.facialHairStyles),
+    facialHairColor: getRandom(config.facialHairColors),
+    body: getRandom(config.bodyStyles),
+    bodyColor: getRandom(config.bodyColors),
+    eyes: getRandom(config.eyeStyles),
+    mouth: getRandom(config.mouthStyles),
+    nose: getRandom(config.noseStyles),
+    bgColor: getRandom(config.bgColors)
+  }
+}
+
 const DEFAULT_STYLES = {
   skin: 'Skin',
   skinColor: 'E4A070',
@@ -81,12 +103,14 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
-    const params = mapQueryParams(getQueryParams(window.location.search))
     const config = this.props.data.allDataJson.edges[0].node
+    const random = randomizeStyles(config)
+    const params = getQueryParams(window.location.search)
+    const styles = Object.keys(params).length > 1 ? params : random
 
     return (
       <Layout>
-        <App {...config} {...params} onChange={this._onChange} onExport={this._exportImage} />
+        <App {...config} {...styles} onChange={this._onChange} onExport={this._exportImage} />
       </Layout>
     )
   }
