@@ -19,9 +19,54 @@ const Wordmark = () => (
   </a>
 )
 
+function getQueryParams(str) {
+  if (!str) return {}
+  const qs = str.split('?')[1]
+  const pairs = qs.split('&')
+
+  return pairs.reduce((obj, pair) => {
+    const [key, value] = pair.split('=')
+    obj[key] = value
+    return obj
+  }, {})
+}
+
+function mapQueryParams(params) {
+  return Object.assign({}, DEFAULT_STATE, params)
+}
+
+function stringifyQueryParams(params) {
+  const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  return `?${queryString}`;
+}
+
+const DEFAULT_STYLES = {
+  skin: 'Skin',
+  skinColor: 'E4A070',
+  hairColor: '362C47',
+  hair: 'Bobbangs',
+  facialHair: 'Mustache',
+  facialHairColor: '362C47',
+  body: 'Round',
+  bodyColor: '456DFF',
+  eyes: 'Sunglasses',
+  mouth: 'Smile',
+  nose: 'Wrinkles',
+  bgColor: '93A7FF',
+}
+
 export default class IndexPage extends React.PureComponent {
   state = {
+    styles: DEFAULT_STYLES,
     showModal: false,
+  }
+
+  _onChange = (key, value) => {
+    const change = {[key]: value}
+    const oldParams = mapQueryParams(getQueryParams(window.location.search))
+    const styles = mapQueryParams({...oldParams, ...change })
+    console.log('styles', styles)
+    this.setState({ styles })
   }
 
   _exportImage = async () => {
@@ -42,7 +87,8 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
-     const config = this.props.data.allDataJson.edges[0].node
+    const { styles } = this.state
+    const config = this.props.data.allDataJson.edges[0].node
     return (
       <Layout>
         <div className="body-bg-left" />
