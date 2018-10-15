@@ -45,18 +45,19 @@ let make =
       );
     },
   render: ({send, state}) => {
-    let colorItems = switch(id) {
+    let colorSwatches = switch(id) {
       | "Eyes" | "Nose" | "Mouth" => ReasonReact.null
-      | _ => ReasonReact.array(List.toArray(List.map(colors, color =>
+      | _ => ReasonReact.array(List.toArray(List.map(colors, color => {
         <ColorSwatch
           value=color
           disabled={color === "#EEEFF5"}
           selected={color === selectedColor}
           onSelect={value => onSelectColor(value)}
         />
+      }
       )));
     };
-    let image = <SvgLoader fill=selectedColor name=selectedStyle />;
+    let image = <SvgLoader fill={"#" ++ selectedColor} name=selectedStyle />;
 
     let showLeftArrow =
       List.length(styles) > 1 ?
@@ -86,7 +87,7 @@ let make =
         showRightArrow
       </div>
       <div className="Styler-colors">
-        colorItems
+        colorSwatches
       </div>
     </div>;
   },

@@ -34,7 +34,73 @@ let make =
       _children,
     ) => {
   ...component,
-  render: _self =>
+  render: _self => {
+    let settings: list(AvatarGenerator._settings) = [
+      {
+        id: "Skin",
+        label: "SKIN",
+        colors: List.fromArray(skinColors),
+        styles: List.fromArray(skinStyles),
+        selectedColor: skinColor,
+        selectedStyle: skin,
+      },
+      {
+        id: "Hair",
+        label: "HAIR",
+        colors: List.fromArray(hairColors),
+        styles: List.fromArray(hairStyles),
+        selectedColor: hairColor,
+        selectedStyle: hair
+      },
+      {
+        id: "FacialHair",
+        label: "FACIAL HAIR",
+        colors: List.fromArray(facialHairColors),
+        styles: List.fromArray(facialHairStyles),
+        selectedColor: facialHairColor,
+        selectedStyle: facialHair
+      },
+      {
+        id: "Body",
+        label: "BODY",
+        colors: List.fromArray(bodyColors),
+        styles: List.fromArray(bodyStyles),
+        selectedColor: bodyColor,
+        selectedStyle: body
+      },
+      {
+        id: "Eyes",
+        label: "EYES",
+        colors: List.fromArray(disabledColors),
+        styles: List.fromArray(eyeStyles),
+        selectedColor: "000000",
+        selectedStyle: eyes
+      },
+      {
+        id: "Mouth",
+        label: "MOUTH",
+        colors: List.fromArray(disabledColors),
+        styles: List.fromArray(mouthStyles),
+        selectedColor: "000000",
+        selectedStyle: mouth
+      },
+      {
+        id: "Nose",
+        label: "NOSE",
+        colors: List.fromArray(disabledColors),
+        styles: List.fromArray(noseStyles),
+        selectedColor: "000000",
+        selectedStyle: nose
+      },
+      {
+        id: "Background",
+        label: "BACKGROUND",
+        colors: List.fromArray(bgColors),
+        styles: List.fromArray(bgStyles),
+        selectedColor: bgColor,
+        selectedStyle: "Background",
+      },
+    ];
     <>
       <div className="body-bg-left" />
       <div className="body-bg-right" />
@@ -60,6 +126,7 @@ let make =
         <AvatarGenerator
           onChange
           onExport
+          settings
         />
       </main>
       <footer className="Layout-footer">
@@ -96,7 +163,8 @@ let make =
           label="View on Github"
         />
       </div>
-    </>,
+    </>
+  }
 };
 
 let default =

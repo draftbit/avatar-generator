@@ -81,13 +81,12 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
-    const { location } = this.state
-    const params = getQueryParams(location.search)
+    const params = mapQueryParams(getQueryParams(window.location.search))
     const config = this.props.data.allDataJson.edges[0].node
 
     return (
       <Layout>
-        <App {...config} {...params} />
+        <App {...config} {...params} onChange={this._onChange} onExport={this._exportImage} />
       </Layout>
     )
   }
