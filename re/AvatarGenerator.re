@@ -38,7 +38,6 @@ let make = (~randomize, ~settings, ~onChange, ~onExport, _children) => {
     switch (action) {
     | Randomize =>
       ReasonReact.UpdateWithSideEffects({rotation: state.rotation + 1}, _self => {
-        Js.log("randomize");
         randomize();
       })
     },
@@ -47,6 +46,7 @@ let make = (~randomize, ~settings, ~onChange, ~onExport, _children) => {
     let pngImage =
       List.map(settings, o =>
         <SvgLoader
+          key=o.id
           style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
           className="AvatarGenerator-png"
           name={o.selectedStyle}
@@ -58,6 +58,7 @@ let make = (~randomize, ~settings, ~onChange, ~onExport, _children) => {
     let faceFeatures =
     List.map(settings, o =>
       <SvgLoader
+        key=o.id
         style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
         className="AvatarGenerator-faceFeature"
         name={o.selectedStyle}
@@ -69,6 +70,7 @@ let make = (~randomize, ~settings, ~onChange, ~onExport, _children) => {
     let styleOptions =
       List.map(settings, o =>
         <Styler
+          key=o.id
           id={o.id}
           label={o.label}
           colors={o.colors}

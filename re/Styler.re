@@ -49,6 +49,7 @@ let make =
       | "Eyes" | "Nose" | "Mouth" => ReasonReact.null
       | _ => ReasonReact.array(List.toArray(List.map(colors, color => {
         <ColorSwatch
+          key=color
           value=color
           disabled={color === "#EEEFF5"}
           selected={color === selectedColor}
