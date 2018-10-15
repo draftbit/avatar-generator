@@ -279,8 +279,7 @@ let make = (~onChange, ~onExport, _children) => {
       <div className="AvatarGenerator-row">
         {ReasonReact.array(List.toArray(styleOptions))}
       </div>
-      <button
-        onClick={_ => onExport()} className="Button-primary Text-button">
+      <button onClick={_ => onExport()} className="Button-primary Text-button">
         {ReasonReact.string("Download Avatar")}
       </button>
       <div className="AvatarGenerator-footer">
