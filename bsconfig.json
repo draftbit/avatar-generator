@@ -5,7 +5,7 @@
   },
    "bsc-flags": ["-bs-super-errors"],
   "sources": {
-    "dir" : "src/re"
+    "dir" : "re"
   },
   "package-specs": [{
     "module": "commonjs",

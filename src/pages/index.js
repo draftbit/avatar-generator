@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import html2canvas from 'html2canvas'
-import ColorSwatch from '../re/ColorSwatch.bs'
-import AvatarGenerator from '../re/AvatarGenerator.bs'
-import IconLink from '../re/IconLink.bs'
-import Modal from '../re/Modal.bs'
-import Icon from '../re/Icon.bs'
-import Button from '../re/Button.bs'
+import ColorSwatch from '../../re/ColorSwatch.bs'
+import AvatarGenerator from '../../re/AvatarGenerator.bs'
+import IconLink from '../../re/IconLink.bs'
+import Modal from '../../re/Modal.bs'
+import Icon from '../../re/Icon.bs'
+import Button from '../../re/Button.bs'
 
 import Layout from '../components/layout'
 
