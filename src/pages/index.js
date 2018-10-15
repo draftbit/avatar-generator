@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, graphql, navigate, withPrefix } from 'gatsby'
 import html2canvas from 'html2canvas'
 import createHistory from "history/createBrowserHistory"
 
@@ -67,20 +67,12 @@ const DEFAULT_STYLES = {
 export default class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props);
-      this.history = createHistory();
-      this.unlisten = this.history.listen((location, action) => {
-        this.setState({
-          location
-        })
-      });
-
       const config = this.props.data.allDataJson.edges[0].node
-      const params = getQueryParams(this.history.location.search)
+      const params = getQueryParams(this.props.location.search)
       const styles = Object.keys(params).length > 0 ? params : randomizeStyles(config)
 
       this.state = {
         styles,
-        location: this.history.location,
         showModal: false,
       }
   }
@@ -91,7 +83,7 @@ export default class IndexPage extends React.PureComponent {
     const params = stringifyQueryParams(styles)
     this.setState({ styles })
 
-    this.history.push(`/?${params}`)
+    navigate(`/?${params}`)
   }
 
   _exportImage = async () => {
