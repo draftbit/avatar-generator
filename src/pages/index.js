@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, graphql, navigate, withPrefix } from 'gatsby'
 import html2canvas from 'html2canvas'
-import createHistory from "history/createBrowserHistory"
 
 import App from '../../re/App.bs'
 import Layout from '../components/layout'
