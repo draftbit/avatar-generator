@@ -99,9 +99,7 @@ let background = [
   "#FF6674",
   "#89E6E4",
   "#FFCC65",
-  "#070B28",
   "#F8FBFF",
-  "#FFFFFF",
 ];
 
 let make = (~onExport, _children) => {
