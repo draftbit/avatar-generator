@@ -45,24 +45,23 @@ let make =
       );
     },
   render: ({send, state}) => {
-    let colorItems = switch(id) {
-      | "Eyes" | "Nose" | "Mouth" => ReasonReact.null
-      | _ => ReasonReact.array(List.toArray(List.map(colors, color =>
+    let colorItems =
+      List.map(colors, color =>
         <ColorSwatch
           value=color
           disabled={color === "#EEEFF5"}
           selected={color === selectedColor}
           onSelect={value => onSelectColor(value)}
         />
-      )));
-    };
+      );
     let image = <SvgLoader fill=selectedColor name=selectedStyle />;
 
     let showLeftArrow =
       List.length(styles) > 1 ?
         <button className="Styler-btn" onClick={_ => send(Decrement)}>
           <img className="Styler-arrow" src="/images/arrow.svg" />
-        </button> : <div />;
+        </button> :
+        <div />;
 
     let showRightArrow =
       List.length(styles) > 1 ?
@@ -71,12 +70,14 @@ let make =
             className="Styler-arrow Styler-arrow--right"
             src="/images/arrow.svg"
           />
-        </button> : <div />;
+        </button> :
+        <div />;
 
-    let showImage = switch(id) {
+    let showImage =
+      switch (id) {
       | "Background" => ReasonReact.null
       | _ => <div className={j| Styler-model svg-$id |j}> image </div>
-    };
+      };
 
     <div className="Styler-container">
       <span className="Styler-label"> {ReasonReact.string(label)} </span>
@@ -86,7 +87,7 @@ let make =
         showRightArrow
       </div>
       <div className="Styler-colors">
-        colorItems
+        {ReasonReact.array(List.toArray(colorItems))}
       </div>
     </div>;
   },

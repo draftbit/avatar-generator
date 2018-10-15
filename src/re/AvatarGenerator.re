@@ -16,18 +16,17 @@ let getZIndex = id =>
   | _ => "10"
   };
 
-type option = {
-  id: string,
+type style = {
+  key: string,
+  value: string,
   label: string,
-  colors: list(string),
+  color: string,
   styles: list(string),
-  selectedColor: string,
-  selectedStyle: string,
+  colors: list(string),
 };
 
 type state = {
   rotation: int,
-  options: list(option),
 };
 
 type action =
@@ -36,238 +35,141 @@ type action =
   | UpdateColor(string, string);
 
 let component = ReasonReact.reducerComponent("AvatarGenerator");
-let skin = [
-  "#FBD2C7",
-  "#F2AD9B",
-  "#E58F7B",
-  "#E4A070",
-  "#B16A5B",
-  "#92594B",
-  "#623D36",
-  "#C9E6DC"
-];
-
-let disabled_colors = [
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-  "#EEEFF5",
-];
-
-let hair = [
-  "#362C47",
-  "#675E97",
-  "#5AC4D4",
-  "#DEE1F5",
-  "#6C4545",
-  "#F29C65",
-  "#E16381",
-  "#E15C66",
-];
-
-let facialhair = [
-  "#362C47",
-  "#675E97",
-  "#5AC4D4",
-  "#DEE1F5",
-  "#6c4545",
-  "#F29C65",
-  "#E16381",
-  "#E15C66",
-];
-
-let body = [
-  "#456DFF",
-  "#5A45FF",
-  "#6DBB58",
-  "#F55D81",
-  "#7555CA",
-  "#E24553",
-  "#54D7C7",
-  "#F3B63A",
-];
-
-let background = [
-  "#93A7FF",
-  "#A9E775",
-  "#FF7A9A",
-  "#B379F7",
-  "#FF6674",
-  "#89E6E4",
-  "#FFCC65",
-  "#070B28",
-  "#F8FBFF",
-  "#FFFFFF",
-];
-
-let make = (~onExport, _children) => {
+let make =
+    (
+      ~skin,
+      ~skinColor,
+      ~hair,
+      ~hairColor,
+      ~facialHair,
+      ~facialHairColor,
+      ~body,
+      ~bodyColor,
+      ~eyes,
+      ~mouth,
+      ~nose,
+      ~bgColor,
+      ~skinStyles,
+      ~hairStyles,
+      ~facialHairStyles,
+      ~bodyStyles,
+      ~eyeStyles,
+      ~mouthStyles,
+      ~noseStyles,
+      ~bgStyles,
+      ~skinColors,
+      ~hairColors,
+      ~facialHairColors,
+      ~bodyColors,
+      ~bgColors,
+      ~disabledColors,
+      ~onExport,
+      ~onChange,
+      _children,
+    ) => {
   ...component,
   initialState: () => {
     rotation: 0,
-    options: [
-      {
-        id: "Skin",
-        label: "SKIN",
-        colors: skin,
-        styles: ["Skin"],
-        selectedColor: "#B16A5B",
-        selectedStyle: "Skin",
-      },
-      {
-        id: "Hair",
-        label: "HAIR",
-        colors: hair,
-        styles: [
-          "Bald",
-          "Hat",
-          "Balding",
-          "Bigcurls",
-          "Bobbangs",
-          "Bobcut",
-          "Buncurls",
-          "Buzzcut",
-          "Hightopcurly",
-          "Long",
-          "Pigtails",
-          "Shortcombover",
-        ],
-        selectedColor: "#362C47",
-        selectedStyle: "Bobbangs",
-      },
-      {
-        id: "FacialHair",
-        label: "FACIAL HAIR",
-        colors: facialhair,
-        styles: ["BeardMustache", "Mustache", "None"],
-        selectedColor: "#362C47",
-        selectedStyle: "None",
-      },
-      {
-        id: "Body",
-        label: "BODY",
-        colors: body,
-        styles: ["Oval", "Round", "Square"],
-        selectedColor: "#E24553",
-        selectedStyle: "Square",
-      },
-      {
-        id: "Eyes",
-        label: "EYES",
-        colors: ["#000000"],
-        styles: ["Glasses", "Happy", "Open", "Sleepy", "Sunglasses", "Wink"],
-        selectedColor: "#000000",
-        selectedStyle: "Open",
-      },
-      {
-        id: "Mouth",
-        label: "MOUTH",
-        colors: disabled_colors,
-        styles: [
-          "Bigsmile",
-          "Frown",
-          "Lips",
-          "Pacifier",
-          "Smile",
-          "Smirk",
-          "Surprise",
-        ],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "Smile",
-      },
-      {
-        id: "Nose",
-        label: "NOSE",
-        colors: disabled_colors,
-        styles: ["Mediumround", "Smallround", "Wrinkles"],
-        selectedColor: "#FFFFFF",
-        selectedStyle: "Smallround",
-      },
-      {
-        id: "Background",
-        label: "BACKGROUND",
-        colors: background,
-        styles: ["Background"],
-        selectedColor: "#89E6E4",
-        selectedStyle: "Background",
-      },
-    ],
   },
   reducer: (action, state) =>
     switch (action) {
     | Randomize =>
-      let options =
-        List.map(
-          state.options,
-          o => {
-            let selectedColor =
-              List.get(o.colors, Random.int(List.length(o.colors)));
-            let selectedStyle =
-              List.get(o.styles, Random.int(List.length(o.styles)));
-            {
-              ...o,
-              selectedColor:
-                Belt.Option.getWithDefault(selectedColor, o.selectedColor),
-              selectedStyle:
-                Belt.Option.getWithDefault(selectedStyle, o.selectedStyle),
-            };
-          },
-        );
-      ReasonReact.Update({...state, options, rotation: state.rotation + 1});
-    | UpdateStyle(id, selectedStyle) =>
-      let options =
-        List.map(state.options, o => o.id == id ? {...o, selectedStyle} : o);
-      ReasonReact.Update({...state, options});
-
-    | UpdateColor(id, selectedColor) =>
-      let options =
-        List.map(state.options, o => o.id == id ? {...o, selectedColor} : o);
-      ReasonReact.Update({...state, options});
+      ReasonReact.Update({rotation: state.rotation + 1})
     },
   render: ({state, send}) => {
+      let settings = [
+      {
+        key: "skin",
+        label: "Skin",
+        value: skin,
+        color: skinColor,
+        styles: skinStyles,
+        colors: skinColors,
+      },
+      {
+        key: "hair",
+        label: "Hair",
+        value: hair,
+        color: hairColor,
+        styles: hairStyles,
+        colors: hairColors,
+      },
+      {
+        key: "facialHair",
+        label: "Facial Hair",
+        value: facialHair,
+        color: facialHairColor,
+        styles: facialHairStyles,
+        colors: facialHairColors,
+      },
+      {
+        key: "body",
+        label: "Body",
+        value: body,
+        color: bodyColor,
+        styles: bodyStyles,
+        colors: bodyColors,
+      },
+      {
+        key: "eyes",
+        label: "Eyes",
+        value: eyes,
+        color: "#000",
+        styles: eyeStyles,
+        colors: [],
+      },
+      {
+        key: "mouth",
+        label: "Mouth",
+        value: mouth,
+        color: "#000",
+        styles: mouthStyles,
+        colors: [],
+      },
+      {
+        key: "nose",
+        label: "Nose",
+        value: nose,
+        color: "#000",
+        styles: noseStyles,
+        colors: [],
+      },
+      {
+        key: "bg",
+        label: "Background",
+        value: "Background",
+        color: bgColor,
+        styles: [],
+        colors: bgColors,
+      },
+    ];
     let rotation = "rotate(" ++ string_of_int(state.rotation * 50) ++ "deg)";
-    let pngImage =
-      List.map(state.options, o =>
-        <SvgLoader
-          style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
-          className="AvatarGenerator-png"
-          name={o.selectedStyle}
-          fill={o.selectedColor}
-          size="512"
-        />
-      );
-
-    let faceFeatures =
-      List.map(state.options, o =>
-        <SvgLoader
-          style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
-          className="AvatarGenerator-faceFeature"
-          name={o.selectedStyle}
-          fill={o.selectedColor}
-          size="150"
-        />
-      );
-
+    let pngImage = [];
     let styleOptions =
-      List.map(state.options, o =>
+      List.map(settings, s =>
         <Styler
-          id={o.id}
-          label={o.label}
-          colors={o.colors}
-          styles={o.styles}
-          selectedColor={o.selectedColor}
-          selectedStyle={o.selectedStyle}
-          onSelectColor={color => send(UpdateColor(o.id, color))}
-          onSelectStyle={style => send(UpdateStyle(o.id, style))}
+          id={s.key}
+          label={s.label}
+          selectedStyle={s.value}
+          selectedColor={s.color}
+          colors={s.colors}
+          styles={s.styles}
+          onSelectColor={
+            color => {
+              let key = s.key ++ "Color";
+              onChange(key, color);
+            }
+          }
+          onSelectStyle={style => {
+            onChange(s.key, style);
+          }}
         />
       );
+    let faceFeatures = [];
     <div className="AvatarGenerator-container">
       <div className="AvatarGenerator-pngContainer">
         {ReasonReact.array(List.toArray(pngImage))}
-    </div>
+      </div>
       <div className="AvatarGenerator-avatar">
         {ReasonReact.array(List.toArray(faceFeatures))}
       </div>
@@ -281,8 +183,7 @@ let make = (~onExport, _children) => {
       <div className="AvatarGenerator-row">
         {ReasonReact.array(List.toArray(styleOptions))}
       </div>
-      <button
-        onClick={_ => onExport()} className="Button-primary Text-button">
+      <button onClick={_ => onExport()} className="Button-primary Text-button">
         {ReasonReact.string("Download Avatar")}
       </button>
       <div className="AvatarGenerator-footer">
@@ -305,8 +206,3 @@ let make = (~onExport, _children) => {
     </div>;
   },
 };
-
-let default =
-  ReasonReact.wrapReasonForJs(~component, jsProps =>
-    make(~onExport=jsProps##onExport, [||])
-  );

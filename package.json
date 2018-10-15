@@ -17,6 +17,7 @@
     "history": "^4.7.2",
     "html2canvas": "^1.0.0-alpha.12",
     "normalize.css": "^8.0.0",
+    "qs": "^6.5.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",

@@ -1,7 +1,7 @@
 [%bs.raw {|require('./Button.css')|}];
 let component = ReasonReact.statelessComponent("Button");
 
-let make = (~style, ~label, ~href, _children) => {
+let make = (~style=?, ~label, ~href, _children) => {
   ...component,
   render: _self =>
     <a href=href style=?style className="Button Button--github">

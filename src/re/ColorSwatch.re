@@ -8,7 +8,7 @@ let make = (~value, ~selected, ~disabled=false, ~onSelect, _children) => {
       <div className="ColorSwatch-disabled" /> :
       <button
         onClick={_ => onSelect(value)}
-        style={ReactDOMRe.Style.make(~backgroundColor=value, ())}
+        style={ReactDOMRe.Style.make(~backgroundColor={j|#$value|j}, ())}
         className="ColorSwatch">
         {
           selected ?

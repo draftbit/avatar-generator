@@ -1,6 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import html2canvas from 'html2canvas'
+import createHistory from "history/createBrowserHistory"
+import btoa from 'btoa'
+import atob from 'atob'
+
+import App from '../re/App.bs'
 import ColorSwatch from '../re/ColorSwatch.bs'
 import AvatarGenerator from '../re/AvatarGenerator.bs'
 import IconLink from '../re/IconLink.bs'
@@ -10,18 +15,67 @@ import Button from '../re/Button.bs'
 
 import Layout from '../components/layout'
 
-const Wordmark = () => (
-  <a
-    href="https://draftbit.com"
-    title="Robust native front-end apps with usable code by Draftbit"
-  >
-    <Icon name="wordmark" />
-  </a>
-)
+function getQueryParams(str) {
+  if (!str) return {}
+  const qs = str.split('?')[1]
+  const pairs = qs.split('&')
+
+  return pairs.reduce((obj, pair) => {
+    const [key, value] = pair.split('=')
+    obj[key] = value
+    return obj
+  }, {})
+}
+
+const DEFAULT_STATE = {
+  skin: 'Skin',
+  skinColor: 'E4A070',
+  hairColor: '362C47',
+  hair: 'Bobbangs',
+  facialHair: 'Mustache',
+  facialHairColor: '362C47',
+  body: 'Round',
+  bodyColor: '456DFF',
+  eyes: 'Sunglasses',
+  mouth: 'Smile',
+  nose: 'Wrinkles',
+  bgColor: '93A7FF',
+}
+
+function mapQueryParams(params) {
+  return Object.assign({}, DEFAULT_STATE, params)
+}
+
+function stringifyQueryParams(params) {
+  const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
+  return `?${queryString}`;
+}
 
 export default class IndexPage extends React.PureComponent {
   state = {
+    config: DEFAULT_STATE,
     showModal: false,
+  }
+
+  componentDidMount() {
+    this.history = createHistory()
+    this.unlisten = this.history.listen((location, action) => {
+      const params = getQueryParams(this.history.location.search)
+      const config = mapQueryParams(params)
+      const hash = btoa(JSON.stringify(config))
+      console.log('hash', hash)
+      const answer = atob(hash)
+      console.log('answer', answer)
+      this.setState({ config })
+    })
+  }
+
+  _onChange = (key, value) => {
+    const change = {[key]: value}
+    const oldParams = mapQueryParams(getQueryParams(window.location.search))
+    const newParams = mapQueryParams({...oldParams, ...change })
+    const stringParams = stringifyQueryParams(newParams)
+    this.history.push(`/${stringParams}`)
   }
 
   _exportImage = async () => {
@@ -44,7 +98,6 @@ export default class IndexPage extends React.PureComponent {
   render() {
     const config = this.props.data.allDataJson.edges[0].node
     const urlState = this.state.config
-    console.log('urlstate', urlState)
     return (
       <Layout>
         <App

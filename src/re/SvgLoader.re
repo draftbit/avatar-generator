@@ -75,6 +75,8 @@ let make =
     (~style=?, ~className="", ~name, ~fill="#000", ~size="64", _children) => {
   ...component,
   render: _self => {
+      Js.log("NAME");
+      Js.log(name);
     let getHtml = name =>
       switch (name) {
       | "Skin" => getSkin(fill, size)
