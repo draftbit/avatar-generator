@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import html2canvas from 'html2canvas'
+import createHistory from "history/createBrowserHistory"
+
 import ColorSwatch from '../../re/ColorSwatch.bs'
 import AvatarGenerator from '../../re/AvatarGenerator.bs'
 import IconLink from '../../re/IconLink.bs'
@@ -37,7 +39,7 @@ function mapQueryParams(params) {
 
 function stringifyQueryParams(params) {
   const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-  return `?${queryString}`;
+  return queryString;
 }
 
 const DEFAULT_STYLES = {
@@ -57,16 +59,23 @@ const DEFAULT_STYLES = {
 
 export default class IndexPage extends React.PureComponent {
   state = {
-    styles: DEFAULT_STYLES,
+    location: {},
     showModal: false,
+  }
+
+  componentDidMount() {
+    this.history = createHistory()
+    this.unlisten = this.history.listen((location, action) => {
+      this.setState({ location })
+    })
   }
 
   _onChange = (key, value) => {
     const change = {[key]: value}
     const oldParams = mapQueryParams(getQueryParams(window.location.search))
     const styles = mapQueryParams({...oldParams, ...change })
-    console.log('styles', styles)
-    this.setState({ styles })
+    const params = stringifyQueryParams(styles)
+    this.history.push(`/?${params}`)
   }
 
   _exportImage = async () => {
@@ -87,8 +96,10 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
-    const { styles } = this.state
+    const { location } = this.state
+    const params = getQueryParams(location.search)
     const config = this.props.data.allDataJson.edges[0].node
+
     return (
       <Layout>
         <div className="body-bg-left" />

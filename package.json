@@ -12,12 +12,12 @@
     "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-source-filesystem": "^2.0.3",
     "gatsby-transformer-json": "^2.1.4",
+    "history": "^4.7.2",
     "html2canvas": "^1.0.0-alpha.12",
     "normalize.css": "^8.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
-    "react-history": "^0.18.2",
     "reason-react": "^0.5.3"
   },
   "keywords": [
