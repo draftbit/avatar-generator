@@ -56,7 +56,12 @@ let make =
           </h2>
         </div>
       </header>
-      <main className="Layout-main"> <AvatarGenerator onExport /> </main>
+      <main className="Layout-main">
+        <AvatarGenerator
+          onChange
+          onExport
+        />
+      </main>
       <footer className="Layout-footer">
         <div className="Layout-left">
           <span className="Text-overline">

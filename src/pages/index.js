@@ -4,23 +4,7 @@ import html2canvas from 'html2canvas'
 import createHistory from "history/createBrowserHistory"
 
 import App from '../../re/App.bs'
-import ColorSwatch from '../../re/ColorSwatch.bs'
-import AvatarGenerator from '../../re/AvatarGenerator.bs'
-import IconLink from '../../re/IconLink.bs'
-import Modal from '../../re/Modal.bs'
-import Icon from '../../re/Icon.bs'
-import Button from '../../re/Button.bs'
-
 import Layout from '../components/layout'
-
-const Wordmark = () => (
-  <a
-    href="https://draftbit.com"
-    title="Robust native front-end apps with usable code by Draftbit"
-  >
-    <Icon name="wordmark" />
-  </a>
-)
 
 function getQueryParams(str) {
   if (!str) return {}
@@ -103,7 +87,7 @@ export default class IndexPage extends React.PureComponent {
 
     return (
       <Layout>
-        <App />
+        <App {...config} {...params} />
       </Layout>
     )
   }

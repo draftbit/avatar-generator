@@ -44,7 +44,7 @@ let skin = [
   "#B16A5B",
   "#92594B",
   "#623D36",
-  "#C9E6DC"
+  "#C9E6DC",
 ];
 
 let disabled_colors = [
@@ -102,7 +102,7 @@ let background = [
   "#F8FBFF",
 ];
 
-let make = (~onExport, _children) => {
+let make = (~onChange, ~onExport, _children) => {
   ...component,
   initialState: () => {
     rotation: 0,
@@ -303,8 +303,3 @@ let make = (~onExport, _children) => {
     </div>;
   },
 };
-
-let default =
-  ReasonReact.wrapReasonForJs(~component, jsProps =>
-    make(~onExport=jsProps##onExport, [||])
-  );
