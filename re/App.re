@@ -92,7 +92,7 @@ let make =
         label: "NOSE",
         colors: List.fromArray(disabledColors),
         styles: List.fromArray(noseStyles),
-        selectedColor: "000000",
+        selectedColor: skinColor,
         selectedStyle: nose
       },
       {

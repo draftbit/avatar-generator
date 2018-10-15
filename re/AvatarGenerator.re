@@ -13,12 +13,12 @@ type _settings = {
 
 let getZIndex = id =>
   switch (id) {
+  | "Eyes" => "110"
   | "Nose" => "100"
   | "FacialHair" => "90"
   | "Mouth" => "80"
+  | "Body" => "75"
   | "Hair" => "70"
-  | "Eyes" => "60"
-  | "Body" => "50"
   | "Head" => "40"
   | "Skin" => "30"
   | "Background" => "20"
