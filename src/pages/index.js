@@ -82,7 +82,7 @@ export default class IndexPage extends React.PureComponent {
     this.setState({ styles })
 
     const params = stringifyQueryParams(styles)
-    navigate(`/?${params}`)
+    window.history.pushState({}, null, `?${params}`)
   }
 
   _randomize = () => {
@@ -91,7 +91,7 @@ export default class IndexPage extends React.PureComponent {
     this.setState({ styles })
 
     const params = stringifyQueryParams(styles)
-    navigate(`/?${params}`)
+    window.history.pushState({}, null, `?${params}`)
   }
 
   _exportImage = async () => {
