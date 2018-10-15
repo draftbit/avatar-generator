@@ -42,10 +42,10 @@ let getMouthSmile = (fill, size) => {j|<svg width="$size" height="$size" viewBox
 let getMouthSmirk = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><path fill="#1b0640" d="M30.318 41.728a.75.75 0 0 1 .364-1.456c2.433.609 4.165.32 5.288-.802a.75.75 0 0 1 1.06 1.06c-1.544 1.545-3.812 1.923-6.712 1.198z"/></svg>|j};
 let getMouthSurprise = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><ellipse cx="32" cy="41" fill="#1b0640" rx="2" ry="2.5"/></svg>|j};
 
-let getNoseMediumround = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><path fill="$fill" d="M28.25 33a.75.75 0 0 1 1.5 0c0 .836.914 1.75 2.25 1.75s2.25-.914 2.25-1.75a.75.75 0 1 1 1.5 0c0 1.664-1.586 3.25-3.75 3.25-2.164 0-3.75-1.586-3.75-3.25z"/></svg>|j};
-let getNoseSmallround = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><path fill="$fill" d="M29.288 35.237a.75.75 0 1 1 1.424-.474c.233.699.617.987 1.288.987s1.055-.288 1.288-.987a.75.75 0 1 1 1.424.474c-.434 1.301-1.383 2.013-2.712 2.013s-2.278-.712-2.712-2.013z"/></svg>|j};
+let getMediumround = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><g fill="none"><path fill="$fill" d="M28.25 34a.75.75 0 0 1 .75-.75h6a.75.75 0 0 1 .75.75c0 1.664-1.586 3.25-3.75 3.25s-3.75-1.586-3.75-3.25z"/><path fill="#fff" d="M35 33.25a.75.75 0 0 0-.75.75c0 .836-.914 1.75-2.25 1.75s-2.25-.914-2.25-1.75a.75.75 0 0 0-.75-.75v-.002h6z" opacity=".3"/></g></svg>|j};
+let getSmallround = (fill, size) => {j|<svg width="$size" height="$size" viewBox="0 0 64 64"><g fill="none"><path fill="$fill" d="M29.288 35.237a.75.75 0 0 1 .475-.949c.195-.065.885-.035 2.237-.035s2.04-.03 2.237.035a.75.75 0 0 1 .475.95c-.434 1.3-1.383 2.012-2.712 2.012s-2.278-.712-2.712-2.013z"/><path fill="#fff" d="M30.055 34.252h3.89a.75.75 0 0 0-.657.51c-.233.7-.617.988-1.288.988s-1.055-.288-1.288-.987a.75.75 0 0 0-.657-.511z" opacity=".3"/></g></svg>|j};
 let getNoseWrinkles = (fill, size) => {j|
-<svg viewBox="0 0 64 64">
+<svg width="$size" height="$size" viewBox="0 0 64 64">
   <g fill="none">
   <path fill="$fill" d="M29.206 31.779h5.588a.75.75 0 0 1 .794.255c.037.03.084.061.1.104.208.575.284 1.278.228 2.11-.223 1.614-1.589 2.502-3.916 2.502-2.321 0-3.686-.884-3.914-2.488-.057-.841.022-1.55.237-2.124.012-.032.045-.057.071-.08a.75.75 0 0 1 .812-.28z"/>
   <path style="mix-blend-mode: overlay" fill="#fff" d="M34.794 31.779a.75.75 0 0 0-.515.927c.523 1.83-.089 2.544-2.279 2.544s-2.802-.713-2.279-2.544A.75.75 0 0 0 29 31.75h6a.75.75 0 0 0-.206.029z" opacity=".3"/>
