@@ -39,7 +39,7 @@ module.exports = {
         typeName: 'Config',
         path: `./src/data/`,
       },
-},
+    },
     'gatsby-plugin-offline',
     `gatsby-plugin-netlify`,
   ],

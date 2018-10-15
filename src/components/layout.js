@@ -24,9 +24,9 @@ const Layout = ({ children }) => (
           title={data.site.siteMetadata.title}
           link={[
             {
-              "rel": "canonical",
-              "href": "https://personas.draftbit.com"
-            }
+              rel: 'canonical',
+              href: 'https://personas.draftbit.com',
+            },
           ]}
           meta={[
             {
@@ -47,7 +47,7 @@ const Layout = ({ children }) => (
             },
             {
               name: 'twitter:image',
-              content: "https://personas.draftbit.com/web-preview-1x1.png"
+              content: 'https://personas.draftbit.com/web-preview-1x1.png',
             },
             {
               name: 'twitter:description',
@@ -59,7 +59,10 @@ const Layout = ({ children }) => (
             },
             { property: 'fb:app_id', content: '292869531545861' },
             { property: 'og:type', content: 'website' },
-            { property: 'og:image', content: 'https://personas.draftbit.com/web-preview.png' },
+            {
+              property: 'og:image',
+              content: 'https://personas.draftbit.com/web-preview.png',
+            },
             { property: 'og:title', content: 'Personas by Draftbit' },
             { property: 'og:url', content: 'https://personas.draftbit.com' },
             {

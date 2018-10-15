@@ -22,13 +22,15 @@ function mapQueryParams(params, defaultStyles) {
 }
 
 function stringifyQueryParams(params) {
-  const queryString = Object.keys(params).map(key => key + '=' + params[key]).join('&');
-  return queryString;
+  const queryString = Object.keys(params)
+    .map(key => key + '=' + params[key])
+    .join('&')
+  return queryString
 }
 
 function getRandom(list) {
-  const l = list.length;
-  return list[Math.floor(Math.random() * l)];
+  const l = list.length
+  return list[Math.floor(Math.random() * l)]
 }
 
 function randomizeStyles(config) {
@@ -44,7 +46,7 @@ function randomizeStyles(config) {
     eyes: getRandom(config.eyeStyles),
     mouth: getRandom(config.mouthStyles),
     nose: getRandom(config.noseStyles),
-    bgColor: getRandom(config.bgColors)
+    bgColor: getRandom(config.bgColors),
   }
 }
 
@@ -65,20 +67,21 @@ const DEFAULT_STYLES = {
 
 export default class IndexPage extends React.PureComponent {
   constructor(props) {
-    super(props);
-      const config = this.props.data.allDataJson.edges[0].node
-      const params = getQueryParams(this.props.location.search)
-      const styles = Object.keys(params).length > 0 ? params : randomizeStyles(config)
+    super(props)
+    const config = this.props.data.allDataJson.edges[0].node
+    const params = getQueryParams(this.props.location.search)
+    const styles =
+      Object.keys(params).length > 0 ? params : randomizeStyles(config)
 
-      this.state = {
-        styles,
-        showModal: false,
-      }
+    this.state = {
+      styles,
+      showModal: false,
+    }
   }
 
   _onChange = (key, value) => {
-    const change = {[key]: value}
-    const styles = mapQueryParams({...this.state.styles, ...change })
+    const change = { [key]: value }
+    const styles = mapQueryParams({ ...this.state.styles, ...change })
     this.setState({ styles })
 
     const params = stringifyQueryParams(styles)
@@ -117,7 +120,15 @@ export default class IndexPage extends React.PureComponent {
 
     return (
       <Layout>
-        <App onToggleModal={() => this.setState({ showModal: false })} showModal={showModal} {...config} {...styles} onChange={this._onChange} onExport={this._exportImage} randomize={this._randomize} />
+        <App
+          onToggleModal={() => this.setState({ showModal: false })}
+          showModal={showModal}
+          {...config}
+          {...styles}
+          onChange={this._onChange}
+          onExport={this._exportImage}
+          randomize={this._randomize}
+        />
       </Layout>
     )
   }
