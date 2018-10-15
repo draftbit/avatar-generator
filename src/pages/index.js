@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import html2canvas from 'html2canvas'
 import ColorSwatch from '../re/ColorSwatch.bs'
 import AvatarGenerator from '../re/AvatarGenerator.bs'
@@ -42,6 +42,7 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
+     const config = this.props.data.allDataJson.edges[0].node
     return (
       <Layout>
         <div className="body-bg-left" />
@@ -95,3 +96,28 @@ export default class IndexPage extends React.PureComponent {
     )
   }
 }
+
+export const query = graphql`
+  query ConfigQuery {
+    allDataJson {
+      edges {
+        node {
+          skinStyles
+          hairStyles
+          facialHairStyles
+          bodyStyles
+          eyeStyles
+          mouthStyles
+          noseStyles
+          bgStyles
+          skinColors
+          hairColors
+          facialHairColors
+          bodyColors
+          bgColors
+          disabledColors
+        }
+      }
+    }
+  }
+`
