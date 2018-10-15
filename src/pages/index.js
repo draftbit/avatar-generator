@@ -32,7 +32,7 @@ function getQueryParams(str) {
 }
 
 function mapQueryParams(params) {
-  return Object.assign({}, DEFAULT_STATE, params)
+  return Object.assign({}, DEFAULT_STYLES, params)
 }
 
 function stringifyQueryParams(params) {
