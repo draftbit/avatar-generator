@@ -69,7 +69,7 @@ export default class IndexPage extends React.PureComponent {
           </div>
           <div className="Layout-right">
             <span className="Text-marketing mb-2">
-              Visually build robust native front-end apps with usable code.
+              Visually build robust, native mobile apps with clean, reusable code.
             </span>
             <br />
             <IconLink
