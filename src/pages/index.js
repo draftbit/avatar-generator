@@ -112,12 +112,12 @@ export default class IndexPage extends React.PureComponent {
   }
 
   render() {
-    const { styles } = this.state
+    const { styles, showModal } = this.state
     const config = this.props.data.allDataJson.edges[0].node
 
     return (
       <Layout>
-        <App {...config} {...styles} onChange={this._onChange} onExport={this._exportImage} randomize={this._randomize} />
+        <App onToggleModal={() => this.setState({ showModal: false })} showModal={showModal} {...config} {...styles} onChange={this._onChange} onExport={this._exportImage} randomize={this._randomize} />
       </Layout>
     )
   }

@@ -3,6 +3,8 @@ open Belt;
 let component = ReasonReact.statelessComponent("App");
 let make =
     (
+      ~onToggleModal,
+      ~showModal,
       ~skin,
       ~skinColor,
       ~hair,
@@ -165,6 +167,7 @@ let make =
           label="View on Github"
         />
       </div>
+      <Modal visible=showModal onToggle=onToggleModal />
     </>
   }
 };
@@ -172,6 +175,8 @@ let make =
 let default =
   ReasonReact.wrapReasonForJs(~component, jsProps =>
     make(
+      ~onToggleModal=jsProps##onToggleModal,
+      ~showModal=jsProps##showModal,
       ~skin=jsProps##skin,
       ~skinColor=jsProps##skinColor,
       ~hair=jsProps##hair,
