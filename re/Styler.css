@@ -14,10 +14,11 @@
   letter-spacing: 2.6px;
   color: #7c7f91;
   text-transform: uppercase;
+  margin-bottom: 14px;
+  display: inline-block;
 }
 
 .Styler-model {
-  margin-top: 14px;
   overflow: hidden;
   width: 64px;
   height: 64px;
