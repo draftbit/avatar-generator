@@ -31,6 +31,7 @@ let make =
       ~disabledColors,
       ~onExport,
       ~onChange,
+      ~randomize,
       _children,
     ) => {
   ...component,
@@ -126,6 +127,7 @@ let make =
         <AvatarGenerator
           onChange
           onExport
+          randomize
           settings
         />
       </main>
@@ -196,6 +198,7 @@ let default =
       ~bodyColors=jsProps##bodyColors,
       ~bgColors=jsProps##bgColors,
       ~disabledColors=jsProps##disabledColors,
+      ~randomize=jsProps##randomize,
       ~onExport=jsProps##onExport,
       ~onChange=jsProps##onChange,
       [||],

@@ -31,13 +31,16 @@ type action =
   | Randomize;
 
 let component = ReasonReact.reducerComponent("AvatarGenerator");
-let make = (~settings, ~onChange, ~onExport, _children) => {
+let make = (~randomize, ~settings, ~onChange, ~onExport, _children) => {
   ...component,
   initialState: () => {rotation: 0},
   reducer: (action, state) =>
     switch (action) {
     | Randomize =>
-      ReasonReact.Update({rotation: state.rotation + 1})
+      ReasonReact.UpdateWithSideEffects({rotation: state.rotation + 1}, _self => {
+        Js.log("randomize");
+        randomize();
+      })
     },
   render: ({state, send}) => {
     let rotation = "rotate(" ++ string_of_int(state.rotation * 50) ++ "deg)";
