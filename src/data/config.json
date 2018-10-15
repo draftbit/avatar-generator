@@ -12,17 +12,32 @@
     "Hightopcurly",
     "Long",
     "Pigtails",
-    "Shortcombover"
+    "Shortcombover",
+    "Beanie",
+    "Bunundercut",
+    "Buzz",
+    "Extralong",
+    "Fade",
+    "Hat",
+    "Mohawk",
+    "Shortcomboverchops",
+    "Sidebuzz",
+    "Straightbun"
   ],
   "facialHairStyles": [
     "BeardMustache",
     "Mustache",
-    "None"
+    "None",
+    "Goatee",
+    "Shadow",
+    "Soulpatch",
+    "Walrus"
   ],
   "bodyStyles": [
     "Oval",
     "Round",
-    "Square"
+    "Square",
+    "Checkered"
   ],
   "eyeStyles": [
     "Glasses",

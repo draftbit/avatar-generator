@@ -1,17 +1,29 @@
-| "Bald" => <div dangerouslySetInnerHTML={"__html": getBald(fill, size)} />
-| "Balding" => <div dangerouslySetInnerHTML={"__html": getBalding(fill, size)} />
-| "Bigcurls" => <div dangerouslySetInnerHTML={"__html": getBigcurls(fill, size)} />
-| "Bobbangs" => <div dangerouslySetInnerHTML={"__html": getBobbangs(fill, size)} />
-| "Bobcut" => <div dangerouslySetInnerHTML={"__html": getBobcut(fill, size)} />
-| "Buncurls-black" => <div dangerouslySetInnerHTML={"__html": getBuncurls-black(fill, size)} />
-| "Buzzcut" => <div dangerouslySetInnerHTML={"__html": getBuzzcut(fill, size)} />
-| "Curlybun" => <div dangerouslySetInnerHTML={"__html": getCurlybun(fill, size)} />
-| "Curlyhightop" => <div dangerouslySetInnerHTML={"__html": getCurlyhightop(fill, size)} />
-| "Hightopcurly-black" => <div dangerouslySetInnerHTML={"__html": getHightopcurly-black(fill, size)} />
-| "Long" => <div dangerouslySetInnerHTML={"__html": getLong(fill, size)} />
-| "Pigtails" => <div dangerouslySetInnerHTML={"__html": getPigtails(fill, size)} />
-| "Shortcombover" => <div dangerouslySetInnerHTML={"__html": getShortcombover(fill, size)} />
-| "Oval" => <div dangerouslySetInnerHTML={"__html": getOval(fill, size)} />
-| "Round" => <div dangerouslySetInnerHTML={"__html": getRound(fill, size)} />
-| "Small" => <div dangerouslySetInnerHTML={"__html": getSmall(fill, size)} />
-| "Square" => <div dangerouslySetInnerHTML={"__html": getSquare(fill, size)} />
+| "Bald" => getBald(fill, size)}
+| "Balding" => getBalding(fill, size)}
+| "Beanie" => getBeanie(fill, size)}
+| "Bunundercut" => getBunundercut(fill, size)}
+| "Buzz" => getBuzz(fill, size)}
+| "Extralong" => getExtralong(fill, size)}
+| "Fade" => getFade(fill, size)}
+| "Hat" => getHat(fill, size)}
+| "Mohawk" => getMohawk(fill, size)}
+| "Shortcomboverchops" => getShortcomboverchops(fill, size)}
+| "Sidebuzz" => getSidebuzz(fill, size)}
+| "Straightbun" => getStraightbun(fill, size)}
+| "Bald" => getBald(fill, size)}
+| "Balding" => getBalding(fill, size)}
+| "Beanie" => getBeanie(fill, size)}
+| "Bunundercut" => getBunundercut(fill, size)}
+| "Buzz" => getBuzz(fill, size)}
+| "Extralong" => getExtralong(fill, size)}
+| "Fade" => getFade(fill, size)}
+| "Hat" => getHat(fill, size)}
+| "Mohawk" => getMohawk(fill, size)}
+| "Shortcomboverchops" => getShortcomboverchops(fill, size)}
+| "Sidebuzz" => getSidebuzz(fill, size)}
+| "Straightbun" => getStraightbun(fill, size)}
+| "Goatee" => getGoatee(fill, size)}
+| "Shadow" => getShadow(fill, size)}
+| "Soulpatch" => getSoulpatch(fill, size)}
+| "Walrus" => getWalrus(fill, size)}
+| "Checkered" => getCheckered(fill, size)}

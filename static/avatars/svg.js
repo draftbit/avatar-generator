@@ -129,7 +129,7 @@ const svgo = new SVGO({
 const createCode = (name, code) =>
   `let get${name} = (fill, size) => {j|${code}|j};\n`
 const createExport = name =>
-  `| "${name}" => <div dangerouslySetInnerHTML={"__html": get${name}(fill, size)} />\n`
+  `| "${name}" => get${name}(fill, size)}\n`
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -147,6 +147,7 @@ async function runSvgo(path) {
     'utf-8'
   )
   await appendFileAsync('Exports.js', createExport(fileName), 'utf-8')
+  await appendFileAsync('array.js', `"${fileName}",\n`, 'utf-8')
   fs.writeFileSync(`${folder}/${path}`, result.data, 'utf-8')
   return path
 }
