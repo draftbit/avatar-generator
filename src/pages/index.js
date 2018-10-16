@@ -5,17 +5,6 @@ import html2canvas from 'html2canvas'
 import App from '../../re/App.bs'
 import Layout from '../components/layout'
 
-function mapQueryParams(params, defaultStyles) {
-  return Object.assign({}, defaultStyles, params)
-}
-
-function stringifyQueryParams(params) {
-  const queryString = Object.keys(params)
-    .map(key => key + '=' + params[key])
-    .join('&')
-  return queryString
-}
-
 function getRandom(list) {
   const l = list.length
   return list[Math.floor(Math.random() * l)]
@@ -37,19 +26,18 @@ function randomizeStyles(config) {
     bgColor: getRandom(config.bgColors),
   }
 }
-
 const DEFAULT_STYLES = {
   skin: 'Skin',
-  skinColor: 'E4A070',
-  hairColor: '362C47',
-  hair: 'Bobbangs',
-  facialHair: 'Mustache',
+  skinColor: '623D36',
+  hairColor: 'DEE1F5',
+  hair: 'Extralong',
+  facialHair: 'None',
   facialHairColor: '362C47',
-  body: 'Round',
+  body: 'Checkered',
   bodyColor: '456DFF',
-  eyes: 'Sunglasses',
+  eyes: 'Glasses',
   mouth: 'Smile',
-  nose: 'Wrinkles',
+  nose: 'Smallround',
   bgColor: '93A7FF',
 }
 
@@ -57,18 +45,19 @@ export default class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props)
     const config = this.props.data.allDataJson.edges[0].node
-    const styles = randomizeStyles(config)
 
     this.state = {
-      styles,
+      styles: DEFAULT_STYLES,
       showModal: false,
     }
   }
 
   _onChange = (key, value) => {
     const change = { [key]: value }
-    const styles = mapQueryParams({ ...this.state.styles, ...change })
-    this.setState({ styles })
+    this.setState({ styles: {
+      ...this.state.styles,
+      ...change
+    } })
   }
 
   _randomize = () => {
