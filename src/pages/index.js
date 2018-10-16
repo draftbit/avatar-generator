@@ -28,17 +28,17 @@ function randomizeStyles(config) {
 }
 const DEFAULT_STYLES = {
   skin: 'Skin',
-  skinColor: '623D36',
+  skinColor: 'B16A5B',
   hairColor: 'E16381',
   hair: 'Balding',
   facialHair: 'Mustache',
   facialHairColor: '6C4545',
-  body: 'Checkered',
-  bodyColor: '456DFF',
+  body: 'Square',
+  bodyColor: '5A45FF',
   eyes: 'Glasses',
   mouth: 'Pacifier',
   nose: 'Smallround',
-  bgColor: '93A7FF',
+  bgColor: 'FFCC65',
 }
 
 export default class IndexPage extends React.PureComponent {
