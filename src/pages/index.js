@@ -5,18 +5,6 @@ import html2canvas from 'html2canvas'
 import App from '../../re/App.bs'
 import Layout from '../components/layout'
 
-function getQueryParams(str = '') {
-  if (!str) return {}
-  const qs = str.split('?')[1]
-  const pairs = qs.split('&')
-
-  return pairs.reduce((obj, pair) => {
-    const [key, value] = pair.split('=')
-    obj[key] = value
-    return obj
-  }, {})
-}
-
 function mapQueryParams(params, defaultStyles) {
   return Object.assign({}, defaultStyles, params)
 }
@@ -69,9 +57,7 @@ export default class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props)
     const config = this.props.data.allDataJson.edges[0].node
-    const params = getQueryParams(this.props.location.search)
-    const styles =
-      Object.keys(params).length > 0 ? params : randomizeStyles(config)
+    const styles = randomizeStyles(config)
 
     this.state = {
       styles,
