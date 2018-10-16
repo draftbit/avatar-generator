@@ -83,18 +83,12 @@ export default class IndexPage extends React.PureComponent {
     const change = { [key]: value }
     const styles = mapQueryParams({ ...this.state.styles, ...change })
     this.setState({ styles })
-
-    const params = stringifyQueryParams(styles)
-    window.history.pushState({}, null, `?${params}`)
   }
 
   _randomize = () => {
     const config = this.props.data.allDataJson.edges[0].node
     const styles = randomizeStyles(config)
     this.setState({ styles })
-
-    const params = stringifyQueryParams(styles)
-    window.history.pushState({}, null, `?${params}`)
   }
 
   _exportImage = async () => {
