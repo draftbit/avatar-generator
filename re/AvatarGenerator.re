@@ -1,5 +1,3 @@
-open Belt;
-
 [%bs.raw {|require('./AvatarGenerator.css')|}];
 
 type _settings = {
@@ -123,17 +121,17 @@ let make = (~randomize, ~settings, ~onChange, ~onExport) => {
        ->React.array}
     </div>
     <button onClick={_ => onExport()} className="Button-primary Text-button">
-      {ReasonReact.string("Download Avatar")}
+      {React.string("Download Avatar")}
     </button>
     <div className="AvatarGenerator-footer">
       <img width="32" height="32" src="/images/sketch.svg" />
       <div className="AvatarGenerator-footerTop">
         <span className="Text-cta-title mb-1">
-          {ReasonReact.string("Want to make your own?")}
+          {React.string("Want to make your own?")}
         </span>
         <br />
         <span className="Text-cta-subtitle">
-          {ReasonReact.string("Get the Sketch file on Gumroad.")}
+          {React.string("Get the Sketch file on Gumroad.")}
         </span>
       </div>
       <IconLink

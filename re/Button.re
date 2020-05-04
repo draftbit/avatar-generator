@@ -9,6 +9,6 @@ let make = (~style=?, ~label, ~href) => {
       height="24"
       src="/images/github.svg"
     />
-    <span className="Button-label"> {ReasonReact.string(label)} </span>
+    <span className="Button-label"> {React.string(label)} </span>
   </a>;
 };

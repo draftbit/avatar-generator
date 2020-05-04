@@ -42,6 +42,6 @@ let make = (~style=?, ~name) => {
         />
       </g>
     </svg>
-  | _ => ReasonReact.null
+  | _ => React.null
   };
 };

@@ -196,7 +196,7 @@ let make = (~style=?, ~className="", ~name, ~fill="#000", ~size="64") => {
     };
 
   getHtml(name) == ""
-    ? ReasonReact.null
+    ? React.null
     : <div
         className
         ?style

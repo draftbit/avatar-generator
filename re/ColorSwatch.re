@@ -10,6 +10,6 @@ let make = (~value, ~selected, ~disabled=false, ~onSelect) => {
         className="ColorSwatch">
         {selected
            ? <img width="20" height="20" src="/images/checkmark.svg" />
-           : ReasonReact.null}
+           : React.null}
       </button>;
 };

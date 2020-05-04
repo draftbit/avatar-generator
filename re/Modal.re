@@ -3,7 +3,7 @@
 [@react.component]
 let make = (~visible, ~onToggle) => {
   switch (visible) {
-  | false => ReasonReact.null
+  | false => React.null
   | _ =>
     <>
       <div onClick={_ => onToggle()} className="Modal-overlay" />
@@ -17,10 +17,10 @@ let make = (~visible, ~onToggle) => {
           />
         </button>
         <h3 className="Modal-title">
-          {ReasonReact.string("Enjoy your avatar!")}
+          {React.string("Enjoy your avatar!")}
         </h3>
         <span className="Modal-subtitle">
-          {ReasonReact.string(
+          {React.string(
              "Share it with your friends and see what ridiculousness they come up with!",
            )}
         </span>
@@ -36,7 +36,7 @@ let make = (~visible, ~onToggle) => {
               height="16"
               src="/images/twitter.svg"
             />
-            <span> {ReasonReact.string("Twitter")} </span>
+            <span> {React.string("Twitter")} </span>
           </a>
           <a
             target="_blank"
@@ -49,7 +49,7 @@ let make = (~visible, ~onToggle) => {
               height="16"
               src="/images/producthunt.svg"
             />
-            <span> {ReasonReact.string("Product Hunt")} </span>
+            <span> {React.string("Product Hunt")} </span>
           </a>
         </div>
       </div>
