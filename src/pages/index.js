@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, navigate, withPrefix } from 'gatsby'
 import html2canvas from 'html2canvas'
 
-import App from '../../re/App.bs'
+import { make as App } from '../../re/App.bs'
 import Layout from '../components/layout'
 
 function getRandom(list) {
@@ -54,10 +54,12 @@ export default class IndexPage extends React.PureComponent {
 
   _onChange = (key, value) => {
     const change = { [key]: value }
-    this.setState({ styles: {
-      ...this.state.styles,
-      ...change
-    } })
+    this.setState({
+      styles: {
+        ...this.state.styles,
+        ...change,
+      },
+    })
   }
 
   _randomize = () => {

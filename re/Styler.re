@@ -20,7 +20,7 @@ let make =
       ~onSelectColor,
       ~onSelectStyle,
     ) => {
-  let (state, dispatch) =
+  let (_, dispatch) =
     React.useReducer(
       (state, action) =>
         switch (action) {
@@ -30,11 +30,13 @@ let make =
               ? 1 : - Array.length(styles) + 1;
           let index = state.index + inc;
           let style = styles[index];
+          onSelectStyle({j|$style|j});
           {index: index};
         | Decrement =>
           let inc = state.index > 0 ? 1 : - Array.length(styles) + 1;
           let index = state.index - inc;
           let style = styles[index];
+          onSelectStyle({j|$style|j});
           {index: index};
         },
       {index: 0},

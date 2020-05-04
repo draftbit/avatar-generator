@@ -32,12 +32,13 @@ type action =
 
 [@react.component]
 let make = (~randomize, ~settings, ~onChange, ~onExport) => {
-  Js.log(randomize);
   let (state, dispatch) =
     React.useReducer(
       (state, action) =>
         switch (action) {
-        | Randomize => {rotation: state.rotation + 1}
+        | Randomize =>
+          randomize();
+          {rotation: state.rotation + 1};
         },
       {rotation: 0},
     );
