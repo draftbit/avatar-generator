@@ -17,7 +17,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
-    "reason-react": "^0.5.3"
+    "reason-react": "^0.7.1"
   },
   "keywords": [
     "persona-avatar-generator",
@@ -33,7 +33,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "bs-platform": "^4.0.6",
+    "bs-platform": "^7.3.1",
     "prettier": "1.14.2"
   },
   "repository": {
