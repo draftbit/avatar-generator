@@ -5143,7 +5143,7 @@ gatsby-transformer-json@^2.1.4:
     "@babel/runtime" "^7.9.2"
     bluebird "^3.7.2"
 
-gatsby@^2.21.11:
+gatsby@^2.0.0:
   version "2.21.11"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.21.11.tgz#4523c1a44034210f18960a69d9a4bc1218e2e7e1"
   integrity sha512-TODjPFbcFksvIrrR3NmkDlJ3PjmFxj3ZkxaF/Z6nbCNssgQFFtz04QSLgPXE8cN57Nu3Y6KMeJWPNWYyazRvBw==
