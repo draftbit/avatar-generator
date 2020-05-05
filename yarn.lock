@@ -9435,7 +9435,7 @@ react-dev-utils@^9.1.0:
     strip-ansi "5.2.0"
     text-table "0.2.0"
 
-react-dom@>=16.8.1, react-dom@^16.5.1:
+react-dom@^16.5.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -9516,7 +9516,7 @@ react-side-effect@^1.1.0:
   dependencies:
     shallowequal "^1.0.1"
 
-react@>=16.8.1, react@^16.5.1, react@^16.8.0:
+react@^16.5.1, react@^16.8.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
@@ -9605,13 +9605,10 @@ readdirp@~3.4.0:
   dependencies:
     picomatch "^2.2.1"
 
-reason-react@^0.7.1:
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.7.1.tgz#e6acea88542cd44398cd980093b8a2ab2722744e"
-  integrity sha512-Ssx4jZYohMHW9ZiW893IfbYdZw/muSmPFKigAgL+AORUgyiaphb0PP4yRGlx9A7JAxR3EeBn294XKUaClJQhbA==
-  dependencies:
-    react ">=16.8.1"
-    react-dom ">=16.8.1"
+reason-react@0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.8.0.tgz#a55143f95a872596c92b54595e7904c03ee7c9db"
+  integrity sha512-97AfK3eCF6vfP8rnbq3k6GgXsZt//OiPMINTUk5luJ8W0Wt/JaYsDG6eWKP8Zx3gPpxSU1EPjB1pUm6o6fBnFA==
 
 recursive-readdir@2.2.1:
   version "2.2.1"
