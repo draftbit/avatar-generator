@@ -8,7 +8,7 @@ type action =
   | Increment
   | Decrement;
 
-let component = ReasonReact.reducerComponent("Styler");
+[@react.component]
 let make =
     (
       ~id,
@@ -19,35 +19,36 @@ let make =
       ~selectedStyle,
       ~onSelectColor,
       ~onSelectStyle,
-      _children,
     ) => {
-  ...component,
-  initialState: () => {index: 0},
-  reducer: (action, state) =>
-    switch (action) {
-    | Increment =>
-      let inc =
-        List.length(styles) - 1 > state.index ?
-          1 : - List.length(styles) + 1;
-      let index = state.index + inc;
-      let style = List.get(styles, index);
-      ReasonReact.UpdateWithSideEffects(
-        {...state, index},
-        (_self => onSelectStyle({j|$style|j})),
-      );
-    | Decrement =>
-      let inc = state.index > 0 ? 1 : - List.length(styles) + 1;
-      let index = state.index - inc;
-      let style = List.get(styles, index);
-      ReasonReact.UpdateWithSideEffects(
-        {...state, index},
-        (_self => onSelectStyle({j|$style|j})),
-      );
-    },
-  render: ({send, state}) => {
-    let colorSwatches = switch(id) {
-      | "Eyes" | "Nose" | "Mouth" => ReasonReact.null
-      | _ => ReasonReact.array(List.toArray(List.map(colors, color => {
+  let (_, dispatch) =
+    React.useReducer(
+      (state, action) =>
+        switch (action) {
+        | Increment =>
+          let inc =
+            Array.length(styles) - 1 > state.index
+              ? 1 : - Array.length(styles) + 1;
+          let index = state.index + inc;
+          let style = styles[index];
+          onSelectStyle({j|$style|j});
+          {index: index};
+        | Decrement =>
+          let inc = state.index > 0 ? 1 : - Array.length(styles) + 1;
+          let index = state.index - inc;
+          let style = styles[index];
+          onSelectStyle({j|$style|j});
+          {index: index};
+        },
+      {index: 0},
+    );
+
+  let colorSwatches =
+    switch (id) {
+    | "Eyes"
+    | "Nose"
+    | "Mouth" => React.null
+    | _ =>
+      Array.map(colors, color =>
         <ColorSwatch
           key=color
           value=color
@@ -55,41 +56,41 @@ let make =
           selected={color === selectedColor}
           onSelect={value => onSelectColor(value)}
         />
-      }
-      )));
+      )
+      ->React.array
     };
-    let image = <SvgLoader fill={"#" ++ selectedColor} name=selectedStyle />;
+  let image = <SvgLoader fill={"#" ++ selectedColor} name=selectedStyle />;
 
-    let showLeftArrow =
-      List.length(styles) > 1 ?
-        <button className="Styler-btn" onClick={_ => send(Decrement)}>
+  let showLeftArrow =
+    Array.length(styles) > 1
+      ? <button className="Styler-btn" onClick={_ => dispatch(Decrement)}>
           <img className="Styler-arrow" src="/images/arrow.svg" />
-        </button> : <div />;
+        </button>
+      : <div />;
 
-    let showRightArrow =
-      List.length(styles) > 1 ?
-        <button className="Styler-btn" onClick={_ => send(Increment)}>
+  let showRightArrow =
+    Array.length(styles) > 1
+      ? <button className="Styler-btn" onClick={_ => dispatch(Increment)}>
           <img
             className="Styler-arrow Styler-arrow--right"
             src="/images/arrow.svg"
           />
-        </button> : <div />;
+        </button>
+      : <div />;
 
-    let showImage = switch(id) {
-      | "Background" => ReasonReact.null
-      | _ => <div className={j| Styler-model svg-$id |j}> image </div>
+  let showImage =
+    switch (id) {
+    | "Background" => React.null
+    | _ => <div className={j| Styler-model svg-$id |j}> image </div>
     };
 
-    <div className="Styler-container">
-      <span className="Styler-label"> {ReasonReact.string(label)} </span>
-      <div className="Styler-picker">
-        showLeftArrow
-        showImage
-        showRightArrow
-      </div>
-      <div className="Styler-colors">
-        colorSwatches
-      </div>
-    </div>;
-  },
+  <div className="Styler-container">
+    <span className="Styler-label"> {React.string(label)} </span>
+    <div className="Styler-picker">
+      showLeftArrow
+      showImage
+      showRightArrow
+    </div>
+    <div className="Styler-colors"> colorSwatches </div>
+  </div>;
 };

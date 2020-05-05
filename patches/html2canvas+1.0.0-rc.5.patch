@@ -1,0 +1,15 @@
+diff --git a/node_modules/html2canvas/dist/html2canvas.esm.js b/node_modules/html2canvas/dist/html2canvas.esm.js
+index 4da8f10..e459cb9 100644
+--- a/node_modules/html2canvas/dist/html2canvas.esm.js
++++ b/node_modules/html2canvas/dist/html2canvas.esm.js
+@@ -6898,7 +6898,9 @@ var html2canvas = function (element, options) {
+     if (options === void 0) { options = {}; }
+     return renderElement(element, options);
+ };
+-CacheStorage.setContext(window);
++if (typeof window !== "undefined") {
++  CacheStorage.setContext(window);
++}
+ var renderElement = function (element, opts) { return __awaiter(_this, void 0, void 0, function () {
+     var ownerDocument, defaultView, instanceName, _a, width, height, left, top, defaultResourceOptions, resourceOptions, defaultOptions, options, windowBounds, documentCloner, clonedElement, container, documentBackgroundColor, bodyBackgroundColor, bgColor, defaultBackgroundColor, backgroundColor, renderOptions, canvas, renderer, root, renderer;
+     return __generator(this, function (_b) {

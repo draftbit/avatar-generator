@@ -12,12 +12,12 @@
     "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-source-filesystem": "^2.0.3",
     "gatsby-transformer-json": "^2.1.4",
-    "html2canvas": "^1.0.0-alpha.12",
+    "html2canvas": "^1.0.0-rc.5",
     "normalize.css": "^8.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
-    "reason-react": "^0.5.3"
+    "reason-react": "0.8.0"
   },
   "keywords": [
     "persona-avatar-generator",
@@ -27,13 +27,13 @@
   "scripts": {
     "re:build": "bsb -make-world -clean-world",
     "re:watch": "bsb -make-world -clean-world -w",
-    "build": "npm run re:build && gatsby build",
+    "build": "npm run re:build && npx patch-package && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "bs-platform": "^4.0.6",
+    "bs-platform": "^7.3.1",
     "prettier": "1.14.2"
   },
   "repository": {
