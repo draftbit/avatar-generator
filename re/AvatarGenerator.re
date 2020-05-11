@@ -120,7 +120,7 @@ let make = (~randomize, ~settings, ~onChange, ~onExport) => {
        )
        ->React.array}
     </div>
-    <button onClick={_ => onExport()} className="Button-primary Text-button">
+    <button onClick=onExport className="Button-primary Text-button">
       {React.string("Download Avatar")}
     </button>
     <div className="AvatarGenerator-footer">

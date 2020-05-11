@@ -1,5 +1,3 @@
-open Belt;
-
 [%bs.raw {|require('./Styler.css')|}];
 
 type state = {index: int};
@@ -26,14 +24,14 @@ let make =
         switch (action) {
         | Increment =>
           let inc =
-            Array.length(styles) - 1 > state.index
-              ? 1 : - Array.length(styles) + 1;
+            Belt.Array.length(styles) - 1 > state.index
+              ? 1 : - Belt.Array.length(styles) + 1;
           let index = state.index + inc;
           let style = styles[index];
           onSelectStyle({j|$style|j});
           {index: index};
         | Decrement =>
-          let inc = state.index > 0 ? 1 : - Array.length(styles) + 1;
+          let inc = state.index > 0 ? 1 : - Belt.Array.length(styles) + 1;
           let index = state.index - inc;
           let style = styles[index];
           onSelectStyle({j|$style|j});
@@ -48,7 +46,7 @@ let make =
     | "Nose"
     | "Mouth" => React.null
     | _ =>
-      Array.map(colors, color =>
+      Belt.Array.map(colors, color =>
         <ColorSwatch
           key=color
           value=color
@@ -62,14 +60,14 @@ let make =
   let image = <SvgLoader fill={"#" ++ selectedColor} name=selectedStyle />;
 
   let showLeftArrow =
-    Array.length(styles) > 1
+    Belt.Array.length(styles) > 1
       ? <button className="Styler-btn" onClick={_ => dispatch(Decrement)}>
           <img className="Styler-arrow" src="/images/arrow.svg" />
         </button>
       : <div />;
 
   let showRightArrow =
-    Array.length(styles) > 1
+    Belt.Array.length(styles) > 1
       ? <button className="Styler-btn" onClick={_ => dispatch(Increment)}>
           <img
             className="Styler-arrow Styler-arrow--right"
