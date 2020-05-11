@@ -5,7 +5,8 @@
   },
   "bsc-flags": ["-bs-super-errors"],
   "sources": {
-    "dir": "re"
+    "dir": "src",
+    "subdirs": true
   },
   "package-specs": [
     {

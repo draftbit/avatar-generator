@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, graphql, navigate, withPrefix } from 'gatsby'
 import html2canvas from 'html2canvas'
 
-import { make as App } from '../../re/App.bs'
+import { make as App } from '../re/App.bs'
 import Layout from '../components/layout'
 
 function getRandom(list) {
