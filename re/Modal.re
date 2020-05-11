@@ -2,7 +2,7 @@
 
 [@react.component]
 let make = (~visible, ~onToggle) => {
-  visible
+  !visible
     ? React.null
     : <>
         <div onClick=onToggle className="Modal-overlay" />
