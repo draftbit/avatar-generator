@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql, navigate, withPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 import html2canvas from 'html2canvas'
 
 import { make as App } from '../re/App.bs'
@@ -44,7 +44,6 @@ const DEFAULT_STYLES = {
 export default class IndexPage extends React.PureComponent {
   constructor(props) {
     super(props)
-    const config = this.props.data.allDataJson.edges[0].node
 
     this.state = {
       styles: DEFAULT_STYLES,
