@@ -1,7 +1,9 @@
 import { graphql } from 'gatsby'
 import Index from './indexReal.bs'
 
-export default Index
+export default ({ data }) => {
+  return <Index data={data} />
+}
 
 export const query = graphql`
   query ConfigQuery {

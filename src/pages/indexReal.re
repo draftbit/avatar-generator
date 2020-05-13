@@ -42,7 +42,7 @@ let randomizeStyles = (config): Types.styles => {
 
 [@react.component]
 let make = (~data) => {
-  Js.log(data);
+  Js.log2("DATA", data);
   let (styles, setStyles) = React.useState(_ => defaultStyles);
   let (showModal, setShowModal) = React.useState(_ => false);
 
