@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import React from 'react'
 import Index from './indexReal.bs'
 
 export default ({ data }) => {
