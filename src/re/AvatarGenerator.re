@@ -9,18 +9,34 @@ type _settings = {
   selectedStyle: string,
 };
 
+[@bs.deriving jsConverter]
+type component = [
+  | [@bs.as "Skin"] `Skin
+  | [@bs.as "Hair"] `Hair
+  | [@bs.as "FacialHair"] `FacialHair
+  | [@bs.as "Body"] `Body
+  | [@bs.as "Eyes"] `Eyes
+  | [@bs.as "Head"] `Head
+  | [@bs.as "Mouth"] `Mouth
+  | [@bs.as "Nose"] `Nose
+  | [@bs.as "Background"] `Background
+];
+
 let getZIndex = id =>
-  switch (id) {
-  | "Eyes" => "110"
-  | "Nose" => "100"
-  | "FacialHair" => "90"
-  | "Mouth" => "80"
-  | "Body" => "75"
-  | "Hair" => "70"
-  | "Head" => "40"
-  | "Skin" => "30"
-  | "Background" => "20"
-  | _ => "10"
+  switch (componentFromJs(id)) {
+  | None => "10"
+  | Some(component) =>
+    switch (component) {
+    | `Eyes => "110"
+    | `Nose => "100"
+    | `FacialHair => "90"
+    | `Mouth => "80"
+    | `Body => "75"
+    | `Hair => "70"
+    | `Head => "40"
+    | `Skin => "30"
+    | `Background => "20"
+    }
   };
 
 type state = {rotation: int};
@@ -91,28 +107,36 @@ let make = (~randomize, ~settings, ~onChange, ~onExport) => {
            selectedStyle={o.selectedStyle}
            onSelectColor={color => {
              let key =
-               switch (o.id) {
-               | "Skin" => "skinColor"
-               | "Hair" => "hairColor"
-               | "FacialHair" => "facialHairColor"
-               | "Body" => "bodyColor"
-               | "Background" => "bgColor"
-               | _ => ""
+               switch (componentFromJs(o.id)) {
+               | None => ""
+               | Some(component) =>
+                 switch (component) {
+                 | `Skin => "skinColor"
+                 | `Hair => "hairColor"
+                 | `FacialHair => "facialHairColor"
+                 | `Body => "bodyColor"
+                 | `Background => "bgColor"
+                 | _ => ""
+                 }
                };
 
              onChange(key, color);
            }}
            onSelectStyle={style => {
              let key =
-               switch (o.id) {
-               | "Hair" => "hair"
-               | "Skin" => "skin"
-               | "FacialHair" => "facialHair"
-               | "Body" => "body"
-               | "Eyes" => "eyes"
-               | "Mouth" => "mouth"
-               | "Nose" => "nose"
-               | _ => ""
+               switch (componentFromJs(o.id)) {
+               | None => ""
+               | Some(component) =>
+                 switch (component) {
+                 | `Hair => "hair"
+                 | `Skin => "skin"
+                 | `FacialHair => "facialHair"
+                 | `Body => "body"
+                 | `Eyes => "eyes"
+                 | `Mouth => "mouth"
+                 | `Nose => "nose"
+                 | _ => ""
+                 }
                };
              onChange(key, style);
            }}
