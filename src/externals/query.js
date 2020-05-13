@@ -1,14 +1,6 @@
 import { graphql } from 'gatsby'
-import Index from './indexReal.bs'
-import React from 'react'
 
-const AvatarGenerator = ({ data }) => {
-  return <Index data={data} />
-}
-
-export default AvatarGenerator
-
-export const query = graphql`
+export default graphql`
   query ConfigQuery {
     allDataJson {
       edges {

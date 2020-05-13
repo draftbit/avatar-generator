@@ -42,9 +42,9 @@ let make =
 
   let colorSwatches =
     switch (id) {
-    | "Eyes"
-    | "Nose"
-    | "Mouth" => React.null
+    | `Eyes
+    | `Nose
+    | `Mouth => React.null
     | _ =>
       Belt.Array.map(colors, color =>
         <ColorSwatch
@@ -78,7 +78,7 @@ let make =
 
   let showImage =
     switch (id) {
-    | "Background" => React.null
+    | `Background => React.null
     | _ => <div className={j| Styler-model svg-$id |j}> image </div>
     };
 

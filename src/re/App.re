@@ -32,11 +32,10 @@ let make =
       ~onExport,
       ~onChange,
       ~randomize,
-      _children,
     ) => {
-  let settings: array(AvatarGenerator._settings) = [|
+  let settings: array(Types.setting) = [|
     {
-      id: "Skin",
+      id: `Skin,
       label: "SKIN",
       colors: skinColors,
       styles: skinStyles,
@@ -44,7 +43,7 @@ let make =
       selectedStyle: skin,
     },
     {
-      id: "Hair",
+      id: `Hair,
       label: "HAIR",
       colors: hairColors,
       styles: hairStyles,
@@ -52,7 +51,7 @@ let make =
       selectedStyle: hair,
     },
     {
-      id: "FacialHair",
+      id: `FacialHair,
       label: "FACIAL HAIR",
       colors: facialHairColors,
       styles: facialHairStyles,
@@ -60,7 +59,7 @@ let make =
       selectedStyle: facialHair,
     },
     {
-      id: "Body",
+      id: `Body,
       label: "BODY",
       colors: bodyColors,
       styles: bodyStyles,
@@ -68,7 +67,7 @@ let make =
       selectedStyle: body,
     },
     {
-      id: "Eyes",
+      id: `Eyes,
       label: "EYES",
       colors: disabledColors,
       styles: eyeStyles,
@@ -76,7 +75,7 @@ let make =
       selectedStyle: eyes,
     },
     {
-      id: "Mouth",
+      id: `Mouth,
       label: "MOUTH",
       colors: disabledColors,
       styles: mouthStyles,
@@ -84,7 +83,7 @@ let make =
       selectedStyle: mouth,
     },
     {
-      id: "Nose",
+      id: `Nose,
       label: "NOSE",
       colors: disabledColors,
       styles: noseStyles,
@@ -92,7 +91,7 @@ let make =
       selectedStyle: nose,
     },
     {
-      id: "Background",
+      id: `Background,
       label: "BACKGROUND",
       colors: bgColors,
       styles: bgStyles,
