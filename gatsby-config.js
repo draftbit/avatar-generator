@@ -4,6 +4,12 @@ module.exports = {
       'Personas by Draftbit | A playful avatar generator for the modern age.',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-reason',
+      options: {
+        derivePathFromComponentName: false,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
