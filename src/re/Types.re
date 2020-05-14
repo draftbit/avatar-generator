@@ -46,3 +46,26 @@ type setting = {
   selectedColor: string,
   selectedStyle: string,
 };
+
+type node = {
+  skinStyles: array(string),
+  hairStyles: array(string),
+  facialHairStyles: array(string),
+  bodyStyles: array(string),
+  eyeStyles: array(string),
+  mouthStyles: array(string),
+  noseStyles: array(string),
+  bgStyles: array(string),
+  skinColors: array(string),
+  hairColors: array(string),
+  facialHairColors: array(string),
+  bodyColors: array(string),
+  bgColors: array(string),
+  disabledColors: array(string),
+};
+
+type edge = {node};
+
+type allDataJson = {edges: array(edge)};
+
+type queryResType = {allDataJson};

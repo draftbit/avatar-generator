@@ -7,29 +7,6 @@
 [@bs.module "../externals/exportImage.js"]
 external exportImageAsync: unit => unit = "default";
 
-type node = {
-  skinStyles: array(string),
-  hairStyles: array(string),
-  facialHairStyles: array(string),
-  bodyStyles: array(string),
-  eyeStyles: array(string),
-  mouthStyles: array(string),
-  noseStyles: array(string),
-  bgStyles: array(string),
-  skinColors: array(string),
-  hairColors: array(string),
-  facialHairColors: array(string),
-  bodyColors: array(string),
-  bgColors: array(string),
-  disabledColors: array(string),
-};
-
-type edge = {node};
-
-type allDataJson = {edges: array(edge)};
-
-type queryResType = {allDataJson};
-
 let defaultStyles: Types.styles = {
   skin: "Skin",
   skinColor: "B16A5B",
@@ -46,7 +23,7 @@ let defaultStyles: Types.styles = {
   head: "Head",
 };
 
-let randomizeStyles = (config): Types.styles => {
+let randomizeStyles = (config: Types.node): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list);
     _list[Js.Math.floor(Js.Math.random() *. float_of_int(len))];
@@ -71,7 +48,7 @@ let randomizeStyles = (config): Types.styles => {
 
 [@react.component]
 let make = () => {
-  let data =
+  let data: Types.queryResType =
     useStaticQuery(
       [%bs.raw
         {|
@@ -103,7 +80,6 @@ let make = () => {
       ],
     );
 
-  Js.log2("DATA", data);
   let (styles, setStyles) = React.useState(_ => defaultStyles);
   let (showModal, setShowModal) = React.useState(_ => false);
 
@@ -144,32 +120,8 @@ let make = () => {
     <App
       onToggleModal={_ => setShowModal(_ => false)}
       showModal
-      skin={styles.skin}
-      skinColor={styles.skinColor}
-      hair={styles.hair}
-      hairColor={styles.hairColor}
-      facialHair={styles.facialHair}
-      facialHairColor={styles.facialHairColor}
-      body={styles.body}
-      bodyColor={styles.bodyColor}
-      eyes={styles.eyes}
-      mouth={styles.mouth}
-      nose={styles.nose}
-      bgColor={styles.bgColor}
-      skinStyles={config.skinStyles}
-      hairStyles={config.hairStyles}
-      facialHairStyles={config.facialHairStyles}
-      bodyStyles={config.bodyStyles}
-      eyeStyles={config.eyeStyles}
-      mouthStyles={config.mouthStyles}
-      noseStyles={config.noseStyles}
-      bgStyles={config.bgStyles}
-      skinColors={config.skinColors}
-      hairColors={config.hairColors}
-      facialHairColors={config.facialHairColors}
-      bodyColors={config.bodyColors}
-      bgColors={config.bgColors}
-      disabledColors={config.disabledColors}
+      styles
+      config
       onExport={_ => exportImage()}
       onChange
       randomize
