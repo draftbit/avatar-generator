@@ -79,7 +79,7 @@ let make = (~data) => {
 
   let config = data##allDataJson##edges[0]##node;
 
-  <LayoutRe>
+  <Layout>
     <App
       onToggleModal={_ => setShowModal(_ => false)}
       showModal
@@ -113,7 +113,7 @@ let make = (~data) => {
       onChange
       randomize
     />
-  </LayoutRe>;
+  </Layout>;
 };
 
 let default = make;
