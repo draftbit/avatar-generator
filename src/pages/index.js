@@ -6,7 +6,7 @@ export default ({ data }) => {
   return <Index data={data} />
 }
 
-export const query = graphql`
+export const pageQuery = graphql`
   query ConfigQuery {
     allDataJson {
       edges {
