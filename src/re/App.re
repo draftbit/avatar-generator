@@ -1,13 +1,13 @@
 [@react.component]
 let make =
     (
-      ~onToggleModal,
       ~showModal,
-      ~styles: Types.styles,
-      ~config: Types.node,
+      ~onToggleModal,
       ~onExport,
       ~onChange,
       ~randomize,
+      ~styles: Types.styles,
+      ~config: Types.config,
     ) => {
   let settings: array(Types.setting) = [|
     {

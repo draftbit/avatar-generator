@@ -23,7 +23,7 @@ let defaultStyles: Types.styles = {
   head: "Head",
 };
 
-let randomizeStyles = (config: Types.node): Types.styles => {
+let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list);
     _list[Js.Math.floor(Js.Math.random() *. float_of_int(len))];
@@ -58,17 +58,17 @@ let make = () => {
       edges {
         node {
           skinStyles
+          skinColors
           hairStyles
+          hairColors
           facialHairStyles
+          facialHairColors
           bodyStyles
+          bodyColors
           eyeStyles
           mouthStyles
           noseStyles
           bgStyles
-          skinColors
-          hairColors
-          facialHairColors
-          bodyColors
           bgColors
           disabledColors
         }
@@ -97,7 +97,7 @@ let make = () => {
       | `EyesStyle => {...styles, eyes: value}
       | `MouthStyle => {...styles, mouth: value}
       | `NoseStyle => {...styles, nose: value}
-      | `BgColor => {...styles, bgColor: value}
+      | `BackgroundColor => {...styles, bgColor: value}
       }
     });
   };
@@ -116,13 +116,13 @@ let make = () => {
 
   <Layout>
     <App
-      onToggleModal={_ => setShowModal(_ => false)}
       showModal
       styles
       config
-      onExport={_ => exportImage()}
       onChange
       randomize
+      onToggleModal={_ => setShowModal(_ => false)}
+      onExport={_ => exportImage()}
     />
   </Layout>;
 };

@@ -5,10 +5,10 @@ type id = [
   | [@bs.as "FacialHair"] `FacialHair
   | [@bs.as "Body"] `Body
   | [@bs.as "Eyes"] `Eyes
-  | [@bs.as "Head"] `Head
   | [@bs.as "Mouth"] `Mouth
   | [@bs.as "Nose"] `Nose
   | [@bs.as "Background"] `Background
+  | [@bs.as "Head"] `Head
 ];
 
 type color = [
@@ -16,12 +16,12 @@ type color = [
   | `HairColor
   | `FacialHairColor
   | `BodyColor
-  | `BgColor
+  | `BackgroundColor
 ];
 
 type style = [
-  | `HairStyle
   | `SkinStyle
+  | `HairStyle
   | `FacialHairStyle
   | `BodyStyle
   | `EyesStyle
@@ -30,18 +30,18 @@ type style = [
 ];
 
 type key = [
-  | `SkinColor
-  | `HairColor
-  | `FacialHairColor
-  | `BodyColor
-  | `BgColor
-  | `HairStyle
   | `SkinStyle
+  | `SkinColor
+  | `HairStyle
+  | `HairColor
   | `FacialHairStyle
+  | `FacialHairColor
   | `BodyStyle
+  | `BodyColor
   | `EyesStyle
   | `MouthStyle
   | `NoseStyle
+  | `BackgroundColor
 ];
 
 type styles = {
@@ -69,7 +69,13 @@ type setting = {
   selectedStyle: string,
 };
 
-type node = {
+type config = {
+  skinColors: array(string),
+  hairColors: array(string),
+  facialHairColors: array(string),
+  bodyColors: array(string),
+  bgColors: array(string),
+  disabledColors: array(string),
   skinStyles: array(string),
   hairStyles: array(string),
   facialHairStyles: array(string),
@@ -78,16 +84,9 @@ type node = {
   mouthStyles: array(string),
   noseStyles: array(string),
   bgStyles: array(string),
-  skinColors: array(string),
-  hairColors: array(string),
-  facialHairColors: array(string),
-  bodyColors: array(string),
-  bgColors: array(string),
-  disabledColors: array(string),
 };
 
-type edge = {node};
-
+/** Gatsby GraphQL types */
+type edge = {node: config};
 type allDataJson = {edges: array(edge)};
-
 type queryResType = {allDataJson};

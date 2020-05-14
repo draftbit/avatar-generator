@@ -87,8 +87,9 @@ let make =
                | `Hair => `HairColor
                | `FacialHair => `FacialHairColor
                | `Body => `BodyColor
-               | `Background => `BgColor
-               | _ => Js.Exn.raiseError("ColorNotFound")
+               | `Background => `BackgroundColor
+               | _ =>
+                 Js.Exn.raiseError("ColorNotFound: " ++ Types.idToJs(o.id))
                };
 
              onChange(key, color);
@@ -96,14 +97,15 @@ let make =
            onSelectStyle={style => {
              let key: Types.key =
                switch (o.id) {
-               | `Hair => `HairStyle
                | `Skin => `SkinStyle
+               | `Hair => `HairStyle
                | `FacialHair => `FacialHairStyle
                | `Body => `BodyStyle
                | `Eyes => `EyesStyle
                | `Mouth => `MouthStyle
                | `Nose => `NoseStyle
-               | _ => Js.Exn.raiseError("StyleNotFound")
+               | _ =>
+                 Js.Exn.raiseError("StyleNotFound: " ++ Types.idToJs(o.id))
                };
              onChange(key, style);
            }}
