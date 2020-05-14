@@ -13,9 +13,6 @@ let getZIndex = (id: Types.id) =>
   | `Background => "20"
   };
 
-exception StyleNotFound(Types.id);
-exception ColorNotFound(Types.id);
-
 type state = {rotation: int};
 
 type action =
@@ -91,7 +88,7 @@ let make =
                | `FacialHair => `FacialHairColor
                | `Body => `BodyColor
                | `Background => `BgColor
-               | _ => raise(ColorNotFound(o.id))
+               | _ => Js.Exn.raiseError("ColorNotFound")
                };
 
              onChange(key, color);
@@ -106,7 +103,7 @@ let make =
                | `Eyes => `EyesStyle
                | `Mouth => `MouthStyle
                | `Nose => `NoseStyle
-               | _ => raise(StyleNotFound(o.id))
+               | _ => Js.Exn.raiseError("StyleNotFound")
                };
              onChange(key, style);
            }}
