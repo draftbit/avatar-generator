@@ -1,6 +1,6 @@
 [%bs.raw {|require('./AvatarGenerator.css')|}];
 
-let getZIndex = id =>
+let getZIndex = (id: Types.id) =>
   switch (id) {
   | `Eyes => "110"
   | `Nose => "100"
@@ -11,8 +11,10 @@ let getZIndex = id =>
   | `Head => "40"
   | `Skin => "30"
   | `Background => "20"
-  | _ => "10"
   };
+
+exception StyleNotFound(Types.id);
+exception ColorNotFound(Types.id);
 
 type state = {rotation: int};
 
@@ -82,19 +84,20 @@ let make =
            selectedColor={o.selectedColor}
            selectedStyle={o.selectedStyle}
            onSelectColor={color => {
-             let key =
+             let key: Types.key =
                switch (o.id) {
                | `Skin => `SkinColor
                | `Hair => `HairColor
                | `FacialHair => `FacialHairColor
                | `Body => `BodyColor
                | `Background => `BgColor
+               | _ => raise(ColorNotFound(o.id))
                };
 
              onChange(key, color);
            }}
            onSelectStyle={style => {
-             let key =
+             let key: Types.key =
                switch (o.id) {
                | `Hair => `HairStyle
                | `Skin => `SkinStyle
@@ -103,6 +106,7 @@ let make =
                | `Eyes => `EyesStyle
                | `Mouth => `MouthStyle
                | `Nose => `NoseStyle
+               | _ => raise(StyleNotFound(o.id))
                };
              onChange(key, style);
            }}

@@ -83,7 +83,7 @@ let make = () => {
   let (styles, setStyles) = React.useState(_ => defaultStyles);
   let (showModal, setShowModal) = React.useState(_ => false);
 
-  let onChange = (key, value) => {
+  let onChange = (key: Types.key, value) => {
     setStyles(styles => {
       switch (key) {
       | `SkinStyle => {...styles, skin: value}
@@ -98,8 +98,6 @@ let make = () => {
       | `MouthStyle => {...styles, mouth: value}
       | `NoseStyle => {...styles, nose: value}
       | `BgColor => {...styles, bgColor: value}
-      | `Head => {...styles, head: value}
-      | _ => styles
       }
     });
   };

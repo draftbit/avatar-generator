@@ -1,5 +1,5 @@
 [@bs.deriving jsConverter]
-type style = [
+type id = [
   | [@bs.as "Skin"] `Skin
   | [@bs.as "Hair"] `Hair
   | [@bs.as "FacialHair"] `FacialHair
@@ -9,10 +9,32 @@ type style = [
   | [@bs.as "Mouth"] `Mouth
   | [@bs.as "Nose"] `Nose
   | [@bs.as "Background"] `Background
+];
+
+type color = [
   | `SkinColor
   | `HairColor
   | `FacialHairColor
   | `BodyColor
+  | `BgColor
+];
+
+type style = [
+  | `HairStyle
+  | `SkinStyle
+  | `FacialHairStyle
+  | `BodyStyle
+  | `EyesStyle
+  | `MouthStyle
+  | `NoseStyle
+];
+
+type key = [
+  | `SkinColor
+  | `HairColor
+  | `FacialHairColor
+  | `BodyColor
+  | `BgColor
   | `HairStyle
   | `SkinStyle
   | `FacialHairStyle
@@ -39,7 +61,7 @@ type styles = {
 };
 
 type setting = {
-  id: style,
+  id,
   label: string,
   colors: array(string),
   styles: array(string),
