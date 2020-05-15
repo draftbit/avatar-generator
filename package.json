@@ -3,20 +3,20 @@
   "description": "Persona Avatar Generator by Draftbit",
   "version": "1.0.0",
   "dependencies": {
-    "gatsby": "^2.21.31",
-    "gatsby-plugin-google-analytics": "^2.3.1",
-    "gatsby-plugin-manifest": "^2.4.3",
-    "gatsby-plugin-netlify": "^2.3.2",
-    "gatsby-plugin-offline": "^3.2.2",
-    "gatsby-plugin-react-helmet": "^3.3.1",
-    "gatsby-plugin-react-svg": "^3.0.0",
-    "gatsby-source-filesystem": "^2.3.3",
-    "gatsby-transformer-json": "^2.4.2",
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-google-analytics": "^2.0.6",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-netlify": "^2.0.1",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-react-svg": "^2.0.0",
+    "gatsby-source-filesystem": "^2.0.3",
+    "gatsby-transformer-json": "^2.1.4",
     "html2canvas": "^1.0.0-rc.5",
     "normalize.css": "^8.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^6.0.0",
+    "react-helmet": "^5.2.0",
     "reason-react": "0.8.0"
   },
   "keywords": [
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "bs-platform": "^7.3.2",
-    "prettier": "2.0.5"
+    "prettier": "1.14.2"
   },
   "repository": {
     "type": "git",
