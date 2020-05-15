@@ -114,8 +114,8 @@ const svgo = new SVGO({
     {
       removePrefixedAttributes: {
         type: 'perItem',
-        fn: item => {
-          item.eachAttr(attr => {
+        fn: (item) => {
+          item.eachAttr((attr) => {
             if (attr.prefix && attr.local) {
               item.removeAttr(attr.name)
             }
@@ -128,8 +128,7 @@ const svgo = new SVGO({
 
 const createCode = (name, code) =>
   `let get${name} = (fill, size) => {j|${code}|j};\n`
-const createExport = name =>
-  `| "${name}" => get${name}(fill, size)}\n`
+const createExport = (name) => `| "${name}" => get${name}(fill, size)}\n`
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -153,7 +152,7 @@ async function runSvgo(path) {
 }
 
 const file = process.argv[2]
-runSvgo(file).then(file => {
+runSvgo(file).then((file) => {
   console.log('done', file)
   process.exit(0)
 })
