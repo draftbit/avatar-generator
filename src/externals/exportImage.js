@@ -4,6 +4,8 @@ export default async () => {
   const node = document.getElementsByClassName(
     'AvatarGenerator-pngContainer'
   )[0]
+
+  window.scroll(0, 0)
   const canvas = await html2canvas(node)
   const dataUrl = canvas.toDataURL()
 
