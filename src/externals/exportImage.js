@@ -5,7 +5,13 @@ export default async () => {
     'AvatarGenerator-pngContainer'
   )[0]
 
+  // There is an issue with html2cavas with off-screen renders due to scroll
+  // position, or something similar.
+  //  - https://github.com/niklasvh/html2canvas/issues/2014
+  //
+  // If it is fixed, this simple workaround can be removed
   window.scroll(0, 0)
+  // End workaround
   const canvas = await html2canvas(node)
   const dataUrl = canvas.toDataURL()
 
