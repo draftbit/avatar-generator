@@ -29,20 +29,7 @@ type style = [
   | `NoseStyle
 ];
 
-type key = [
-  | `SkinStyle
-  | `SkinColor
-  | `HairStyle
-  | `HairColor
-  | `FacialHairStyle
-  | `FacialHairColor
-  | `BodyStyle
-  | `BodyColor
-  | `EyesStyle
-  | `MouthStyle
-  | `NoseStyle
-  | `BackgroundColor
-];
+type key = [color | style];
 
 type styles = {
   skin: string,
