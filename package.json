@@ -3,6 +3,7 @@
   "description": "Persona Avatar Generator by Draftbit",
   "version": "1.0.0",
   "dependencies": {
+    "bs-webapi": "^0.16.2",
     "gatsby": "^2.21.31",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-plugin-manifest": "^2.4.3",

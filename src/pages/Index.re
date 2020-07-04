@@ -4,9 +4,6 @@
 %bs.raw
 {| import  {graphql}  from "gatsby" |};
 
-[@bs.module "../externals/exportImage.js"]
-external exportImageAsync: unit => unit = "default";
-
 let defaultStyles: Types.styles = {
   skin: "Skin",
   skinColor: "B16A5B",
@@ -109,7 +106,7 @@ let make = () => {
 
   let exportImage = () => {
     setShowModal(_ => true);
-    exportImageAsync();
+    ExportImage.export();
   };
 
   let config = data.allDataJson.edges[0].node;
