@@ -21,36 +21,41 @@ let andThen = (f: 'a => option('b)) =>
   | Some(v) => f(v)
   | None => None;
 
-let unsafelyUnwrapOption =
-  fun | Some(v) => v
-      | None => raise(Invalid_argument("Passed `None` to unsafelyUnwrapOption"));
-
 let export = () => {
   let collection = document |> Document.getElementsByClassName("AvatarGenerator-pngContainer");
   let collectionAsArray = collection |> HtmlCollection.toArray;
   let node = collectionAsArray[0];
-  scroll(0, 0);
 
-  ignore(html2canvas(node)
+  // There is an issue with html2cavas with off-screen renders due to scroll
+  // position, or something similar.
+  //  - https://github.com/niklasvh/html2canvas/issues/2014
+  //
+  // If it is fixed, this simple workaround can be removed
+  scroll(0, 0);
+  // End workaround
+
+  html2canvas(node)
     |> Js.Promise.then_(canvas => {
       let link = document |> Document.createElement("a");
       link |> Element.setAttribute("download", "avatar.png");
       link |> Element.setAttribute("href", canvas->toDataURL'());
 
       let linkHtml = link |> Element.asHtmlElement
-                          |> unsafelyUnwrapOption;
+                          |> Belt.Option.getExn;
 
-      ignore(document |> Document.asHtmlDocument
+      document |> Document.asHtmlDocument
                |> andThen(HtmlDocument.body)
-               |> map(Element.appendChild(linkHtml)));
+               |> map(Element.appendChild(linkHtml))
+               |> ignore;
 
       HtmlElement.click(linkHtml);
 
-      ignore(document |> Document.asHtmlDocument
+      document |> Document.asHtmlDocument
                |> andThen(HtmlDocument.body)
-               |> map(Element.removeChild(linkHtml)));
+               |> map(Element.removeChild(linkHtml))
+               |> ignore;
 
     Js.Promise.resolve();
-  }));
+  }) |> ignore;
   ();
 };
