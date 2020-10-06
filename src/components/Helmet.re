@@ -1,30 +1,33 @@
-[@bs.deriving abstract]
-type meta = {
-  [@bs.optional]
-  name: string,
-  [@bs.optional]
-  property: string,
-  [@bs.optional]
+type metaItem = { 
+  name: option(string),
+  property: option(string),
   content: string,
+};
+
+type meta = array(metaItem)
+
+type link = { 
+  rel: string,
+  href: string,
 };
 
 [@bs.module "react-helmet"] [@react.component]
 external make:
   (
-    ~async: option(bool)=?,
-    ~base: option('a)=?,
-    ~bodyAttributes: option('a)=?,
-    ~defaultTitle: option(string)=?,
-    ~defer: option(bool)=?,
-    ~encodeSpecialCharacters: option(bool)=?,
-    ~htmlAttributes: option('a)=?,
-    ~onChangeClientState: option('a)=?,
-    ~link: option(string)=?,
-    ~style: option(string)=?,
-    ~titleTemplate: option(string)=?,
-    ~meta: array(meta)=?,
-    ~title: option(string)=?,
-    ~children: option(React.element)=?
+    ~async: bool=?,
+    ~base: 'a=?,
+    ~bodyAttributes: 'a=?,
+    ~defaultTitle: string=?,
+    ~defer: bool=?,
+    ~encodeSpecialCharacters: bool=?,
+    ~htmlAttributes: 'a=?,
+    ~onChangeClientState: 'a=?,
+    ~link: array(link)=?,
+    ~style: string=?,
+    ~titleTemplate: string=?,
+    ~meta: meta=?,
+    ~title: string=?,
+    ~children: React.element=?
   ) =>
   React.element =
   "Helmet";

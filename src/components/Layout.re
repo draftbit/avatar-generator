@@ -1,3 +1,5 @@
+open Helmet;
+
 [@bs.module "gatsby"] external useStaticQuery: string => 'a = "useStaticQuery";
 
 %bs.raw
@@ -32,74 +34,80 @@ let make = (~children: ReasonReact.reactElement) => {
       ],
     );
 
-  let meta = [%bs.raw
-    {|
-            [
-                {
-                  name: `description`,
-                  content: `A playful avatar generator for the modern age.`,
-                },
-                {
-                  name: `twitter:card`,
-                  content: `summary`,
-                },
-                {
-                  name: `twitter:site`,
-                  content: `@draftbit`,
-                },
-                {
-                  name: `twitter:title`,
-                  content: `Personas by Draftbit`,
-                },
-                {
-                  name: `twitter:image`,
-                  content: `https://personas.draftbit.com/web-preview-1x1.png`,
-                },
-                {
-                  name: `twitter:description`,
-                  content: `A playful avatar generator for the modern age.`,
-                },
-                {
-                  name: `keywords`,
-                  content: `Avatar, Avatar Generator, Personas, Draftbit, Avatars`,
-                },
-                {
-                    property: `fb:app_id`,
-                    content: `292869531545861`
-                },
-                {
-                    property: `og:type`,
-                    content: `website`
-                },
-                {
-                  property: `og:image`,
-                  content: `https://personas.draftbit.com/web-preview.png`,
-                },
-                {
-                    property: `og:title`,
-                    content: `Personas by Draftbit`
-                },
-                {
-                    property: `og:url`,
-                    content: `https://personas.draftbit.com`
-                },
-                {
-                  property: `og:description`,
-                  content: `A playful avatar generator for the modern age.`,
-                },
-            ]
-        |}
-  ];
+  let meta = [|
+    {
+      name: Some("description"),
+      property: None,
+      content: "A playful avatar generator for the modern age.",
+    },
+    {
+      name: Some("twitter:card"),
+      property: None,
+      content: "summary"
+    },
+    {
+      name: Some("twitter:site"),
+      property: None,
+      content: "@draftbit"
+    },
+    {
+      name: Some("twitter:title"),
+      property: None,
+      content: "Personas by Draftbit",
+    },
+    {
+      name: Some("twitter:image"),
+      property: None,
+      content: "https://personas.draftbit.com/web-preview-1x1.png",
+    },
+    {
+      name: Some("twitter:description"),
+      property: None,
+      content: "A playful avatar generator for the modern age.",
+    },
+    {
+      name: Some("keywords"),
+      property: None,
+      content: "Avatar, Avatar Generator, Personas, Draftbit, Avatars",
+    },
+    {
+      name: None,
+      property: Some("fb:app_id"),
+      content: "292869531545861"
+    },
+    {
+      name: None,
+      property: Some("og:type"),
+      content: "website"
+    },
+    {
+      name: None,
+      property: Some("og:image"),
+      content: "https://personas.draftbit.com/web-preview.png",
+    },
+    {
+      name: None,
+      property: Some("og:title"),
+      content: "Personas by Draftbit",
+    },
+    {
+      name: None,
+      property: Some("og:url"),
+      content: "https://personas.draftbit.com",
+    },
+    {
+      name: None,
+      property: Some("og:description"),
+      content: "A playful avatar generator for the modern age.",
+    },
+  |];
 
-  let link = [%bs.raw
-    {| [
-      {
-        rel: `canonical`,
-        href: `https://personas.draftbit.com`,
-      }
-    ]
-    |}
-  ];
+  let link = [|
+  {
+    rel: "canonical",
+    href: "https://personas.draftbit.com"
+  }
+  |];
 
   <>
     <Helmet title={data.site.siteMetadata.title} link meta>
