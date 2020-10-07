@@ -1,12 +1,14 @@
-type metaItem = { 
-  name: option(string),
-  property: option(string),
+[@bs.deriving abstract]
+type finalMetaItem = {
+  [@bs.optional]
+  name: string,
+  [@bs.optional]
+  property: string,
+  [@bs.optional]
   content: string,
 };
 
-type meta = array(metaItem)
-
-type link = { 
+type link = {
   rel: string,
   href: string,
 };
@@ -25,7 +27,7 @@ external make:
     ~link: array(link)=?,
     ~style: string=?,
     ~titleTemplate: string=?,
-    ~meta: meta=?,
+    ~meta: array(finalMetaItem)=?,
     ~title: string=?,
     ~children: React.element=?
   ) =>

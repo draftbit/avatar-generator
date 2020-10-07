@@ -15,6 +15,55 @@ type siteMetadataType = {title: string};
 type siteType = {siteMetadata: siteMetadataType};
 type queryResponseType = {site: siteType};
 
+type metaItem =
+  | MetaWithName(string, string)
+  | MetaWithProperty(string, string);
+
+type meta = array(metaItem);
+
+let meta = [|
+  MetaWithName(
+    "description",
+    "A playful avatar generator for the modern age.",
+  ),
+  MetaWithName("twitter:card", "summary"),
+  MetaWithName("twitter:site", "@draftbit"),
+  MetaWithName("twitter:title", "Personas by Draftbit"),
+  MetaWithName(
+    "twitter:image",
+    "https://personas.draftbit.com/web-preview-1x1.png",
+  ),
+  MetaWithName(
+    "twitter:description",
+    "A playful avatar generator for the modern age.",
+  ),
+  MetaWithName(
+    "keywords",
+    "Avatar, Avatar Generator, Personas, Draftbit, Avatars",
+  ),
+  MetaWithProperty("fb:app_id", "292869531545861"),
+  MetaWithProperty("og:type", "website"),
+  MetaWithProperty(
+    "og:image",
+    "https://personas.draftbit.com/web-preview.png",
+  ),
+  MetaWithProperty("og:title", "Personas by Draftbit"),
+  MetaWithProperty("og:url", "https://personas.draftbit.com"),
+  MetaWithProperty(
+    "og:description",
+    "A playful avatar generator for the modern age.",
+  ),
+|];
+
+let link = [|{rel: "canonical", href: "https://personas.draftbit.com"}|];
+
+let metaToHelmet = (item: metaItem) =>
+  switch (item) {
+  | MetaWithName(name, content) => finalMetaItem(~name, ~content, ())
+  | MetaWithProperty(property, content) =>
+    finalMetaItem(~property, ~content, ())
+  };
+
 [@react.component]
 let make = (~children: ReasonReact.reactElement) => {
   let data: queryResponseType =
@@ -34,83 +83,11 @@ let make = (~children: ReasonReact.reactElement) => {
       ],
     );
 
-  let meta = [|
-    {
-      name: Some("description"),
-      property: None,
-      content: "A playful avatar generator for the modern age.",
-    },
-    {
-      name: Some("twitter:card"),
-      property: None,
-      content: "summary"
-    },
-    {
-      name: Some("twitter:site"),
-      property: None,
-      content: "@draftbit"
-    },
-    {
-      name: Some("twitter:title"),
-      property: None,
-      content: "Personas by Draftbit",
-    },
-    {
-      name: Some("twitter:image"),
-      property: None,
-      content: "https://personas.draftbit.com/web-preview-1x1.png",
-    },
-    {
-      name: Some("twitter:description"),
-      property: None,
-      content: "A playful avatar generator for the modern age.",
-    },
-    {
-      name: Some("keywords"),
-      property: None,
-      content: "Avatar, Avatar Generator, Personas, Draftbit, Avatars",
-    },
-    {
-      name: None,
-      property: Some("fb:app_id"),
-      content: "292869531545861"
-    },
-    {
-      name: None,
-      property: Some("og:type"),
-      content: "website"
-    },
-    {
-      name: None,
-      property: Some("og:image"),
-      content: "https://personas.draftbit.com/web-preview.png",
-    },
-    {
-      name: None,
-      property: Some("og:title"),
-      content: "Personas by Draftbit",
-    },
-    {
-      name: None,
-      property: Some("og:url"),
-      content: "https://personas.draftbit.com",
-    },
-    {
-      name: None,
-      property: Some("og:description"),
-      content: "A playful avatar generator for the modern age.",
-    },
-  |];
-
-  let link = [|
-  {
-    rel: "canonical",
-    href: "https://personas.draftbit.com"
-  }
-  |];
-
   <>
-    <Helmet title={data.site.siteMetadata.title} link meta>
+    <Helmet
+      title={data.site.siteMetadata.title}
+      link
+      meta={meta |> Array.map(metaToHelmet)}>
       <html lang="en" />
     </Helmet>
     children
