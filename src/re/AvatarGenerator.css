@@ -30,13 +30,16 @@
 }
 
 .AvatarGenerator-avatar {
-  position: absolute;
+  position: sticky;
+  margin-top: -185px;
   width: 150px;
   height: 150px;
   border-radius: 75px;
   background-color: transparent;
   overflow: hidden;
-  top: -75px;
+  top: 20px;
+  margin-bottom: 35px;
+  z-index: 1;
 }
 
 .AvatarGenerator-faceFeature {
