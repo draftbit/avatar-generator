@@ -1540,6 +1540,28 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@testing-library/dom@^7.26.3", "@testing-library/dom@^7.28.1":
+  version "7.28.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.28.1.tgz#dea78be6e1e6db32ddcb29a449e94d9700c79eb9"
+  integrity sha512-acv3l6kDwZkQif/YqJjstT3ks5aaI33uxGNVIQmdKzbZ2eMKgg3EV2tB84GDdc72k3Kjhl6mO8yUt6StVIdRDg==
+  dependencies:
+    "@babel/code-frame" "^7.10.4"
+    "@babel/runtime" "^7.12.5"
+    "@types/aria-query" "^4.2.0"
+    aria-query "^4.2.2"
+    chalk "^4.1.0"
+    dom-accessibility-api "^0.5.4"
+    lz-string "^1.4.4"
+    pretty-format "^26.6.2"
+
+"@testing-library/react@^11.1.0":
+  version "11.2.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/react/-/react-11.2.2.tgz#099c6c195140ff069211143cb31c0f8337bdb7b7"
+  integrity sha512-jaxm0hwUjv+hzC+UFEywic7buDC9JQ1q3cDsrWVSDAPmLotfA6E6kUHlYm/zOeGCac6g48DR36tFHxl7Zb+N5A==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "@testing-library/dom" "^7.28.1"
+
 "@tokenizer/token@^0.1.0", "@tokenizer/token@^0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@tokenizer/token/-/token-0.1.1.tgz#f0d92c12f87079ddfd1b29f614758b9696bc29e3"
@@ -1556,6 +1578,11 @@
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@turist/time/-/time-0.0.1.tgz#57637d2a7d1860adb9f9cecbdcc966ce4f551d63"
   integrity sha512-M2BiThcbxMxSKX8W4z5u9jKZn6datnM3+FpEU+eYw0//l31E2xhqi7vTAuJ/Sf0P3yhp66SDJgPu3bRRpvrdQQ==
+
+"@types/aria-query@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.0.tgz#14264692a9d6e2fa4db3df5e56e94b5e25647ac0"
+  integrity sha512-iIgQNzCm0v7QMhhe4Jjn9uRh+I6GoPmt03CbEtwx3ao8/EfoQcmgtqH4vQ5Db/lxiIGaWDv6nwvunuh0RyX0+A==
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.12"
@@ -3055,10 +3082,25 @@ browserslist@^4.0.0, browserslist@^4.12.0, browserslist@^4.12.2, browserslist@^4
     escalade "^3.1.1"
     node-releases "^1.1.67"
 
+bs-dom-testing-library@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/bs-dom-testing-library/-/bs-dom-testing-library-0.7.0.tgz#6656561d471e99be8caa452d757c074c377f10df"
+  integrity sha512-bYbegL2TZ55DGWwdoeB3KugrJUIhIyZvMQablQ09hx9QD1Pzm2Sd6Rn17K2uHdoWj7kBVoSy5muTQOydzNmfWA==
+  dependencies:
+    "@testing-library/dom" "^7.26.3"
+
 bs-platform@^7.3.2:
   version "7.3.2"
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-7.3.2.tgz#301f5c9b4e8cf5713cb60ca22e145e56e793affe"
   integrity sha512-seJL5g4anK9la4erv+B2o2sMHQCxDF6OCRl9en3hbaUos/S3JsusQ0sPp4ORsbx5eXfHLYBwPljwKXlgpXtsgQ==
+
+bs-react-testing-library@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/bs-react-testing-library/-/bs-react-testing-library-0.8.0.tgz#afc7878c5e47608a61ec6dd337a1f989ab2550bb"
+  integrity sha512-SbFtAfWecb0a/6ty9NLDs2nvC610QQBvNC29DZGT7stoQxM72KFfCFIp547VSOCiyjl7Hg1b7cXQiYl837lcyA==
+  dependencies:
+    "@testing-library/react" "^11.1.0"
+    bs-dom-testing-library "^0.7.0"
 
 bser@2.1.1:
   version "2.1.1"
@@ -4632,6 +4674,11 @@ doctrine@^3.0.0:
   integrity sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
   dependencies:
     esutils "^2.0.2"
+
+dom-accessibility-api@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/dom-accessibility-api/-/dom-accessibility-api-0.5.4.tgz#b06d059cdd4a4ad9a79275f9d414a5c126241166"
+  integrity sha512-TvrjBckDy2c6v6RLxPv5QXOnU+SmF9nBII5621Ve5fu6Z/BDrENurBEvlC1f44lKEUVqOpK4w9E5Idc5/EgkLQ==
 
 dom-converter@^0.2:
   version "0.2.0"
@@ -8803,6 +8850,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lz-string@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"
+  integrity sha1-wNjq82BZ9wV5bh40SBHPTEmNOiY=
+
 make-dir@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
@@ -11066,10 +11118,10 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-reason-react@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.9.0.tgz#1f2a2d21eec60116ee1212294a635c00a2322523"
-  integrity sha512-YkBXtca80tHAxwYA+eLuV1BhAPCInRpdcbhfQSyLONMMibs8htxm9hAFdFrwDivytvKBmJmkGqfHiT6GDW1BOw==
+reason-react@0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.9.1.tgz#30a887158200b659aa03e2d75ff4cc54dc462bb0"
+  integrity sha512-nlH0O2TDy9KzOLOW+vlEQk4ExHOeciyzFdoLcsmmiit6hx6H5+CVDrwJ+8aiaLT/kqK5xFOjy4PS7PftWz4plA==
 
 recursive-readdir@2.2.1:
   version "2.2.1"

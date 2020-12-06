@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorSwatch render disabled 1`] = `
+<div
+  class="ColorSwatch-disabled"
+  data-testid="disabled-color-swatch"
+/>
+`;
+
+exports[`ColorSwatch render enabled 1`] = `
+<button
+  class="ColorSwatch"
+  data-testid="enabled-color-swatch"
+>
+  <img
+    height="20"
+    src="/images/checkmark.svg"
+    width="20"
+  />
+</button>
+`;
