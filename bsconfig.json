@@ -4,10 +4,17 @@
     "react-jsx": 3
   },
   "bsc-flags": ["-bs-super-errors"],
-  "sources": {
-    "dir": "src",
-    "subdirs": true
-  },
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": true
+    },
+    {
+      "dir": "__tests__",
+      "type": "dev",
+      "subdirs": true
+    }
+  ],
   "package-specs": [
     {
       "module": "es6",
@@ -17,5 +24,6 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": ["reason-react"],
+  "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "refmt": 3
 }

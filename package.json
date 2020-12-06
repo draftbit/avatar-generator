@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "gatsby": "^2.21.31",
+    "gatsby-plugin-compile-es6-packages": "^2.1.0",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-plugin-manifest": "^2.4.3",
     "gatsby-plugin-netlify": "^2.3.2",
@@ -17,7 +18,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^6.0.0",
-    "reason-react": "0.8.0"
+    "reason-react": "0.9.0"
   },
   "keywords": [
     "persona-avatar-generator",
@@ -30,14 +31,29 @@
     "build": "npm run re:build && npx patch-package && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose"
   },
   "devDependencies": {
+    "@glennsl/bs-jest": "^0.6.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-gatsby": "^0.8.0",
     "bs-platform": "^7.3.2",
+    "identity-obj-proxy": "^3.0.0",
     "prettier": "2.0.5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/draftbit/persona-avatar-generator"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/.cache"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/(?!@glennsl/bs-jest|bs-platform).+\\.js$"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   }
 }
