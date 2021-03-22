@@ -43,17 +43,15 @@ let export = () => {
       let linkHtml = link |> Element.asHtmlElement
                           |> Belt.Option.getExn;
 
-      document |> Document.asHtmlDocument
-               |> andThen(HtmlDocument.body)
-               |> map(Element.appendChild(linkHtml))
-               |> ignore;
+      Document.asHtmlDocument(document)
+        -> Belt.Option.flatMap(HtmlDocument.body)
+        -> Belt.Option.map(Element.appendChild(linkHtml));
 
       HtmlElement.click(linkHtml);
 
-      document |> Document.asHtmlDocument
-               |> andThen(HtmlDocument.body)
-               |> map(Element.removeChild(linkHtml))
-               |> ignore;
+      Document.asHtmlDocument(document)
+        -> Belt.Option.flatMap(HtmlDocument.body)
+        -> Belt.Option.map(Element.removeChild(linkHtml));
 
     Js.Promise.resolve();
   }) |> ignore;
