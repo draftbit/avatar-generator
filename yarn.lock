@@ -2302,6 +2302,11 @@ bs-platform@^7.3.2:
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-7.3.2.tgz#301f5c9b4e8cf5713cb60ca22e145e56e793affe"
   integrity sha512-seJL5g4anK9la4erv+B2o2sMHQCxDF6OCRl9en3hbaUos/S3JsusQ0sPp4ORsbx5eXfHLYBwPljwKXlgpXtsgQ==
 
+bs-webapi@^0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/bs-webapi/-/bs-webapi-0.16.2.tgz#5400e0f603834a7f7f4c5d77dca514dbfbf6b5f6"
+  integrity sha512-dC7Kwo3zdb3gajFNXDWBf2hq3ukY4/wJo6hI7yieVQhIux0LMovOWBA/8iqXFvfIk8Ur3445GZLAkmp/kN53xA==
+
 buble-jsx-only@^0.19.8:
   version "0.19.8"
   resolved "https://registry.yarnpkg.com/buble-jsx-only/-/buble-jsx-only-0.19.8.tgz#6e3524aa0f1c523de32496ac9aceb9cc2b493867"
