@@ -1,6 +1,6 @@
 import React from "react";
-import Index from "./Index.bs";
+import { make as Index } from "./Index.bs";
 
-export default () => {
+export default function IndexPage() {
   return <Index />;
-};
+}

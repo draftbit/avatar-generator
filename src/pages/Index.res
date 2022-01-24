@@ -121,5 +121,3 @@ let make = () => {
     />
   </Layout>
 }
-
-let default = make
