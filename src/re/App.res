@@ -107,7 +107,7 @@ let make = (
         />
       </div>
     </footer>
-    <div style={ReactDOMRe.Style.make(~textAlign="center", ~marginBottom="36px", ())}>
+    <div style={ReactDOM.Style.make(~textAlign="center", ~marginBottom="36px", ())}>
       <Button href="https://github.com/draftbit/avatar-generator" label="View on Github" />
     </div>
     <Modal visible=showModal onToggle=onToggleModal />

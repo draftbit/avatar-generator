@@ -30,7 +30,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
   let pngImage = Belt.Array.map(settings, o =>
     <SvgLoader
       key=o.label
-      style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
+      style={ReactDOM.Style.make(~zIndex=getZIndex(o.id), ())}
       className="AvatarGenerator-png"
       name=o.selectedStyle
       fill={"#" ++ o.selectedColor}
@@ -41,7 +41,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
   let faceFeatures = Belt.Array.map(settings, o =>
     <SvgLoader
       key=o.label
-      style={ReactDOMRe.Style.make(~zIndex=getZIndex(o.id), ())}
+      style={ReactDOM.Style.make(~zIndex=getZIndex(o.id), ())}
       className="AvatarGenerator-faceFeature"
       name=o.selectedStyle
       fill={"#" ++ o.selectedColor}
@@ -54,7 +54,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
     <div className="AvatarGenerator-avatar"> {React.array(faceFeatures)} </div>
     <button className="Text-link" onClick={_ => dispatch(Randomize)}>
       {React.string("Randomize")}
-      <Icon name="randomize" style={ReactDOMRe.Style.make(~transform=rotation, ())} />
+      <Icon name="randomize" style={ReactDOM.Style.make(~transform=rotation, ())} />
     </button>
     <div className="AvatarGenerator-row">
       {Belt.Array.map(settings, o =>

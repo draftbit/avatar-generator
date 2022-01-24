@@ -45,7 +45,7 @@ let metaToHelmet = (item: metaItem) =>
   }
 
 @react.component
-let make = (~children: ReasonReact.reactElement) => {
+let make = (~children: React.element) => {
   let data: queryResponseType = useStaticQuery(
     %raw(`
                 graphql\`

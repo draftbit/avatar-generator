@@ -1,5 +1,5 @@
 {
-  "name": "@draftbit/persona-avatar-generator",
+  "name": "@draftbit/personas",
   "reason": {
     "react-jsx": 3
   },
@@ -16,6 +16,6 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": ["@rescript/react"],
   "refmt": 3
 }

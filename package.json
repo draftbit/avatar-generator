@@ -3,6 +3,7 @@
   "description": "Avatar Generator by Draftbit",
   "version": "1.0.0",
   "dependencies": {
+    "@rescript/react": "^0.10.3",
     "gatsby": "^2.21.31",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-plugin-manifest": "^2.4.3",
@@ -16,8 +17,7 @@
     "normalize.css": "^8.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
-    "react-helmet": "^6.0.0",
-    "reason-react": "0.8.0"
+    "react-helmet": "^6.0.0"
   },
   "keywords": [
     "personas",
