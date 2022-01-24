@@ -30,7 +30,7 @@
     "re:watch": "bsb -make-world -clean-world -w",
     "build": "npm run re:build && npx patch-package && gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write '**/*.js'",
+    "format": "prettier --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
-import React from 'react'
-import Index from './Index.bs'
+import React from "react";
+import Index from "./Index.bs";
 
 export default () => {
-  return <Index />
-}
+  return <Index />;
+};
