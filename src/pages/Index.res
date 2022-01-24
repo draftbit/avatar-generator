@@ -3,7 +3,7 @@
 /* raw import used because no Reason support for Gatsby graphql queries */
 %%raw(` import  {graphql}  from "gatsby" `)
 
-@module("../externals/exportImage.js")
+@module("../helpers/exportImage.js")
 external exportImageAsync: unit => unit = "default"
 
 let defaultStyles: Types.styles = {
