@@ -42,5 +42,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/draftbit/persona-avatar-generator"
+  },
+  "engines": {
+    "node": "^16.13",
+    "yarn": "^1.22.10"
   }
 }
