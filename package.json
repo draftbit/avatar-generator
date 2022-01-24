@@ -1,6 +1,6 @@
 {
-  "name": "@draftbit/persona-avatar-generator",
-  "description": "Persona Avatar Generator by Draftbit",
+  "name": "@draftbit/personas",
+  "description": "Avatar Generator by Draftbit",
   "version": "1.0.0",
   "dependencies": {
     "gatsby": "^2.21.31",
@@ -20,6 +20,7 @@
     "reason-react": "0.8.0"
   },
   "keywords": [
+    "personas",
     "persona-avatar-generator",
     "reasonml"
   ],
