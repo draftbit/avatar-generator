@@ -1,6 +1,6 @@
-[@react.component]
-let make = (~style=?, ~name) => {
-  switch (name) {
+@react.component
+let make = (~style=?, ~name) =>
+  switch name {
   | "arrow" =>
     <svg
       className="IconLink-icon"
@@ -43,5 +43,4 @@ let make = (~style=?, ~name) => {
       </g>
     </svg>
   | _ => React.null
-  };
-};
+  }

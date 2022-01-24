@@ -1,11 +1,10 @@
-[@bs.module "gatsby"] external useStaticQuery: string => 'a = "useStaticQuery";
+@module("gatsby") external useStaticQuery: string => 'a = "useStaticQuery"
 
 /* raw import used because no Reason support for Gatsby graphql queries */
-%bs.raw
-{| import  {graphql}  from "gatsby" |};
+%%raw(` import  {graphql}  from "gatsby" `)
 
-[@bs.module "../externals/exportImage.js"]
-external exportImageAsync: unit => unit = "default";
+@module("../externals/exportImage.js")
+external exportImageAsync: unit => unit = "default"
 
 let defaultStyles: Types.styles = {
   skin: "Skin",
@@ -21,13 +20,13 @@ let defaultStyles: Types.styles = {
   nose: "Smallround",
   bgColor: "FFCC65",
   head: "Head",
-};
+}
 
 let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
-    let len = Array.length(_list);
-    _list[Js.Math.floor(Js.Math.random() *. float_of_int(len))];
-  };
+    let len = Array.length(_list)
+    _list[Js.Math.floor(Js.Math.random() *. float_of_int(len))]
+  }
 
   {
     skin: "Skin",
@@ -43,16 +42,14 @@ let randomizeStyles = (config: Types.config): Types.styles => {
     nose: getRandom(config.noseStyles),
     bgColor: getRandom(config.bgColors),
     head: "Head",
-  };
-};
+  }
+}
 
-[@react.component]
+@react.component
 let make = () => {
-  let data: Types.queryResType =
-    useStaticQuery(
-      [%bs.raw
-        {|
-           graphql`
+  let data: Types.queryResType = useStaticQuery(
+    %raw(`
+           graphql\`
   query ConfigQuery {
     allDataJson {
       edges {
@@ -75,44 +72,42 @@ let make = () => {
       }
     }
   }
-   `
-    |}
-      ],
-    );
+   \`
+    `),
+  )
 
-  let (styles, setStyles) = React.useState(_ => defaultStyles);
-  let (showModal, setShowModal) = React.useState(_ => false);
+  let (styles, setStyles) = React.useState(_ => defaultStyles)
+  let (showModal, setShowModal) = React.useState(_ => false)
 
-  let onChange = (key: Types.key, value) => {
-    setStyles(styles => {
-      switch (key) {
-      | `SkinStyle => {...styles, skin: value}
-      | `SkinColor => {...styles, skinColor: value}
-      | `HairStyle => {...styles, hair: value}
-      | `HairColor => {...styles, hairColor: value}
-      | `FacialHairStyle => {...styles, facialHair: value}
-      | `FacialHairColor => {...styles, facialHairColor: value}
-      | `BodyStyle => {...styles, body: value}
-      | `BodyColor => {...styles, bodyColor: value}
-      | `EyesStyle => {...styles, eyes: value}
-      | `MouthStyle => {...styles, mouth: value}
-      | `NoseStyle => {...styles, nose: value}
-      | `BackgroundColor => {...styles, bgColor: value}
+  let onChange = (key: Types.key, value) =>
+    setStyles(styles =>
+      switch key {
+      | #SkinStyle => {...styles, skin: value}
+      | #SkinColor => {...styles, skinColor: value}
+      | #HairStyle => {...styles, hair: value}
+      | #HairColor => {...styles, hairColor: value}
+      | #FacialHairStyle => {...styles, facialHair: value}
+      | #FacialHairColor => {...styles, facialHairColor: value}
+      | #BodyStyle => {...styles, body: value}
+      | #BodyColor => {...styles, bodyColor: value}
+      | #EyesStyle => {...styles, eyes: value}
+      | #MouthStyle => {...styles, mouth: value}
+      | #NoseStyle => {...styles, nose: value}
+      | #BackgroundColor => {...styles, bgColor: value}
       }
-    });
-  };
+    )
 
   let randomize = () => {
-    let config = data.allDataJson.edges[0].node;
-    setStyles(_ => randomizeStyles(config));
-  };
+    let config = data.allDataJson.edges[0].node
+    setStyles(_ => randomizeStyles(config))
+  }
 
   let exportImage = () => {
-    setShowModal(_ => true);
-    exportImageAsync();
-  };
+    setShowModal(_ => true)
+    exportImageAsync()
+  }
 
-  let config = data.allDataJson.edges[0].node;
+  let config = data.allDataJson.edges[0].node
 
   <Layout>
     <App
@@ -124,7 +119,7 @@ let make = () => {
       onToggleModal={_ => setShowModal(_ => false)}
       onExport={_ => exportImage()}
     />
-  </Layout>;
-};
+  </Layout>
+}
 
-let default = make;
+let default = make
