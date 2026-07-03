@@ -1,21 +1,20 @@
 {
   "name": "@draftbit/personas",
-  "reason": {
-    "react-jsx": 3
+  "jsx": {
+    "version": 4,
+    "mode": "automatic"
   },
-  "bsc-flags": ["-bs-super-errors"],
   "sources": {
     "dir": "src",
     "subdirs": true
   },
   "package-specs": [
     {
-      "module": "es6",
+      "module": "esmodule",
       "in-source": true
     }
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["@rescript/react"],
-  "refmt": 3
+  "bs-dependencies": ["@rescript/react"]
 }

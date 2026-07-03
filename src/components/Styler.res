@@ -1,4 +1,4 @@
-%raw(`require('./Styler.css')`)
+%%raw(`import "./Styler.css"`)
 
 type state = {index: int}
 
@@ -8,7 +8,7 @@ type action =
 
 @react.component
 let make = (
-  ~id,
+  ~id: Types.id,
   ~label,
   ~colors,
   ~styles,
@@ -23,13 +23,13 @@ let make = (
       let inc = Belt.Array.length(styles) - 1 > state.index ? 1 : -Belt.Array.length(styles) + 1
       let index = state.index + inc
       let style = styles[index]
-      onSelectStyle(j`$style`)
+      onSelectStyle(style)
       {index: index}
     | Decrement =>
       let inc = state.index > 0 ? 1 : -Belt.Array.length(styles) + 1
       let index = state.index - inc
       let style = styles[index]
-      onSelectStyle(j`$style`)
+      onSelectStyle(style)
       {index: index}
     }
   , {index: 0})
@@ -67,12 +67,16 @@ let make = (
 
   let showImage = switch id {
   | #Background => React.null
-  | _ => <div className=j` Styler-model svg-$id `> image </div>
+  | _ => <div className={` Styler-model svg-${(id :> string)} `}> image </div>
   }
 
   <div className="Styler-container">
     <span className="Styler-label"> {React.string(label)} </span>
-    <div className="Styler-picker"> showLeftArrow showImage showRightArrow </div>
+    <div className="Styler-picker">
+      showLeftArrow
+      showImage
+      showRightArrow
+    </div>
     <div className="Styler-colors"> colorSwatches </div>
   </div>
 }

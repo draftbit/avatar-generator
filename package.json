@@ -1,53 +1,45 @@
 {
   "name": "@draftbit/personas",
   "description": "Avatar Generator by Draftbit",
-  "version": "1.0.0",
-  "dependencies": {
-    "@rescript/react": "^0.10.3",
-    "gatsby": "^2.21.31",
-    "gatsby-plugin-google-analytics": "^2.3.1",
-    "gatsby-plugin-manifest": "^2.4.3",
-    "gatsby-plugin-netlify": "^2.3.2",
-    "gatsby-plugin-offline": "^3.2.2",
-    "gatsby-plugin-react-helmet": "^3.3.1",
-    "gatsby-plugin-react-svg": "^3.0.0",
-    "gatsby-source-filesystem": "^2.3.3",
-    "gatsby-transformer-json": "^2.4.2",
-    "html2canvas": "^1.0.0-rc.5",
-    "normalize.css": "^8.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.0.0"
-  },
+  "version": "2.0.0",
+  "private": true,
+  "packageManager": "yarn@4.17.0",
+  "license": "MIT",
   "keywords": [
     "personas",
     "persona-avatar-generator",
-    "reasonml"
+    "rescript"
   ],
-  "license": "MIT",
-  "scripts": {
-    "postinstall": "yarn yarn-deduplicate",
-    "re:build": "rescript clean && rescript build",
-    "re:watch": "rescript build -w",
-    "build": "npm run re:build && npx patch-package && gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "prettier": "2.5.1",
-    "rescript": "^9.1.4",
-    "yarn-deduplicate": "^3.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/draftbit/persona-avatar-generator"
   },
   "engines": {
-    "node": "^16.13",
-    "yarn": "^1.22.10"
+    "node": ">=22"
   },
-  "resolutions": {
-      "node-fetch": "^2.6.7"
+  "scripts": {
+    "clean": "rescript clean",
+    "re:build": "rescript",
+    "re:watch": "rescript -w",
+    "dev": "vite",
+    "build": "rescript && vite build",
+    "preview": "vite preview",
+    "deploy": "yarn build && wrangler deploy",
+    "format": "prettier --write 'src/**/*.{js,css}' 'index.html' && rescript format -all",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@rescript/react": "^0.13.1",
+    "html2canvas": "^1.4.1",
+    "normalize.css": "^8.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "prettier": "^3.6.2",
+    "rescript": "^11.1.4",
+    "vite": "^7.0.0",
+    "wrangler": "^4.0.0"
   }
 }

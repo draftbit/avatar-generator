@@ -7,7 +7,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -40,7 +42,7 @@ html {
   .body-bg-right {
     width: 50vw;
     height: 100vh;
-    background-color: #F9FAFC;
+    background-color: #f9fafc;
     z-index: -1;
     position: fixed;
     top: 0;
@@ -70,7 +72,6 @@ html {
     padding-left: 24px;
     padding-right: 24px;
   }
-
 }
 
 @media (min-width: 768px) {

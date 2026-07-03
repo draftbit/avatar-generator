@@ -2,7 +2,7 @@ import html2canvas from "html2canvas";
 
 export default async () => {
   const node = document.getElementsByClassName(
-    "AvatarGenerator-pngContainer"
+    "AvatarGenerator-pngContainer",
   )[0];
 
   // There is an issue with html2cavas with off-screen renders due to scroll

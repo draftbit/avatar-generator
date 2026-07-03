@@ -6,14 +6,17 @@ A delightful avatar generator by the folks at Draftbit. Try it online at [https:
 
 ## Contributing
 
-Personas is built using Gatsby and Rescript. Setup instructions are straight forward:
+Personas is built with [ReScript](https://rescript-lang.org), React 18, and [Vite](https://vite.dev). You'll need Node 22+ (see `.nvmrc`) and Yarn 4 (via `corepack enable`).
 
-- `yarn`
-- `yarn develop` starts the Gatsby server
-- `yarn re:watch` starts the Rescript compiler
+- `yarn` installs dependencies
+- `yarn re:watch` starts the ReScript compiler in watch mode
+- `yarn dev` starts the Vite dev server (run alongside `re:watch`)
+- `yarn build` produces a production build in `dist/`
+- `yarn preview` serves the production build locally
 
-> Note that the first time you get set up you'll need to run `npx patch-package`
-> to fix an error with one of `avatar-generator`'s dependencies.
+## Deployment
+
+The site deploys to [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/) as a static-assets Worker. Pushes to `master` deploy automatically via GitHub Actions (`.github/workflows/deploy.yml`), which requires the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. You can also deploy manually with `yarn deploy`.
 
 ## Why
 

@@ -1,14 +1,13 @@
-@deriving(jsConverter)
 type id = [
-  | @as("Skin") #Skin
-  | @as("Hair") #Hair
-  | @as("FacialHair") #FacialHair
-  | @as("Body") #Body
-  | @as("Eyes") #Eyes
-  | @as("Mouth") #Mouth
-  | @as("Nose") #Nose
-  | @as("Background") #Background
-  | @as("Head") #Head
+  | #Skin
+  | #Hair
+  | #FacialHair
+  | #Body
+  | #Eyes
+  | #Mouth
+  | #Nose
+  | #Background
+  | #Head
 ]
 
 type color = [
@@ -72,8 +71,3 @@ type config = {
   noseStyles: array<string>,
   bgStyles: array<string>,
 }
-
-@ocaml.doc(" Gatsby GraphQL types ")
-type edge = {node: config}
-type allDataJson = {edges: array<edge>}
-type queryResType = {allDataJson: allDataJson}
