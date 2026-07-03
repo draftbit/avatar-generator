@@ -79,7 +79,7 @@ let make = (
     <div className="body-bg-right" />
     <header className="Layout-header">
       <div className="Layout-left">
-        <Wordmark />
+        <Wordmark placement="header-wordmark" />
         <h1 className="Text-title"> {React.string("Personas")} </h1>
         <span className="Text-subtitle"> {React.string("Avatar Generator")} </span>
       </div>
@@ -96,7 +96,7 @@ let make = (
       <div className="Layout-left">
         <span className="Text-overline"> {React.string("Built by")} </span>
         <br />
-        <Wordmark />
+        <Wordmark placement="footer-wordmark" />
       </div>
       <div className="Layout-right">
         <span className="Text-marketing mb-2">
@@ -104,8 +104,8 @@ let make = (
         </span>
         <br />
         <IconLink
-          href="https://draftbit.com"
-          title="Build fobust native front-end apps with usable code using Draftbit"
+          href="https://draftbit.com?utm_source=personas&utm_medium=referral&utm_campaign=avatar-generator&utm_content=footer-link"
+          title="Build robust native front-end apps with usable code using Draftbit"
           label="draftbit.com"
           icon="arrow"
         />

@@ -4,22 +4,6 @@ external config: Types.config = "default"
 @module("../helpers/exportImage.js")
 external exportImageAsync: unit => unit = "default"
 
-let defaultStyles: Types.styles = {
-  skin: "Skin",
-  skinColor: "B16A5B",
-  hair: "Balding",
-  hairColor: "E16381",
-  facialHair: "Mustache",
-  facialHairColor: "6C4545",
-  body: "Square",
-  bodyColor: "5A45FF",
-  eyes: "Glasses",
-  mouth: "Pacifier",
-  nose: "Smallround",
-  bgColor: "FFCC65",
-  head: "Head",
-}
-
 let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list)
@@ -45,7 +29,7 @@ let randomizeStyles = (config: Types.config): Types.styles => {
 
 @react.component
 let make = () => {
-  let (styles, setStyles) = React.useState(_ => defaultStyles)
+  let (styles, setStyles) = React.useState(_ => randomizeStyles(config))
   let (showModal, setShowModal) = React.useState(_ => false)
 
   let onChange = (key: Types.key, value) =>
