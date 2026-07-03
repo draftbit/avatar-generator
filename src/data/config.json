@@ -9,6 +9,7 @@
     "Bobcut",
     "Buncurls",
     "Buzzcut",
+    "Curlybun",
     "Hightopcurly",
     "Long",
     "Pigtails",
@@ -17,7 +18,6 @@
     "Bunundercut",
     "Extralong",
     "Fade",
-    "Hat",
     "Mohawk",
     "Shortcomboverchops",
     "Sidebuzz",
@@ -63,34 +63,45 @@
   "bgStyles": ["Background"],
   "skinColors": [
     "FFCC22",
+    "FFDFC4",
     "FBD2C7",
     "F2AD9B",
     "E58F7B",
     "E4A070",
     "B16A5B",
     "92594B",
+    "7A4536",
     "623D36",
-    "C9E6DC"
+    "C9E6DC",
+    "C4B5F2"
   ],
   "hairColors": [
     "362C47",
     "675E97",
+    "4E7DE0",
     "5AC4D4",
+    "58B368",
     "DEE1F5",
     "6C4545",
     "F29C65",
+    "F2C94C",
     "E16381",
-    "E15C66"
+    "E15C66",
+    "979FB0"
   ],
   "facialHairColors": [
     "362C47",
     "675E97",
+    "4E7DE0",
     "5AC4D4",
+    "58B368",
     "DEE1F5",
-    "6c4545",
+    "6C4545",
     "F29C65",
+    "F2C94C",
     "E16381",
-    "E15C66"
+    "E15C66",
+    "979FB0"
   ],
   "bodyColors": [
     "456DFF",
@@ -100,7 +111,11 @@
     "7555CA",
     "E24553",
     "54D7C7",
-    "F3B63A"
+    "F3B63A",
+    "FF8A5C",
+    "3E4E7C",
+    "C866D9",
+    "68C9F2"
   ],
   "bgColors": [
     "93A7FF",
@@ -110,6 +125,10 @@
     "FF6674",
     "89E6E4",
     "FFCC65",
+    "FFB27A",
+    "B8EBC5",
+    "D9CCFF",
+    "6C7BC4",
     "F8FBFF"
   ],
   "disabledColors": [
