@@ -2,6 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "personas",
   "compatibility_date": "2026-07-03",
+  "routes": [
+    {
+      "pattern": "personas.draftbit.com",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page"
