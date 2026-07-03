@@ -40,6 +40,18 @@
   top: -75px;
 }
 
+/* On small screens the styler list is a long scroll; keep the avatar
+   preview pinned so changes stay visible (community request, #34) */
+@media (max-width: 767px) {
+  .AvatarGenerator-avatar {
+    position: sticky;
+    top: 20px;
+    margin-top: -185px;
+    margin-bottom: 35px;
+    z-index: 1;
+  }
+}
+
 .AvatarGenerator-faceFeature {
   position: absolute;
   top: 0;
