@@ -97,16 +97,5 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
     <button onClick=onExport className="Button-primary Text-button">
       {React.string("Download Avatar")}
     </button>
-    <div className="AvatarGenerator-footer">
-      <img width="32" height="32" src="/images/sketch.svg" />
-      <div className="AvatarGenerator-footerTop">
-        <span className="Text-cta-title mb-1"> {React.string("Want to make your own?")} </span>
-        <br />
-        <span className="Text-cta-subtitle">
-          {React.string("Get the Sketch file on Gumroad.")}
-        </span>
-      </div>
-      <IconLink label="Let's Go" href="https://gumroad.com/l/PersonasByDraftbit" icon="arrow" />
-    </div>
   </div>
 }

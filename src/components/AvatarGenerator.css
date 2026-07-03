@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 110px;
+  padding-bottom: 32px;
 }
 
 .AvatarGenerator-pngContainer {
@@ -75,31 +76,3 @@
   }
 }
 
-.AvatarGenerator-footer {
-  width: 100%;
-  background-color: #f9fafc;
-  padding-top: 28px;
-  padding-bottom: 28px;
-  border-radius: 8px;
-  text-align: center;
-  margin-top: 24px;
-}
-
-@media (min-width: 768px) {
-  .AvatarGenerator-footerTop {
-    margin-right: 48px;
-    margin-left: 24px;
-  }
-
-  .AvatarGenerator-footer {
-    width: 100%;
-    background-color: #f9fafc;
-    padding-top: 28px;
-    padding-bottom: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    margin-top: 32px;
-  }
-}
