@@ -89,10 +89,14 @@ let make = (
         </h2>
       </div>
     </header>
-    <main className="Layout-main"> <AvatarGenerator onChange onExport randomize settings /> </main>
+    <main className="Layout-main">
+      <AvatarGenerator onChange onExport randomize settings />
+    </main>
     <footer className="Layout-footer">
       <div className="Layout-left">
-        <span className="Text-overline"> {React.string("Built by")} </span> <br /> <Wordmark />
+        <span className="Text-overline"> {React.string("Built by")} </span>
+        <br />
+        <Wordmark />
       </div>
       <div className="Layout-right">
         <span className="Text-marketing mb-2">
@@ -107,7 +111,7 @@ let make = (
         />
       </div>
     </footer>
-    <div style={ReactDOM.Style.make(~textAlign="center", ~marginBottom="36px", ())}>
+    <div style={{textAlign: "center", marginBottom: "36px"}}>
       <Button href="https://github.com/draftbit/avatar-generator" label="View on Github" />
     </div>
     <Modal visible=showModal onToggle=onToggleModal />

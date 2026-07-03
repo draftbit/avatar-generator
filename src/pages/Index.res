@@ -1,7 +1,5 @@
-@module("gatsby") external useStaticQuery: string => 'a = "useStaticQuery"
-
-/* raw import used because no Reason support for Gatsby graphql queries */
-%%raw(` import  {graphql}  from "gatsby" `)
+@module("../data/config.json")
+external config: Types.config = "default"
 
 @module("../helpers/exportImage.js")
 external exportImageAsync: unit => unit = "default"
@@ -47,35 +45,6 @@ let randomizeStyles = (config: Types.config): Types.styles => {
 
 @react.component
 let make = () => {
-  let data: Types.queryResType = useStaticQuery(
-    %raw(`
-           graphql\`
-  query ConfigQuery {
-    allDataJson {
-      edges {
-        node {
-          skinStyles
-          skinColors
-          hairStyles
-          hairColors
-          facialHairStyles
-          facialHairColors
-          bodyStyles
-          bodyColors
-          eyeStyles
-          mouthStyles
-          noseStyles
-          bgStyles
-          bgColors
-          disabledColors
-        }
-      }
-    }
-  }
-   \`
-    `),
-  )
-
   let (styles, setStyles) = React.useState(_ => defaultStyles)
   let (showModal, setShowModal) = React.useState(_ => false)
 
@@ -97,17 +66,12 @@ let make = () => {
       }
     )
 
-  let randomize = () => {
-    let config = data.allDataJson.edges[0].node
-    setStyles(_ => randomizeStyles(config))
-  }
+  let randomize = () => setStyles(_ => randomizeStyles(config))
 
   let exportImage = () => {
     setShowModal(_ => true)
     exportImageAsync()
   }
-
-  let config = data.allDataJson.edges[0].node
 
   <Layout>
     <App

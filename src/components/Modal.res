@@ -1,4 +1,4 @@
-%raw(`require('./Modal.css')`)
+%%raw(`import "./Modal.css"`)
 
 @react.component
 let make = (~visible, ~onToggle) =>

@@ -61,7 +61,7 @@
   margin-bottom: 24px;
 }
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
   .AvatarGenerator-row {
     padding-left: 48px;
     padding-right: 48px;
@@ -85,7 +85,7 @@
   margin-top: 24px;
 }
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
   .AvatarGenerator-footerTop {
     margin-right: 48px;
     margin-left: 24px;

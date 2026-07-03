@@ -1,4 +1,4 @@
-%raw(`require('./AvatarGenerator.css')`)
+%%raw(`import "./AvatarGenerator.css"`)
 
 let getZIndex = (id: Types.id) =>
   switch id {
@@ -30,7 +30,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
   let pngImage = Belt.Array.map(settings, o =>
     <SvgLoader
       key=o.label
-      style={ReactDOM.Style.make(~zIndex=getZIndex(o.id), ())}
+      style={{zIndex: getZIndex(o.id)}}
       className="AvatarGenerator-png"
       name=o.selectedStyle
       fill={"#" ++ o.selectedColor}
@@ -41,7 +41,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
   let faceFeatures = Belt.Array.map(settings, o =>
     <SvgLoader
       key=o.label
-      style={ReactDOM.Style.make(~zIndex=getZIndex(o.id), ())}
+      style={{zIndex: getZIndex(o.id)}}
       className="AvatarGenerator-faceFeature"
       name=o.selectedStyle
       fill={"#" ++ o.selectedColor}
@@ -54,7 +54,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
     <div className="AvatarGenerator-avatar"> {React.array(faceFeatures)} </div>
     <button className="Text-link" onClick={_ => dispatch(Randomize)}>
       {React.string("Randomize")}
-      <Icon name="randomize" style={ReactDOM.Style.make(~transform=rotation, ())} />
+      <Icon name="randomize" style={{transform: rotation}} />
     </button>
     <div className="AvatarGenerator-row">
       {Belt.Array.map(settings, o =>
@@ -73,7 +73,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
             | #FacialHair => #FacialHairColor
             | #Body => #BodyColor
             | #Background => #BackgroundColor
-            | _ => Js.Exn.raiseError("ColorNotFound: " ++ Types.idToJs(o.id))
+            | _ => Js.Exn.raiseError("ColorNotFound: " ++ (o.id :> string))
             }
 
             onChange(key, color)
@@ -87,7 +87,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
             | #Eyes => #EyesStyle
             | #Mouth => #MouthStyle
             | #Nose => #NoseStyle
-            | _ => Js.Exn.raiseError("StyleNotFound: " ++ Types.idToJs(o.id))
+            | _ => Js.Exn.raiseError("StyleNotFound: " ++ (o.id :> string))
             }
             onChange(key, style)
           }}

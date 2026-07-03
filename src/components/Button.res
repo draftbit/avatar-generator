@@ -1,4 +1,4 @@
-%raw(`require('./Button.css')`)
+%%raw(`import "./Button.css"`)
 
 @react.component
 let make = (~style=?, ~label, ~href) =>
