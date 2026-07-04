@@ -4,6 +4,12 @@ external config: Types.config = "default"
 @module("../helpers/exportImage.js")
 external exportImageAsync: unit => unit = "default"
 
+@module("../helpers/shareUrl.js")
+external readStylesFromUrl: (Types.config, Types.styles) => Types.styles = "readStylesFromUrl"
+
+@module("../helpers/shareUrl.js")
+external writeStylesToUrl: Types.styles => unit = "writeStylesToUrl"
+
 let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list)
@@ -29,8 +35,13 @@ let randomizeStyles = (config: Types.config): Types.styles => {
 
 @react.component
 let make = () => {
-  let (styles, setStyles) = React.useState(_ => randomizeStyles(config))
+  let (styles, setStyles) = React.useState(_ => readStylesFromUrl(config, randomizeStyles(config)))
   let (showModal, setShowModal) = React.useState(_ => false)
+
+  React.useEffect1(() => {
+    writeStylesToUrl(styles)
+    None
+  }, [styles])
 
   let onChange = (key: Types.key, value) =>
     setStyles(styles =>

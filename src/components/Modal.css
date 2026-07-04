@@ -19,7 +19,7 @@
   right: 0;
   margin: auto;
   width: 500px;
-  max-height: 370px;
+  max-height: 430px;
   box-shadow: 0 6px 10px 0 rgba(24, 33, 45, 0.06);
   border: solid 1px rgba(24, 33, 45, 0.02);
   background-color: #ffffff;
@@ -72,6 +72,12 @@
 .Modal-button--twitter {
   background-color: #2baee7;
   margin-right: 16px;
+}
+
+.Modal-button--copy {
+  background-color: #5a45ff;
+  margin-top: 16px;
+  cursor: pointer;
 }
 
 .Modal-title {

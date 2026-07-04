@@ -1,7 +1,21 @@
 %%raw(`import "./Modal.css"`)
 
+@val @scope(("window", "location"))
+external locationHref: string = "href"
+
+@val @scope(("navigator", "clipboard"))
+external writeText: string => promise<unit> = "writeText"
+
 @react.component
-let make = (~visible, ~onToggle) =>
+let make = (~visible, ~onToggle) => {
+  let (copied, setCopied) = React.useState(_ => false)
+
+  let copyLink = _ => {
+    writeText(locationHref)->ignore
+    setCopied(_ => true)
+    let _ = Js.Global.setTimeout(() => setCopied(_ => false), 2000)
+  }
+
   !visible
     ? React.null
     : <>
@@ -20,7 +34,9 @@ let make = (~visible, ~onToggle) =>
             <a
               target="_blank"
               rel="no-follow"
-              href="https://twitter.com/intent/tweet?text=Generate+a+modern+avatar+with+Personas+by+@Draftbit&url=https%3A%2F%2Fpersonas.draftbit.com&related=draftbit,bluerssen,peterpme,daltondubya,donaldhruska"
+              href={"https://twitter.com/intent/tweet?text=I+made+this+avatar+with+Personas+by+@Draftbit&url=" ++
+              Js.Global.encodeURIComponent(locationHref) ++
+              "&related=draftbit"}
               className="Modal-button Modal-button--twitter">
               <img className="Modal-shareIcon" width="16" height="16" src="/images/twitter.svg" />
               <span> {React.string("Twitter")} </span>
@@ -35,6 +51,10 @@ let make = (~visible, ~onToggle) =>
               />
               <span> {React.string("Product Hunt")} </span>
             </a>
+            <button onClick=copyLink className="Modal-button Modal-button--copy">
+              <span> {React.string(copied ? "Copied!" : "Copy Link")} </span>
+            </button>
           </div>
         </div>
       </>
+}
