@@ -1,5 +1,7 @@
 {
-  "skinStyles": ["Skin"],
+  "skinStyles": [
+    "Skin"
+  ],
   "hairStyles": [
     "Bald",
     "Hat",
@@ -36,7 +38,9 @@
     "Oval",
     "Round",
     "Square",
-    "Checkered"
+    "Checkered",
+    "Hoodie",
+    "Stripes"
   ],
   "eyeStyles": [
     "Glasses",
@@ -44,7 +48,11 @@
     "Open",
     "Sleepy",
     "Sunglasses",
-    "Wink"
+    "Wink",
+    "Closed",
+    "Hearts",
+    "Dizzy",
+    "Sideeye"
   ],
   "mouthStyles": [
     "Bigsmile",
@@ -53,14 +61,27 @@
     "Pacifier",
     "Smile",
     "Smirk",
-    "Surprise"
+    "Surprise",
+    "Grin",
+    "Tongue",
+    "Whistle",
+    "Laugh"
   ],
   "noseStyles": [
     "Mediumround",
     "Smallround",
-    "Wrinkles"
+    "Wrinkles",
+    "Pointed",
+    "Button"
   ],
-  "bgStyles": ["Background"],
+  "accessoryStyles": [
+    "None",
+    "Earring",
+    "Earrings"
+  ],
+  "bgStyles": [
+    "Background"
+  ],
   "skinColors": [
     "FFCC22",
     "FFDFC4",
@@ -117,6 +138,16 @@
     "C866D9",
     "68C9F2"
   ],
+  "accessoryColors": [
+    "F3B63A",
+    "C9CFDB",
+    "C98850",
+    "362C47",
+    "F55D81",
+    "54D7C7",
+    "456DFF",
+    "5A45FF"
+  ],
   "bgColors": [
     "93A7FF",
     "A9E775",
@@ -142,4 +173,3 @@
     "EEEFF5"
   ]
 }
-

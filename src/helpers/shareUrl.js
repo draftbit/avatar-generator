@@ -13,6 +13,7 @@ const STYLE_KEYS = [
   ["eyes", "eyeStyles"],
   ["mouth", "mouthStyles"],
   ["nose", "noseStyles"],
+  ["accessories", "accessoryStyles"],
 ];
 
 const COLOR_KEYS = [
@@ -20,6 +21,7 @@ const COLOR_KEYS = [
   "hairColor",
   "facialHairColor",
   "bodyColor",
+  "accessoriesColor",
   "bgColor",
 ];
 
