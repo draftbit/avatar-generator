@@ -1,5 +1,6 @@
 .AvatarGenerator-container {
   position: relative;
+  width: 100%;
   max-width: 780px;
   box-shadow: 0 4px 6px 0 rgba(24, 33, 45, 0.06);
   background-color: #ffffff;
@@ -79,11 +80,10 @@
     padding-left: 48px;
     padding-right: 48px;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: start;
     margin-bottom: 48px;
   }
 }
