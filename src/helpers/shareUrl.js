@@ -50,7 +50,8 @@ const COLOR_KEYS = [
 // ---------------------------------------------------------------------------
 
 const CODE_VERSION = 1;
-const B64URL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
+const B64URL =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_";
 export const CODE_PATH = /^\/([A-Za-z0-9_-]{8,64})$/;
 
 const STYLE_FIELDS = [
@@ -170,5 +171,9 @@ export function readStylesFromUrl(config, base) {
 
 export function writeStylesToUrl(styles) {
   // Absolute path: also normalizes away a short-code pathname after boot.
-  window.history.replaceState(null, "", "/?" + stylesToParams(styles).toString());
+  window.history.replaceState(
+    null,
+    "",
+    "/?" + stylesToParams(styles).toString(),
+  );
 }

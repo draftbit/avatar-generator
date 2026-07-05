@@ -100,6 +100,7 @@ let make = (
     </header>
     <main className="Layout-main">
       <AvatarGenerator onChange onExport randomize settings />
+      <ApiDocs />
     </main>
     <footer className="Layout-footer">
       <div className="Layout-left">
