@@ -28,6 +28,8 @@ let randomizeStyles = (config: Types.config): Types.styles => {
     eyes: getRandom(config.eyeStyles),
     mouth: getRandom(config.mouthStyles),
     nose: getRandom(config.noseStyles),
+    accessories: Js.Math.random() < 0.6 ? "None" : getRandom(config.accessoryStyles),
+    accessoriesColor: getRandom(config.accessoryColors),
     bgColor: getRandom(config.bgColors),
     head: "Head",
   }
@@ -57,6 +59,8 @@ let make = () => {
       | #EyesStyle => {...styles, eyes: value}
       | #MouthStyle => {...styles, mouth: value}
       | #NoseStyle => {...styles, nose: value}
+      | #AccessoriesStyle => {...styles, accessories: value}
+      | #AccessoriesColor => {...styles, accessoriesColor: value}
       | #BackgroundColor => {...styles, bgColor: value}
       }
     )

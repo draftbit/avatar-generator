@@ -35,8 +35,7 @@ let make = (~visible, ~onToggle) => {
               target="_blank"
               rel="no-follow"
               href={"https://twitter.com/intent/tweet?text=I+made+this+avatar+with+Personas+by+@Draftbit&url=" ++
-              Js.Global.encodeURIComponent(locationHref) ++
-              "&related=draftbit"}
+              Js.Global.encodeURIComponent(locationHref) ++ "&related=draftbit"}
               className="Modal-button Modal-button--twitter">
               <img className="Modal-shareIcon" width="16" height="16" src="/images/twitter.svg" />
               <span> {React.string("Twitter")} </span>

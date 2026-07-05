@@ -3,8 +3,6 @@ let utmHref = (placement: string) =>
 
 @react.component
 let make = (~placement: string) =>
-  <a
-    href={utmHref(placement)}
-    title="Robust native front-end apps with usable code by Draftbit">
+  <a href={utmHref(placement)} title="Robust native front-end apps with usable code by Draftbit">
     <Icon name="wordmark" />
   </a>
