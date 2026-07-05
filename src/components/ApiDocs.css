@@ -1,0 +1,118 @@
+.ApiDocs {
+  width: 100%;
+  max-width: 780px;
+  margin: 48px auto 0;
+  box-shadow: 0 4px 6px 0 rgba(24, 33, 45, 0.06);
+  background-color: #ffffff;
+  border: solid 1px rgba(24, 33, 45, 0.06);
+  border-radius: 8px;
+  padding: 40px 48px 32px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.ApiDocs-eyebrow {
+  font-family: "CerebriSans-Regular";
+  font-size: 12px;
+  letter-spacing: 2.6px;
+  color: #7c7f91;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ApiDocs-title {
+  font-family: "CerebriSans-Bold";
+  font-size: 24px;
+  color: #070b28;
+  margin: 0 0 8px;
+}
+
+.ApiDocs-intro {
+  font-family: "CerebriSans-Regular";
+  font-size: 16px;
+  line-height: 1.55;
+  color: #73859d;
+  margin: 0 0 28px;
+  max-width: 58ch;
+}
+
+.ApiDocs-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.ApiDocs-rowBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.ApiDocs-label {
+  font-family: "CerebriSans-Regular";
+  font-size: 12px;
+  letter-spacing: 2.6px;
+  color: #5a45ff;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ApiDocs-code {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: #1b0640;
+  background-color: #f4f6fb;
+  border: solid 1px rgba(24, 33, 45, 0.06);
+  border-radius: 6px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.ApiDocs-inline {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: #1b0640;
+  background-color: #f4f6fb;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.ApiDocs-note {
+  font-family: "CerebriSans-Regular";
+  font-size: 14px;
+  line-height: 1.5;
+  color: #73859d;
+  margin: 8px 0 0;
+}
+
+.ApiDocs-link {
+  color: #5a45ff;
+  text-decoration: none;
+}
+
+.ApiDocs-link:hover {
+  text-decoration: underline;
+}
+
+.ApiDocs-example {
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(16, 22, 64, 0.14);
+}
+
+@media (max-width: 767px) {
+  .ApiDocs {
+    padding: 28px 20px 20px;
+    margin-top: 32px;
+  }
+
+  .ApiDocs-example {
+    display: none;
+  }
+}
