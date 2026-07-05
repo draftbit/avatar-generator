@@ -2,6 +2,7 @@
 
 let getZIndex = (id: Types.id) =>
   switch id {
+  | #Accessories => "115"
   | #Eyes => "110"
   | #Nose => "100"
   | #FacialHair => "90"
@@ -72,6 +73,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
             | #Hair => #HairColor
             | #FacialHair => #FacialHairColor
             | #Body => #BodyColor
+            | #Accessories => #AccessoriesColor
             | #Background => #BackgroundColor
             | _ => Js.Exn.raiseError("ColorNotFound: " ++ (o.id :> string))
             }
@@ -87,6 +89,7 @@ let make = (~randomize, ~settings: array<Types.setting>, ~onChange, ~onExport) =
             | #Eyes => #EyesStyle
             | #Mouth => #MouthStyle
             | #Nose => #NoseStyle
+            | #Accessories => #AccessoriesStyle
             | _ => Js.Exn.raiseError("StyleNotFound: " ++ (o.id :> string))
             }
             onChange(key, style)

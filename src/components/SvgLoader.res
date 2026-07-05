@@ -178,6 +178,58 @@ let getSidebuzz = (fill, size) =>
 let getStraightbun = (fill, size) =>
   `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="${fill}" d="M22.2 17.002c-.131-.647-.2-1.316-.2-2.002 0-5.523 4.477-10 10-10s10 4.477 10 10c0 .686-.069 1.355-.2 2.002C39.274 14.526 35.815 13 32 13s-7.274 1.526-9.8 4.002z"/><path fill="#f55d81" d="M45.934 25.632C43.828 20.564 38.83 17 33 17h-2c-5.83 0-10.828 3.564-12.934 8.632C18.753 18.542 24.73 13 32 13s13.247 5.542 13.934 12.632z"/></g></svg>`
 
+/* --- 2026 expansion: eyes --- */
+
+let getEyesClosed = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><path fill="#1b0640" d="M24.712 27.263a.75.75 0 1 0-1.424.474c.434 1.301 1.383 2.013 2.712 2.013s2.278-.712 2.712-2.013a.75.75 0 1 0-1.424-.474c-.233.699-.617.987-1.288.987s-1.055-.288-1.288-.987zm12 0a.75.75 0 0 0-1.424.474c.434 1.301 1.383 2.013 2.712 2.013s2.278-.712 2.712-2.013a.75.75 0 0 0-1.424-.474c-.233.699-.617.987-1.288.987s-1.055-.288-1.288-.987z"/></svg>`
+
+let getEyesHearts = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><path fill="#f55d81" d="M25.5 31c-2.1-1.5-3.2-2.6-3.2-3.9 0-1 .8-1.8 1.8-1.8.55 0 1.05.25 1.4.7.35-.45.85-.7 1.4-.7 1 0 1.8.8 1.8 1.8 0 1.3-1.1 2.4-3.2 3.9zm13 0c-2.1-1.5-3.2-2.6-3.2-3.9 0-1 .8-1.8 1.8-1.8.55 0 1.05.25 1.4.7.35-.45.85-.7 1.4-.7 1 0 1.8.8 1.8 1.8 0 1.3-1.1 2.4-3.2 3.9z"/></svg>`
+
+let getEyesDizzy = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g stroke="#1b0640" stroke-width="1.5" stroke-linecap="round"><path d="m24 27 3.5 3.5m0-3.5L24 30.5m10.5-3.5 3.5 3.5m0-3.5-3.5 3.5"/></g></svg>`
+
+let getEyesSideeye = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="#fff" d="M28.5 28.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm13 0a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill="#1b0640" d="M28.4 28.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm13 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></g></svg>`
+
+/* --- 2026 expansion: mouths --- */
+
+let getMouthGrin = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="#1b0640" d="M26.5 38.5h11a5.5 5.5 0 0 1-11 0z"/><path fill="#fff" d="M27.6 39.5h8.8v.8a1.4 1.4 0 0 1-1.4 1.4h-6a1.4 1.4 0 0 1-1.4-1.4z"/></g></svg>`
+
+let getMouthTongue = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="#1b0640" d="M28.004 39.868a1 1 0 0 1 .992-1.736c1.02.583 2.018.868 3.004.868s1.983-.285 3.004-.868a1 1 0 1 1 .992 1.736C34.684 40.618 33.348 41 32 41c-1.348 0-2.684-.382-3.996-1.132z"/><path fill="#f57b98" d="M30 40.6c.66.27 1.33.4 2 .4s1.34-.13 2-.4v1.4a2 2 0 0 1-4 0z"/></g></svg>`
+
+let getMouthWhistle = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><ellipse fill="#1b0640" cx="33" cy="40.3" rx="1.7" ry="2.1"/></svg>`
+
+let getMouthLaugh = (_, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="#1b0640" d="M27 38h10c0 3.6-2.2 6-5 6s-5-2.4-5-6z"/><path fill="#f57b98" d="M29.3 42.8c.76.76 1.68 1.2 2.7 1.2s1.94-.44 2.7-1.2c-.7-.95-1.63-1.5-2.7-1.5s-2 .55-2.7 1.5z"/></g></svg>`
+
+/* --- 2026 expansion: noses --- */
+
+let getNosePointed = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="${fill}" d="M31.13 31.5a1 1 0 0 1 1.74 0l2.6 4.55a1 1 0 0 1-.87 1.5h-5.2a1 1 0 0 1-.87-1.5z"/><path style="mix-blend-mode: overlay" fill="#fff" d="M32 31l2.6 4.55a1 1 0 0 1-.87 1.5H32z" opacity=".36"/></g></svg>`
+
+let getNoseButton = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><circle fill="${fill}" cx="32" cy="35.3" r="2.3"/><path style="mix-blend-mode: overlay" fill="#fff" d="M32 33a2.3 2.3 0 0 1 0 4.6z" opacity=".36"/></g></svg>`
+
+/* --- 2026 expansion: bodies --- */
+
+let getBodyHoodie = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none"><path fill="${fill}" d="M27 51v.47a5 5 0 0 0 10 0V51c7.063 1.523 12.93 6.735 16 13H11c3.07-6.265 8.937-11.477 16-13z"/><path fill="#000" opacity=".18" d="M23.5 52.2c2.2 3.1 5.1 4.8 8.5 4.8s6.3-1.7 8.5-4.8l2.6 1c-2.5 4-6.4 6.2-11.1 6.2s-8.6-2.2-11.1-6.2z"/><path stroke="#fff" stroke-width="1.2" stroke-linecap="round" opacity=".8" d="M29.5 58.5v4m5-4v4"/></g></svg>`
+
+let getBodyStripes = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><defs><path id="stripes-body" d="M27 51v.47a5 5 0 0 0 10 0V51c7.063 1.523 12.93 6.735 16 13H11c3.07-6.265 8.937-11.477 16-13z"/><clipPath id="stripes-clip"><use href="#stripes-body"/></clipPath></defs><g fill="none"><use fill="${fill}" href="#stripes-body"/><g clip-path="url(#stripes-clip)" fill="#fff" opacity=".4"><rect x="10" y="54" width="44" height="2.4"/><rect x="10" y="59" width="44" height="2.4"/></g></g></svg>`
+
+/* --- 2026 expansion: accessories --- */
+
+let getEarring = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><circle cx="17" cy="37.5" r="1.7" fill="none" stroke="${fill}" stroke-width="1.3"/></svg>`
+
+let getEarrings = (fill, size) =>
+  `<svg width="${size}" height="${size}" viewBox="0 0 64 64"><g fill="none" stroke="${fill}" stroke-width="1.3"><circle cx="17" cy="37.5" r="1.7"/><circle cx="47" cy="37.5" r="1.7"/></g></svg>`
+
 @react.component
 let make = (~style=?, ~className="", ~name, ~fill="#000", ~size="64") => {
   let getHtml = name =>
@@ -231,6 +283,20 @@ let make = (~style=?, ~className="", ~name, ~fill="#000", ~size="64") => {
     | "Sidebuzz" => getSidebuzz(fill, size)
     | "Straightbun" => getStraightbun(fill, size)
     | "Background" => getBackground(fill, size)
+    | "Closed" => getEyesClosed(fill, size)
+    | "Hearts" => getEyesHearts(fill, size)
+    | "Dizzy" => getEyesDizzy(fill, size)
+    | "Sideeye" => getEyesSideeye(fill, size)
+    | "Grin" => getMouthGrin(fill, size)
+    | "Tongue" => getMouthTongue(fill, size)
+    | "Whistle" => getMouthWhistle(fill, size)
+    | "Laugh" => getMouthLaugh(fill, size)
+    | "Pointed" => getNosePointed(fill, size)
+    | "Button" => getNoseButton(fill, size)
+    | "Hoodie" => getBodyHoodie(fill, size)
+    | "Stripes" => getBodyStripes(fill, size)
+    | "Earring" => getEarring(fill, size)
+    | "Earrings" => getEarrings(fill, size)
     | _ => ""
     }
 

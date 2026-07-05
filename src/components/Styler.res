@@ -39,15 +39,27 @@ let make = (
   | #Nose
   | #Mouth => React.null
   | _ =>
-    Belt.Array.map(colors, color =>
-      <ColorSwatch
-        key=color
-        value=color
-        disabled={color === "#EEEFF5"}
-        selected={color === selectedColor}
-        onSelect={value => onSelectColor(value)}
+    <>
+      {Belt.Array.map(colors, color =>
+        <ColorSwatch
+          key=color
+          value=color
+          disabled={color === "#EEEFF5"}
+          selected={color === selectedColor}
+          onSelect={value => onSelectColor(value)}
+        />
+      )->React.array}
+      <input
+        type_="color"
+        className="ColorSwatch ColorSwatch--picker"
+        title="Pick a custom color"
+        value={"#" ++ selectedColor}
+        onChange={e => {
+          let value: string = (e->ReactEvent.Form.target)["value"]
+          onSelectColor(value->Js.String2.sliceToEnd(~from=1)->Js.String2.toUpperCase)
+        }}
       />
-    )->React.array
+    </>
   }
   let image = <SvgLoader fill={"#" ++ selectedColor} name=selectedStyle />
 

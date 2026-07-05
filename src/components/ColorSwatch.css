@@ -12,6 +12,32 @@
   padding: 0;
 }
 
+/* The native color input styled as a rainbow "custom" swatch */
+input.ColorSwatch--picker {
+  background: conic-gradient(
+    from 45deg,
+    #f55d81,
+    #f3b63a,
+    #6dbb58,
+    #54d7c7,
+    #456dff,
+    #7555ca,
+    #f55d81
+  );
+}
+
+input.ColorSwatch--picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input.ColorSwatch--picker::-webkit-color-swatch {
+  opacity: 0;
+}
+
+input.ColorSwatch--picker::-moz-color-swatch {
+  opacity: 0;
+}
+
 .ColorSwatch-disabled {
   width: 20px;
   height: 20px;

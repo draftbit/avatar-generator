@@ -6,6 +6,7 @@ type id = [
   | #Eyes
   | #Mouth
   | #Nose
+  | #Accessories
   | #Background
   | #Head
 ]
@@ -15,6 +16,7 @@ type color = [
   | #HairColor
   | #FacialHairColor
   | #BodyColor
+  | #AccessoriesColor
   | #BackgroundColor
 ]
 
@@ -26,6 +28,7 @@ type style = [
   | #EyesStyle
   | #MouthStyle
   | #NoseStyle
+  | #AccessoriesStyle
 ]
 
 type key = [color | style]
@@ -42,6 +45,8 @@ type styles = {
   eyes: string,
   mouth: string,
   nose: string,
+  accessories: string,
+  accessoriesColor: string,
   bgColor: string,
   head: string,
 }
@@ -60,6 +65,7 @@ type config = {
   hairColors: array<string>,
   facialHairColors: array<string>,
   bodyColors: array<string>,
+  accessoryColors: array<string>,
   bgColors: array<string>,
   disabledColors: array<string>,
   skinStyles: array<string>,
@@ -69,5 +75,6 @@ type config = {
   eyeStyles: array<string>,
   mouthStyles: array<string>,
   noseStyles: array<string>,
+  accessoryStyles: array<string>,
   bgStyles: array<string>,
 }

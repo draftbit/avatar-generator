@@ -66,6 +66,14 @@ let make = (
       selectedStyle: styles.nose,
     },
     {
+      id: #Accessories,
+      label: "ACCESSORIES",
+      colors: config.accessoryColors,
+      styles: config.accessoryStyles,
+      selectedColor: styles.accessoriesColor,
+      selectedStyle: styles.accessories,
+    },
+    {
       id: #Background,
       label: "BACKGROUND",
       colors: config.bgColors,
