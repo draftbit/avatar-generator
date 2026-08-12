@@ -40,9 +40,55 @@
     <link rel="canonical" href="https://personas.draftbit.com" />
     <link rel="icon" href="/favicon.png" />
     <meta name="theme-color" content="#5a45ff" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Personas by Draftbit",
+        "url": "https://personas.draftbit.com",
+        "description": "A playful avatar generator for the modern age. Compose flat, colorful SVG avatars from mix-and-match features and share them as URLs.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "creator": {
+          "@type": "Organization",
+          "name": "Draftbit",
+          "url": "https://draftbit.com"
+        },
+        "license": "https://github.com/draftbit/avatar-generator/blob/master/LICENSE"
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Pre-hydration content: visible to crawlers and agents without
+           JavaScript; replaced by the app on load. -->
+      <main>
+        <h1>Personas by Draftbit — Avatar Generator</h1>
+        <p>
+          A playful avatar generator for the modern age. Mix and match skin,
+          hair, facial hair, body, eyes, mouth, nose, and accessories with
+          customizable colors, then download your avatar as a PNG or share it as
+          a URL.
+        </p>
+        <p>
+          Every avatar is a link: compose one with query parameters like
+          <code>?hair=Mohawk&amp;hairColor=F2C94C&amp;eyes=Hearts</code>, fetch
+          it as an image from <code>/api/avatar.svg</code>, discover valid
+          options at <code>/api/options</code>, or connect via the MCP server at
+          <code>/mcp</code>. Details: <a href="/llms.txt">llms.txt</a>.
+        </p>
+        <p>
+          Free and open source (MIT) —
+          <a href="https://github.com/draftbit/avatar-generator">GitHub</a>.
+          Built by
+          <a
+            href="https://draftbit.com?utm_source=personas&amp;utm_medium=referral&amp;utm_campaign=avatar-generator&amp;utm_content=noscript"
+            >Draftbit</a
+          >.
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/Main.bs.js"></script>
   </body>
 </html>

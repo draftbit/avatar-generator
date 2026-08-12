@@ -10,6 +10,9 @@ external readStylesFromUrl: (Types.config, Types.styles) => Types.styles = "read
 @module("../helpers/shareUrl.js")
 external writeStylesToUrl: Types.styles => unit = "writeStylesToUrl"
 
+@module("../helpers/shareUrl.js")
+external shortShareUrl: (Types.config, Types.styles) => string = "shortShareUrl"
+
 let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list)
@@ -79,6 +82,7 @@ let make = () => {
       config
       onChange
       randomize
+      shareUrl={shortShareUrl(config, styles)}
       onToggleModal={_ => setShowModal(_ => false)}
       onExport={_ => exportImage()}
     />

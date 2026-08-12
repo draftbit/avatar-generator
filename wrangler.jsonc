@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "personas",
+  "main": "worker/index.js",
   "compatibility_date": "2026-07-03",
   "routes": [
     {
@@ -10,6 +11,10 @@
   ],
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Asset requests would otherwise be answered (and 404'd) before the
+    // worker runs, breaking short-code paths for browser navigations.
+    "run_worker_first": ["/*", "!/assets/*", "!/fonts/*", "!/images/*", "!/avatars/*"]
   }
 }

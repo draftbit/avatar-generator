@@ -5,6 +5,7 @@ let make = (
   ~onExport,
   ~onChange,
   ~randomize,
+  ~shareUrl: string,
   ~styles: Types.styles,
   ~config: Types.config,
 ) => {
@@ -99,6 +100,7 @@ let make = (
     </header>
     <main className="Layout-main">
       <AvatarGenerator onChange onExport randomize settings />
+      <ApiDocs />
     </main>
     <footer className="Layout-footer">
       <div className="Layout-left">
@@ -122,6 +124,6 @@ let make = (
     <div style={{textAlign: "center", marginBottom: "36px"}}>
       <Button href="https://github.com/draftbit/avatar-generator" label="View on Github" />
     </div>
-    <Modal visible=showModal onToggle=onToggleModal />
+    <Modal visible=showModal onToggle=onToggleModal shareUrl />
   </>
 }
