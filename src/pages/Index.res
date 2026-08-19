@@ -13,6 +13,9 @@ external writeStylesToUrl: Types.styles => unit = "writeStylesToUrl"
 @module("../helpers/shareUrl.js")
 external shortShareUrl: (Types.config, Types.styles) => string = "shortShareUrl"
 
+@module("../helpers/shareUrl.js")
+external avatarImageUrl: Types.styles => string = "avatarImageUrl"
+
 let randomizeStyles = (config: Types.config): Types.styles => {
   let getRandom = _list => {
     let len = Array.length(_list)
@@ -82,6 +85,7 @@ let make = () => {
       config
       onChange
       randomize
+      imageUrl={avatarImageUrl(styles)}
       shareUrl={shortShareUrl(config, styles)}
       onToggleModal={_ => setShowModal(_ => false)}
       onExport={_ => exportImage()}

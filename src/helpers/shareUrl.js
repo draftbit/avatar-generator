@@ -141,6 +141,16 @@ export function shortShareUrl(config, styles) {
   return window.location.origin + "/?" + stylesToParams(styles).toString();
 }
 
+// The image API URL for the current avatar. Include every configurable field
+// so the rendered image never depends on the API's default styles.
+export function avatarImageUrl(styles) {
+  return (
+    window.location.origin +
+    "/api/avatar.svg?" +
+    stylesToParams(styles).toString()
+  );
+}
+
 function stylesToParams(styles) {
   const params = new URLSearchParams();
   for (const [key] of STYLE_KEYS) params.set(key, styles[key]);

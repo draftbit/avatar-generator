@@ -5,6 +5,7 @@ let make = (
   ~onExport,
   ~onChange,
   ~randomize,
+  ~imageUrl: string,
   ~shareUrl: string,
   ~styles: Types.styles,
   ~config: Types.config,
@@ -100,7 +101,7 @@ let make = (
     </header>
     <main className="Layout-main">
       <AvatarGenerator onChange onExport randomize settings />
-      <ApiDocs />
+      <ApiDocs imageUrl shareUrl />
     </main>
     <footer className="Layout-footer">
       <div className="Layout-left">

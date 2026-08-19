@@ -59,17 +59,67 @@
   margin-bottom: 8px;
 }
 
+.ApiDocs-codeGroup {
+  display: flex;
+  align-items: stretch;
+  min-width: 0;
+}
+
 .ApiDocs-code {
   display: block;
+  flex: 1;
+  min-width: 0;
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   font-size: 13px;
   color: #1b0640;
   background-color: #f4f6fb;
   border: solid 1px rgba(24, 33, 45, 0.06);
-  border-radius: 6px;
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
   padding: 10px 14px;
   overflow-x: auto;
   white-space: nowrap;
+}
+
+.ApiDocs-codeLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ApiDocs-codeLink:hover {
+  text-decoration: underline;
+}
+
+.ApiDocs-copy {
+  flex-shrink: 0;
+  min-width: 72px;
+  border: solid 1px rgba(90, 69, 255, 0.2);
+  border-radius: 0 6px 6px 0;
+  padding: 0 14px;
+  font-family: "CerebriSans-Medium";
+  font-size: 13px;
+  color: #5a45ff;
+  background-color: #edeaff;
+  cursor: pointer;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease;
+}
+
+.ApiDocs-copy:hover {
+  background-color: #e2ddff;
+}
+
+.ApiDocs-copy:focus-visible,
+.ApiDocs-codeLink:focus-visible {
+  outline: 2px solid #5a45ff;
+  outline-offset: 2px;
+}
+
+.ApiDocs-copy--copied,
+.ApiDocs-copy--copied:hover {
+  color: #ffffff;
+  background-color: #5a45ff;
 }
 
 .ApiDocs-inline {
@@ -114,5 +164,11 @@
 
   .ApiDocs-example {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ApiDocs-copy {
+    transition: none;
   }
 }
